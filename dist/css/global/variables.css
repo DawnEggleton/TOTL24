@@ -1,0 +1,171 @@
+/*******************************
+    Variables
+********************************/
+:root {
+  --font-body: 'Noto Sans', sans-serif;
+  --font-serif: 'Noto Serif', serif;
+  --font-head: 'Noto Serif Display', serif;
+  --size-xs: 9px;
+  --size-sm: 11px;
+  --size-md: 13px;
+  --size-lg: 15px;
+  --size-xl: 17px;
+  --rgb: 87, 188, 210;
+  --rgb-lt: 87, 188, 210;
+  --black: rgba(12, 12, 12, 1);
+  --offBlack: rgba(18, 18, 18, 1);
+  --dkGrey: rgba(26, 26, 26, 1);
+  --dmGrey: rgba(34, 34, 34, 1);
+  --mdGrey: rgba(40, 40, 40, 1);
+  --mlGrey: rgba(68, 68, 68, 1);
+  --lmGrey: rgba(150, 150, 150, 1);
+  --ltGrey: rgba(166, 166, 166, 1);
+  --xltGrey: rgba(200, 200, 200, 1);
+  --offWhite: rgba(225, 225, 225, 1);
+  --white: rgba(235, 235, 235, 1);
+  --ltWhite: rgba(245, 245, 245, 1); }
+
+body {
+  --bg-primary: var(--offWhite);
+  --bg-secondary: var(--white);
+  --bg-tertiary: var(--xltGrey);
+  --bg-accent: var(--accent);
+  --text-primary: var(--mlGrey);
+  --text-secondary: var(--dkGrey);
+  --text-tertiary: var(--xltGrey);
+  --text-quaternary: var(--ltGrey);
+  --text-accent: var(--accent);
+  --text-on-acccent: var(--dkGrey);
+  --border-primary: var(--xltGrey);
+  --border-secondary: var(--ltGrey);
+  --border-accent: var(--accent); }
+  body.lgFont {
+    --size-xs: 11px;
+    --size-sm: 13px;
+    --size-md: 15px;
+    --size-lg: 17px;
+    --size-xl: 19px; }
+  body.xlFont {
+    --size-xs: 12px;
+    --size-sm: 14px;
+    --size-md: 16px;
+    --size-lg: 18px;
+    --size-xl: 20px; }
+  body.dark {
+    --border-accent: var(--ltaccent);
+    --bg-accent: var(--ltaccent);
+    --text-accent: var(--ltaccent);
+    --bg-primary: var(--black);
+    --bg-secondary: var(--offBlack);
+    --bg-tertiary: var(--dkGrey);
+    --text-primary: var(--offWhite);
+    --text-secondary: var(--xltGrey);
+    --text-on-acccent: var(--offBlack);
+    --border-primary: var(--mdGrey); }
+  body[class*="g-"],
+  body [class*="g-"] {
+    --accent: rgb(var(--rgb));
+    --ltaccent: rgb(var(--rgb-lt));
+    --border-accent: var(--ltaccent);
+    --bg-accent: var(--ltaccent);
+    --text-accent: var(--ltaccent); }
+  body.g-1,
+  body .g-1, body.g-2,
+  body .g-2 {
+    --rgb: 196, 177, 125;
+    --rgb-lt: 225, 210, 166; }
+  body.g-3,
+  body .g-3 {
+    --rgb: 189, 133, 92;
+    --rgb-lt: 215, 159, 118; }
+  body.g-4,
+  body .g-4 {
+    --rgb: 110, 130, 155;
+    --rgb-lt: 142, 161, 185; }
+  body.g-20,
+  body .g-20 {
+    --rgb: 82, 154, 162;
+    --rgb-lt: 108, 181, 189; }
+  body.g-5,
+  body .g-5, body.g-10,
+  body .g-10 {
+    --rgb: 196, 196, 196;
+    --rgb-lt: 155, 155, 155; }
+  body.g-6,
+  body .g-6,
+  body adults,
+  body .adults {
+    --rgb: 179, 73, 85;
+    --rgb-lt: 200, 107, 118; }
+  body.g-23,
+  body .g-23,
+  body students,
+  body .miscellaneous.students {
+    --rgb: 179, 73, 85;
+    --rgb-lt: 200, 107, 118; }
+  body.g-7,
+  body .g-7,
+  body gryffindor,
+  body .gryffindor {
+    --rgb: 147, 42, 47;
+    --rgb-lt: 176, 58, 63; }
+  body.g-8,
+  body .g-8,
+  body hogwarts,
+  body .hogwarts {
+    --rgb: 97, 86, 153;
+    --rgb-lt: 123, 113, 170; }
+  body.g-9,
+  body .g-9,
+  body hufflepuff,
+  body .hufflepuff {
+    --rgb: 183, 148, 117;
+    --rgb-lt: 213, 177, 146; }
+  body.g-11,
+  body .g-11,
+  body press,
+  body .press {
+    --rgb: 176, 134, 84;
+    --rgb-lt: 200, 160, 112; }
+  body.g-12,
+  body .g-12,
+  body ministry,
+  body .ministry {
+    --rgb: 176, 134, 84;
+    --rgb-lt: 200, 160, 112; }
+  body.g-13,
+  body .g-13,
+  body quidditch,
+  body .quidditch {
+    --rgb: 146, 130, 157;
+    --rgb-lt: 166, 148, 179; }
+  body.g-14,
+  body .g-14,
+  body ravenclaw,
+  body .ravenclaw {
+    --rgb: 65, 91, 142;
+    --rgb-lt: 86, 113, 166; }
+  body.g-15,
+  body .g-15,
+  body healers,
+  body .healers {
+    --rgb: 88, 123, 83;
+    --rgb-lt: 102, 142, 96; }
+  body.g-16,
+  body .g-16,
+  body slytherin,
+  body .slytherin {
+    --rgb: 45, 91, 61;
+    --rgb-lt: 60, 113, 78; }
+  body.g-17,
+  body .g-17,
+  body returners,
+  body .returners {
+    --rgb: 90, 137, 151;
+    --rgb-lt: 105, 154, 168; }
+  body.g-18,
+  body .g-18,
+  body entertainment,
+  body .entertainment {
+    --rgb: 82, 154, 162;
+    --rgb-lt: 108, 181, 189; }
