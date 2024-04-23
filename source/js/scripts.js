@@ -1,6 +1,100 @@
 let pageType = document.querySelector('body').id;
 let pageClasses = document.querySelector('body').classList;
 
+/********** Universal Tabbing, with Hash **********/
+if(document.querySelector('.tabbed')) {
+    let tabbed = document.querySelectorAll('.tabbed');
+    tabbed.forEach(set => {
+        let labels = set.querySelectorAll('.tab-label');
+        let tabs = set.querySelectorAll('[data-tab]');
+    
+        //on load
+        if(window.location.hash) {
+            let hash = window.location.hash;
+            let activeLabel = document.querySelector(`.tab-label[href="${hash}"]`);
+            let activeTab = document.querySelector(`[data-tab="${hash}"]`);
+            if(activeLabel && activeTab) {
+                labels.forEach(label => label.classList.remove('is-active'));
+                tabs.forEach(tab => tab.classList.remove('is-active'));
+                activeLabel.classList.add('is-active');
+                activeTab.classList.add('is-active');
+            } else {
+                labels.forEach(label => label.classList.remove('is-active'));
+                tabs.forEach(tab => tab.classList.remove('is-active'));
+                labels[0].classList.add('is-active');
+                tabs[0].classList.add('is-active');
+            }
+        } else {
+            labels.forEach(label => label.classList.remove('is-active'));
+            tabs.forEach(tab => tab.classList.remove('is-active'));
+            labels[0].classList.add('is-active');
+            tabs[0].classList.add('is-active');
+        }
+
+        //on click
+        labels.forEach(label => {
+            label.addEventListener('click', e => {
+                let hash = e.currentTarget.getAttribute('href');
+                let activeLabel = document.querySelector(`.tab-label[href="${hash}"]`);
+                let activeTab = document.querySelector(`[data-tab="${hash}"]`);
+                if(activeLabel && activeTab) {
+                    labels.forEach(label => label.classList.remove('is-active'));
+                    tabs.forEach(tab => tab.classList.remove('is-active'));
+                    activeLabel.classList.add('is-active');
+                    activeTab.classList.add('is-active');
+                }
+            });
+        });
+    });
+}
+
+/********** Universal Accordion **********/
+if(document.querySelector('.accordion')) {
+    let accordionLabels = document.querySelectorAll('.accordion-label');
+    accordionLabels.forEach(label => {
+        label.addEventListener('click', e => {
+            e.currentTarget.classList.toggle('is-open');
+            e.currentTarget.nextElementSibling.classList.toggle('is-open');
+        });
+    });
+}
+
+/********** Profile **********/
+if(pageType === 'Profile') {
+    let profile = document.querySelector('.profile');
+    let labels = profile.querySelectorAll('.tab-label');
+    if(!window.location.hash || window.location.hash === '#intro') {
+        profile.classList.add('is-first');
+    } else {
+        profile.classList.remove('is-first');
+    }
+    labels.forEach(label => {
+        label.addEventListener('click', e => {
+            if(e.currentTarget.getAttribute('href') === '#intro' && e.currentTarget.classList.contains('is-active')) {
+                profile.classList.add('is-first');
+            } else {
+                profile.classList.remove('is-first');
+            }
+        });
+    });
+
+    let fields = document.querySelectorAll('.profile--item span, .profile--item div');
+    fields.forEach(item => {
+        if(item.innerText.toLowerCase().trim() === 'no information' ||
+        item.innerText.toLowerCase().trim() === 'n/a' ||
+        item.innerText.toLowerCase().trim() === 'none') {
+            item.closest('.profile--item').remove();
+        }
+    });
+
+    let triggers = document.querySelector('.warnings .scroll');
+    if(triggers.innerText.toLowerCase().trim() === 'no information' ||
+    triggers.innerText.toLowerCase().trim() === 'n/a' ||
+    triggers.innerText.toLowerCase().trim() === 'none') {
+        triggers.innerText = 'This application does require content warnings.';
+    }
+}
+
 /********** Login **********/
 if(pageType === 'Login') {
     let textNodes = getAllTextNodes(document.querySelector('main'));

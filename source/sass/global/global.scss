@@ -3,3 +3,102 @@
 /*******************************
     Global
 ********************************/
+body {
+    background: var(--bg-primary);
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    font-size: var(--size-md);
+    line-height: 200%;
+}
+.scroll {
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bg-accent) transparent;
+}
+ul {
+    padding: 0 0 0 12px;
+    margin: 20px 0;
+    line-height: 200%;
+
+    li {
+        padding-left: 10px;
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+        
+        &::marker {
+            content: '\f178';
+            font-family: 'Font Awesome 6 Pro';
+            font-weight: 300;
+            font-style: normal;
+            font-size: 0.7em;
+            color: var(--accent);
+        }
+    }
+}
+
+.accordion {
+    &-label {
+        font-family: var(--font-head);
+        font-style: italic;
+        color: var(--text-secondary);
+        font-size: 1.8em;
+        text-transform: lowercase;
+        font-weight: 600;
+        letter-spacing: -2px;
+        opacity: 0.8;
+        max-width: max-content;
+        padding: 0 5px;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: calc(100% - 12px);
+            width: 100%;
+            background: rgba(var(--rgb-lt), 0.4);
+            top: 6px;
+            left: 0;
+            z-index: -1;
+        }
+
+        &::after {
+            content: '+';
+            display: inline-block;
+            position: relative;
+            font-family: var(--font-serif);
+            font-weight: 500;
+            margin-left: 10px;
+
+        }
+        &.is-open {
+            &::after {
+                content: '-';
+                top: -2px;
+                font-weight: 500;
+            }
+        }
+        &:not(:first-child) {
+            margin-top: 15px;
+        }
+    }
+    &-content {
+        display: none;
+        height: 0;
+        border: 1px solid var(--border-primary);
+        padding: 30px;
+        border-radius: 15px;
+        margin-top: 15px;
+        margin-left: 20px;
+
+        &.is-open {
+            display: block;
+            height: auto;
+        }
+
+        .scroll {
+            max-height: 250px;
+        }
+    }
+}
