@@ -28,12 +28,230 @@ ul {
         }
         
         &::marker {
-            content: '\f178';
             font-family: 'Font Awesome 6 Pro';
             font-weight: 300;
             font-style: normal;
             font-size: 0.7em;
             color: var(--accent);
+        }
+    }
+}
+
+.postcolor,
+.webpage--content,
+.profile .scroll,
+.member--item .scroll {
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6,
+    h7,
+    .h7 {
+        z-index: 1;
+        max-width: max-content;
+        line-height: 100%;
+        
+        & + br {
+            display: none;
+        }
+        &:first-child,
+        & + h1,
+        & + .h1,
+        & + h2,
+        & + .h2,
+        & + h3,
+        & + .h3,
+        & + h4,
+        & + .h4,
+        & + h5,
+        & + .h5,
+        & + h6,
+        & + .h6,
+        & + h7,
+        & + .h7 {
+            margin-top: 0;
+        }
+    }
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6 {
+        font-family: var(--font-head);
+        text-transform: lowercase;
+    }
+    h1,
+    .h1,
+    h2,
+    .h2 {
+        color: var(--text-secondary);
+        font-weight: 900;
+        font-style: italic;
+    }
+    h1,
+    .h1 {
+        @include fluid-type(36, 48, 480, 1024);
+        letter-spacing: -3px;
+        margin: 40px auto 40px 0;
+    }
+    h2,
+    .h2 {
+        @include fluid-type(24, 36, 480, 1024);
+        letter-spacing: -2px;
+        margin: 40px auto 40px 0;
+    }
+    h3,
+    .h3,
+    h4,
+    .h4 {
+        color: var(--text-primary);
+        font-weight: 700;
+        padding: 0 7.5px;
+        font-style: italic;
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: calc(100% - 12px);
+            width: 100%;
+            background: rgba(var(--rgb-lt), 0.4);
+            top: 6px;
+            left: 0;
+            z-index: -1;
+        }
+    }
+    h3,
+    .h3 {
+        @include fluid-type(22, 30, 480, 1024);
+        letter-spacing: -1.5px;
+        margin: 30px auto 30px 0;
+    }
+    h4,
+    .h4 {
+        @include fluid-type(18, 26, 480, 1024);
+        letter-spacing: -1.5px;
+        margin: 30px auto 30px 0;
+    }
+    h5,
+    .h5,
+    h6,
+    .h6 {
+        color: var(--text-secondary);
+    }
+    h5,
+    .h5 {
+        @include fluid-type(16, 20, 480, 1024);
+        margin: 30px auto 30px 0;
+        letter-spacing: -1px;
+        font-weight: 900;
+    }
+    h6,
+    .h6 {
+        @include fluid-type(14, 16, 480, 1024);
+        margin: 30px auto 30px 0;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+    h7,
+    .h7,
+    h8,
+    .h8 {
+        display: block;
+        text-transform: uppercase;
+        line-height: 180%;
+        max-width: 280px;
+        text-align: justify;
+        font-size: var(--size-xs);
+        letter-spacing: 0.1em;
+        font-weight: 600;
+    }
+    h7,
+    .h7 {
+        padding: 15px 20px;
+        border: 1px solid var(--border-accent);
+        border-radius: 15px;
+        color: var(--text-accent);
+        margin: 30px auto 30px 0;
+    }
+    h8,
+    .h8 {
+        color: var(--text-accent);
+        margin: 20px auto 20px 0;
+    }
+    blockquote {
+        padding: 15px 20px;
+        border: 1px solid var(--border-primary);
+        text-align: justify;
+        border-radius: 15px;
+        font-size: 0.9em;
+        line-height: 200%;
+        font-weight: 350;
+        color: var(--text-secondary);
+        letter-spacing: 0.01em;
+        width: 100%;
+        max-width: 400px;
+        margin: 30px auto;
+    }
+    p {
+        &:first-child {
+            margin-top: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    b {
+        font-weight: 700;
+        color: var(--text-accent);
+        font-family: var(--font-serif);
+        font-size: 1.1em;
+    }
+    i {
+        font-weight: 450;
+        color: var(--text-accent);
+        font-family: var(--font-serif);
+        font-size: 1.1em;
+    }
+    u {
+        color: var(--text-accent);
+        font-weight: 400;
+        border-bottom: 1px dotted var(--text-accent);
+        text-decoration: none;
+        padding: 0 3px;
+    }
+    s {
+        color: var(--text-quaternary);
+        font-weight: 400;
+        text-decoration-style: wavy;
+        padding: 0 3px;
+        text-decoration-color: var(--bg-accent);
+        text-decoration-thickness: 1.2px;
+    }
+    a {
+        color: var(--text-accent);
+        font-size: 0.9em;
+        font-weight: 500;
+
+        &[target="_blank"] {
+            &::after {
+                padding-left: 5px;
+                font-family: 'Font Awesome 6 Pro';
+            }
         }
     }
 }
@@ -89,8 +307,7 @@ ul {
         border: 1px solid var(--border-primary);
         padding: 30px;
         border-radius: 15px;
-        margin-top: 15px;
-        margin-left: 20px;
+        margin: 15px 20px 0;
 
         &.is-open {
             display: block;

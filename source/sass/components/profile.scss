@@ -274,6 +274,7 @@
 
         & > .scroll {
             height: 100%;
+            text-align: justify;
         }
 
         &.is-active {
@@ -335,15 +336,15 @@
 
         & > span,
         & > div {
-            margin-top: 15px;
-            margin-left: 20px;
-            width: calc(100% - 20px);
+            margin: 15px 20px 0;
+            width: calc(100% - 40px);
             line-height: 200%;
 
             &.scroll,
             .scroll {
                 display: block;
                 max-height: 150px;
+                text-align: justify;
 
                 ul {
                     margin: 0;

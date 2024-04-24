@@ -40,11 +40,10 @@ body {
     --text-tertiary: var(--xltGrey);
     --text-quaternary: var(--ltGrey);
     --text-accent: var(--accent);
-    --text-on-acccent: var(--dkGrey);
 
     --border-primary: var(--xltGrey);
     --border-secondary: var(--ltGrey);
-    --border-accent: var(--accent);
+    --border-accent: rgba(var(--rgb-lt), 0.4);
 
     &.lgFont {
         --size-xs: 11px;
@@ -63,14 +62,13 @@ body {
     &.dark {
         --border-accent: var(--ltaccent);
         --bg-accent: var(--ltaccent);
-        --text-accent: var(--ltaccent);
+        --text-accent: var(--accent);
         
         --bg-primary: var(--black);
         --bg-secondary: var(--offBlack);
         --bg-tertiary: var(--dkGrey);
         --text-primary: var(--offWhite);
         --text-secondary: var(--xltGrey);
-        --text-on-acccent: var(--offBlack);
         --border-primary: var(--mdGrey);
     }
 
@@ -80,9 +78,9 @@ body {
         --accent: rgb(var(--rgb));
         --ltaccent: rgb(var(--rgb-lt));
 
-        --border-accent: var(--ltaccent);
+        --border-accent: rgba(var(--rgb-lt), 0.4);
         --bg-accent: var(--ltaccent);
-        --text-accent: var(--ltaccent);
+        --text-accent: var(--accent);
     }
 
     //Validating, Guest

@@ -1,0 +1,22 @@
+
+.postcolor,
+.webpage--content,
+.profile .scroll,
+.member--item .scroll {
+    a {
+        &[target="_blank"] {
+            &::after {
+                content: '\f08e';
+            }
+        }
+    }
+}
+
+ul {
+    li {
+        &::marker {
+            content: '\f178';
+        }
+    }
+}
+

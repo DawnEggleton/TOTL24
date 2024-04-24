@@ -1,3 +1,26 @@
 /*******************************
     Utilities
 ********************************/
+[data-box-align="left"] {
+  margin-left: 0 !important;
+  margin-right: auto !important; }
+
+[data-box-align="center"] {
+  margin-left: auto !important;
+  margin-right: auto !important; }
+
+[data-box-align="right"] {
+  margin-left: auto !important;
+  margin-right: 0 !important; }
+
+[data-text-align="left"] {
+  text-align: left !important; }
+
+[data-text-align="center"] {
+  text-align: center !important; }
+
+[data-text-align="right"] {
+  text-align: right !important; }
+
+[data-text-align="justify"] {
+  text-align: justify !important; }

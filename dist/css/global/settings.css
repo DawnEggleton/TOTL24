@@ -1,0 +1,8 @@
+.postcolor a[target="_blank"]::after,
+.webpage--content a[target="_blank"]::after,
+.profile .scroll a[target="_blank"]::after,
+.member--item .scroll a[target="_blank"]::after {
+  content: '\f08e'; }
+
+ul li::marker {
+  content: '\f178'; }
