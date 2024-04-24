@@ -5,6 +5,9 @@
 #Profile #navstrip {
   display: none; }
 
+#Profile br:first-child {
+  display: none; }
+
 .profile {
   display: grid;
   height: 100vh;
@@ -13,7 +16,8 @@
   @media (min-width: 1025px) {
     .profile {
       min-height: 600px; } }
-  .profile ~ div {
+  .profile ~ div,
+  .profile ~ br {
     display: none; }
   .profile.is-first {
     min-height: 480px; }
@@ -76,23 +80,29 @@
     position: absolute;
     top: 10px;
     left: 10px;
-    font-size: 16px;
     font-family: var(--font-serif);
     font-weight: 700;
     display: flex;
     gap: 5px; }
     .profile--navigation a {
       border: 1px solid var(--border-primary);
-      border-radius: 15px;
-      width: 40px;
-      height: 40px;
+      border-radius: 5px;
+      width: 30px;
+      height: 30px;
       display: flex;
       text-align: center;
       justify-content: center;
       align-items: center;
       color: var(--text-primary);
       transition-duration: 0.3s;
-      background: var(--bg-primary); }
+      background: var(--bg-primary);
+      font-size: 12px; }
+      @media (min-width: 481px) {
+        .profile--navigation a {
+          border-radius: 10px;
+          width: 50px;
+          height: 50px;
+          font-size: 16px; } }
       .profile--navigation a:hover, .profile--navigation a.is-active {
         background: rgba(var(--rgb-lt), 0.4);
         border-color: var(--border-secondary);
@@ -282,6 +292,17 @@
         display: block;
         max-height: 150px;
         text-align: justify; }
+        .profile--item > span.scroll.tall,
+        .profile--item > span .scroll.tall,
+        .profile--item > div.scroll.tall,
+        .profile--item > div .scroll.tall {
+          max-height: 255px; }
+          @media (min-width: 1025px) {
+            .profile--item > span.scroll.tall,
+            .profile--item > span .scroll.tall,
+            .profile--item > div.scroll.tall,
+            .profile--item > div .scroll.tall {
+              max-height: calc(100vh - 245px); } }
         .profile--item > span.scroll ul,
         .profile--item > span .scroll ul,
         .profile--item > div.scroll ul,
@@ -335,10 +356,10 @@
       .profile .tracker--item > a::before {
         content: '';
         position: absolute;
-        height: calc(100% - 12px);
+        height: calc(100% - 16px);
         width: 0;
         background: rgba(var(--rgb-lt), 0.4);
-        top: 6px;
+        top: 8px;
         left: 0;
         z-index: -1;
         transition-duration: 0.5s; }

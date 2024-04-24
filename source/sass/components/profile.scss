@@ -8,6 +8,12 @@
     #navstrip {
         display: none;
     }
+
+    br {
+        &:first-child {
+            display: none;
+        }
+    }
 }
 .profile {
     display: grid;
@@ -19,7 +25,8 @@
         min-height: 600px;
     }
 
-    & ~ div { 
+    & ~ div,
+    & ~ br { 
         display: none;
     }
 
@@ -106,7 +113,6 @@
         position: absolute;
         top: 10px;
         left: 10px;
-        font-size: 16px;
         font-family: var(--font-serif);
         font-weight: 700;
         display: flex;
@@ -114,9 +120,9 @@
 
         a {
             border: 1px solid var(--border-primary);
-            border-radius: 15px;
-            width: 40px;
-            height: 40px;
+            border-radius: 5px;
+            width: 30px;
+            height: 30px;
             display: flex;
             text-align: center;
             justify-content: center;
@@ -124,6 +130,14 @@
             color: var(--text-primary);
             transition-duration: 0.3s;
             background: var(--bg-primary);
+            font-size: 12px;
+
+            @include mq-up(xxs) {
+                border-radius: 10px;
+                width: 50px;
+                height: 50px;
+                font-size: 16px;
+            }
 
             &:hover,
             &.is-active {
@@ -346,6 +360,14 @@
                 max-height: 150px;
                 text-align: justify;
 
+                &.tall {
+                    max-height: 255px;
+
+                    @include mq-up(md) {
+                        max-height: calc(100vh - 245px);
+                    }
+                }
+
                 ul {
                     margin: 0;
                 }
@@ -414,10 +436,10 @@
             &::before {
                 content: '';
                 position: absolute;
-                height: calc(100% - 12px);
+                height: calc(100% - 16px);
                 width: 0;
                 background: rgba(var(--rgb-lt), 0.4);
-                top: 6px;
+                top: 8px;
                 left: 0;
                 z-index: -1;
                 transition-duration: 0.5s;

@@ -8,6 +8,9 @@ body {
   font-size: var(--size-md);
   line-height: 200%; }
 
+a[href=""], a[href="<i>No Information</i>"] {
+  display: none; }
+
 .scroll {
   overflow: auto;
   scrollbar-width: thin;
