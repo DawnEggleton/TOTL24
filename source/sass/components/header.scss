@@ -3,3 +3,110 @@
 /*******************************
     Header
 ********************************/
+.header {
+    display: flex;
+    padding: 100px 40px;
+    gap: 40px;
+
+    @include mq-down(sm) {
+        flex-direction: column;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 120px;
+        background: var(--bg-accent);
+    }
+
+    & > a {
+        flex: 1 1 auto;
+        font-family: var(--font-head);
+        text-transform: lowercase;
+        font-weight: 900;
+        color: var(--text-secondary);
+        font-style: italic;
+        letter-spacing: -6px;
+        text-align: center;
+        @include fluid-type(50, 120, 480, 1280);
+        height: max-content;
+        margin-bottom: 160px;
+
+        @include mq-down(sm) {
+            margin-bottom: 80px;
+        }
+
+        h1 {
+            font-size: inherit;
+            line-height: 100%;
+            margin: 0;
+            height: max-content;
+        }
+
+        span {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            color: var(--text-tertiary);
+            z-index: -1;
+            font-size: 2em;
+            width: 100%;
+            line-height: 60%;
+        }
+        
+        p {
+            font-size: var(--size-xs);
+            letter-spacing: 0.1em;
+            font-family: var(--font-body);
+            font-style: normal;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+    
+    &--calendar {
+        align-self: end;
+        flex: 0 0 240px;
+        width: 100%;
+        border: 1px solid var(--border-primary);
+        background: var(--bg-secondary);
+        padding: 20px;
+        border-radius: 15px;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        font-size: var(--size-sm);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-align: center;
+        gap: 2px;
+        z-index: 2;
+        margin-bottom: -60px;
+
+        .calendar-month {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-weight: 900;
+        }
+
+        .calendar-day {
+            font-weight: 700;
+        }
+
+        span {
+            &:not(.calendar-day):not(:empty) {
+                border: 1px solid var(--border-primary);
+                border-radius: 5px;
+            }
+            &.event {
+                background: var(--bg-accent-transparent);
+                color: var(--text-secondary);
+                font-weight: 600;
+                border-color: var(--border-secondary) !important;
+            }
+        }
+    }
+}

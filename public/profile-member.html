@@ -157,12 +157,12 @@
 		
 
             <!--Profile-->
-            <section class="profile g-8 tabbed">
+            <section class="profile g-4 tabbed">
                 <div class="profile--image">
                     <div class="profile--name">
-                        <h1>Duncan<span>O'Donnelly-Taggart</span></h1>
+                        <h1></h1>
                         <div class="profile--links">
-                            <a href="./profile-member.html">Directory</a>
+                            <a href="./profile-member.html" class="charOnly">Directory</a>
                             <a href="./post.html">Development</a>
                             <a href="./post.html">Wanted</a>
                             <a href="">Custom</a>
@@ -173,25 +173,32 @@
                     </div>
                     <nav class="profile--navigation">
                         <a class="tab-label" href="#intro">I.</a>
-                        <a class="tab-label" href="#basics">II.</a>
-                        <a class="tab-label" href="#details">III.</a>
-                        <a class="tab-label" href="#relationships">IV.</a>
-                        <a class="tab-label" href="#shipper">V.</a>
-                        <a class="tab-label" href="#tracker">VI.</a>
-                        <a class="tab-label" href="#player">VII.</a>
+                        <a class="tab-label charOnly" href="#basics">II.</a>
+                        <a class="tab-label charOnly" href="#details">III.</a>
+                        <a class="tab-label charOnly" href="#relationships">IV.</a>
+                        <a class="tab-label charOnly" href="#shipper">V.</a>
+                        <a class="tab-label charOnly" href="#tracker">VI.</a>
+                        <a class="tab-label" href="#player">
+                            <span class="charOnly">VII.</span>
+                            <span class="memAccOnly">II.</span>
+                        </a>
                     </nav>
-                    <img src="https://64.media.tumblr.com/99cd129465b5a06df39a59a9c709513d/tumblr_pyljwrJ4no1vz2ghao4_1280.jpg">
+                    <div class="profile--roster"><div class="scroll"></div></div>
+                    <img src="https://64.media.tumblr.com/99cd129465b5a06df39a59a9c709513d/tumblr_pyljwrJ4no1vz2ghao4_1280.jpg" class="charOnly">
                 </div>
                 <div class="profile--main">
                     <!-- Intro -->
                     <div class="profile--content warnings" data-tab="#intro">
                         <i class="fa-regular fa-triangle-exclamation"></i>
-                        <div class="scroll">
+                        <div class="scroll charOnly">
                             verbal and physical abuse, depression, suicidal attempt/ideation, severe injury
+                        </div>
+                        <div class="scroll memAccOnly">
+                            n/a
                         </div>
                     </div>
                     <!-- Basics -->
-                    <div class="profile--content" data-tab="#basics">
+                    <div class="profile--content charOnly" data-tab="#basics">
                         <div class="scroll">
                             <div class="profile--item">
                                 <strong>full name</strong>
@@ -211,11 +218,11 @@
                             </div>
                             <div class="profile--item">
                                 <strong>Age</strong>
-                                <span>37 Years Old</span>
+                                <span id="ageClip"></span>
                             </div>
                             <div class="profile--item">
                                 <strong>Birthday</strong>
-                                <span>June 23, 1970</span>
+                                <span id="birthdayClip"></span>
                             </div>
                             <div class="profile--item">
                                 <strong>Born In</strong>
@@ -254,11 +261,14 @@
                                 <span>Tom Hiddleston</span>
                             </div>
                             <div class="profile--item">
+                                <strong>Specs</strong>
+                                <span id="clip-specs"></span>
+                            </div>
+                            <div class="profile--item">
                                 <strong>Distinguishing Features</strong>
                                 <div>
                                     <span class="scroll">
                                         <ul>
-                                            <li>6'1", 174 lbs</li>
                                             <li>various scars across torso, arms, and legs from shrapnel</li>
                                             <li>a two-inch long, angled scar from his cheek to the back of his jawbone</li>
                                             <li>a surgical scar down his left le</li>
@@ -448,7 +458,7 @@
                         </div>
                     </div>
                     <!-- Freeform -->
-                    <div class="profile--content" data-tab="#details">
+                    <div class="profile--content charOnly" data-tab="#details">
                         <div class="scroll">
                             <div class="profile--item">
                                 <strong>cheatsheet</strong>
@@ -472,7 +482,7 @@
                         </div>
                     </div>
                     <!-- Relationships -->
-                    <div class="profile--content" data-tab="#relationships">
+                    <div class="profile--content charOnly" data-tab="#relationships">
                         <div class="scroll">
                             <div class="profile--item">
                                 <strong>Family</strong>
@@ -501,7 +511,7 @@
                         </div>
                     </div>
                     <!-- Shipper -->
-                    <div class="profile--content" data-tab="#shipper">
+                    <div class="profile--content charOnly" data-tab="#shipper">
                         <div class="scroll">
                             <div class="profile--item">
                                 <strong>Shipper</strong>
@@ -512,7 +522,7 @@
                         </div>
                     </div>
                     <!-- Activity -->
-                    <div class="profile--content" data-tab="#tracker">
+                    <div class="profile--content charOnly" data-tab="#tracker">
                         <div class="scroll">
                             <div class="profile--tracker accordion">
                                 <div class="accordion-label">Active</div>
@@ -612,7 +622,7 @@
                     <!-- Player -->
                     <div class="profile--content" data-tab="#player">
                         <div class="scroll">
-                            <div class="profile--item">
+                            <div class="profile--item charOnly">
                                 <strong>Played By</strong>
                                 <span>Lux</span>
                             </div>
@@ -622,7 +632,7 @@
                             </div>
                             <div class="profile--item">
                                 <strong>Age</strong>
-                                <span>32 Years Old</span>
+                                <span id="clip-player-age"></span>
                             </div>
                             <div class="profile--item">
                                 <strong>Timeone</strong>
@@ -648,11 +658,11 @@
                                 <strong>Last Seen</strong>
                                 <span>Month 00 0000, 00:00 AM/PM</span>
                             </div>
-                            <div class="profile--item">
+                            <div class="profile--item charOnly">
                                 <strong>Last Post</strong>
                                 <span>Month 00 0000, 00:00 AM/PM</span>
                             </div>
-                            <div class="profile--item">
+                            <div class="profile--item charOnly">
                                 <strong>Triggers</strong>
                                 <div>
                                     <span class="scroll">n/a</span>
@@ -668,6 +678,30 @@
                     </div>
                 </div>
             </section>
+            <span class="hidden">
+                <form action="index.php" name="subprofilemenu" method="GET">
+                    <select class="forminput" name="showuser" style="width: 180px;" onchange="this.form.submit()">
+                    <option value="-------------------" selected="selected">------------------------------</option>
+                    <option value="54">&nbsp;&nbsp;» nikolas kovac </option><option value="56">&nbsp;&nbsp;» magnolia atwood </option><option value="57">&nbsp;&nbsp;» connor king </option><option value="58">&nbsp;&nbsp;» duncan taggart </option><option value="60">&nbsp;&nbsp;» tobias fletcher </option><option value="112">&nbsp;&nbsp;» milo nott </option><option value="1089">&nbsp;&nbsp;» marica kovac </option><option value="395">&nbsp;&nbsp;» darcy de león </option><option value="157">&nbsp;&nbsp;» adaline fawley </option><option value="315">&nbsp;&nbsp;» lottie fox </option><option value="273">&nbsp;&nbsp;» emmalina fawley </option><option value="408">&nbsp;&nbsp;» draco malfoy </option><option value="1088">&nbsp;&nbsp;» hiroki becker </option><option value="314">&nbsp;&nbsp;» noah clark </option><option value="482">&nbsp;&nbsp;» percy weasley </option><option value="669">&nbsp;&nbsp;» archer reid </option><option value="670">&nbsp;&nbsp;» bryn williams </option><option value="705">&nbsp;&nbsp;» ellis hill </option><option value="750">&nbsp;&nbsp;» heiko reynders </option><option value="901">&nbsp;&nbsp;» gavin dunbar </option><option value="906">&nbsp;&nbsp;» diana crawford </option><option value="994">&nbsp;&nbsp;» rebecca warrington </option><option value="1145">&nbsp;&nbsp;» irina saidova </option><option value="1146">&nbsp;&nbsp;» cameron towner </option><option value="1147">&nbsp;&nbsp;» avery hayes </option><option value="1148">&nbsp;&nbsp;» william talbot </option><option value="1577">&nbsp;&nbsp;» everest wilkes </option><option value="1578">&nbsp;&nbsp;» diego serrano alvarez </option>
+                    </select>
+                    </form>
+            </span>
+            <script src="https://files.jcink.net/uploads/totl/TOTL24/tracker.js"></script>
+            <script>
+                //Global
+                document.querySelector('.profile--name h1').innerHTML = formatName(`Lux`);
+                clipPlayerAge(`<!-- |field_79| -->`, `<!-- |field_78| -->`, `<!-- |field_63| -->`);
+                
+                //Member Specific
+                if('4' == '4' || '<!-- |g_id| -->' == '20' || '<!-- |field_74| -->'.toLowerCase() == 'member') {
+                    clipSubaccounts();
+                } else {
+                    clipAge(`<!-- |age| -->`, `<!-- |field_73| -->`, `<!-- |field_13| -->`, `<!-- |field_72| -->`);
+                    clipBirthday(`<!-- |age| -->`, `<!-- |field_35| -->`);
+                    clipSpecs(`<!-- |field_40| -->`, `<!-- |field_41| -->`);
+                }
+                //FillTracker(`<!-- |name| -->`, trackerParams);
+            </script>
 
             <!-- Copyright Information -->
             <div class="tableborder" align="center">

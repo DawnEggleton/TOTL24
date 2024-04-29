@@ -30,10 +30,126 @@
 <link rel="stylesheet" href="../../dist/css/settings.css" />   
     </head>
     <body id="Post" class="dark g-4">
-        <header>
-    <a href="../../public/index.html"><h1>Site Name</h1></a>
+        <header class="header">
+    <a href="../../public/index.html">
+        <h1>Turn on the Light</h1>
+        <span>Turn on the Light</span>
+        <p>A Semi-Private Post-Potter Site Set in 2008</p>
+    </a>
+    <div class="header--calendar"><b class="calendar-month">March 2008</b>
+
+        <!-- days -->
+        <span class="calendar-day cal-day">S</span>
+        <span class="calendar-day cal-day">M</span>
+        <span class="calendar-day cal-day">T</span>
+        <span class="calendar-day cal-day">W</span>
+        <span class="calendar-day cal-day">T</span>
+        <span class="calendar-day cal-day">F</span>
+        <span class="calendar-day cal-day">S</span>
+          
+        <!-- starting empty days -->
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        
+        
+        <!-- actual days -->
+        <span class="event">1</span>
+        <span class="event">2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span class="event">7</span>
+        <span class="event">8</span>
+        <span class="event">9</span>
+        <span>10</span>
+        <span>11</span>
+        <span>12</span>
+        <span>13</span>
+        <span class="event">14</span>
+        <span class="event">15</span>
+        <span class="event">16</span>
+        <span>17</span>
+        <span>18</span>
+        <span>19</span>
+        <span>20</span>
+        <span class="event">21</span>
+        <span class="event">22</span>
+        <span class="event">23</span>
+        <span class="event">24</span>
+        <span>25</span>
+        <span>26</span>
+        <span>27</span>
+        <span class="event">28</span>
+        <span class="event">29</span>
+        <span class="event">30</span>
+        <span class="event">31</span>
+    </div>
 </header>
-      <div id="navstrip" align="left">&nbsp;<a href="../../public/index.html">Site Name</a></div>
+      <nav class="nav--main">
+    <div class="nav--left">
+        <button title="Open Menu" onClick="toggleSideMenu(this)" class="button--menu">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="../../public/index.html" title="Home" class="notMobile"><i class="fa-solid fa-home"></i></a>
+        <a href="../../public/webpage.html" title="Guidebook" class="notMobile"><i class="fa-solid fa-books"></i></a>
+        <a href="../../public/profile.html" title="View First Last" class="memOnly notMobile"><i class="fa-solid fa-user"></i></a>
+        <a href="../../public/usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pencil"></i></a>
+        <a href="../../public/usercp/user-inbox.html" title="Inbox (0)" data-new="0" class="memOnly notMobile"><i class="fa-solid fa-envelope"></i></a>
+        <a href="/" title="Alerts (0)" data-new="1" class="memOnly"><i class="fa-solid fa-bell"></i></a>
+        <button title="Switch Accounts" class="popup memOnly" data-modal="switch"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        <a href="../../public/defaults/login.html" title="Logout" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
+        <a href="../../public/store/store.html" title="Store" class="memOnly notMobile"><i class="fa-solid fa-store"></i></a>
+        <a href="https://discord.gg/c67nREygaA" title="Join Discord" class="notMobile"><i class="fa-brand fa-discord"></i></a>
+        <a href="/admin.php" title="Admin CP" target="_blank" class="staffOnly notMobile"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+        <button title="Login" class="guestOnly"><i class="fa-solid fa-sign-in"></i></button>
+        <a href="../../public/defaults/register1.html" title="Register" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
+    </div>
+    <div class="nav--right">
+        <button title="Open Menu" onClick="toggleOptionsMenu(this)" class="button--menu">
+            <i class="fa-solid fa-cog"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="#top"><i class="fa-solid fa-angle-up"></i></a>
+        <a href="#bottom"><i class="fa-solid fa-angle-down"></i></a>
+    </div>
+</nav>
+<nav class="nav--breadcrumb">
+    <div id="navstrip" align="left">&nbsp;<a href="../../public/index.html">Site Name</a></div>
+</nav>
+<nav class="nav--popout">
+    <div class="scroll">
+        <a href="../../public/profile.html" class="memOnly character-block">
+            <div style="background-image: url(https://picsum.photos/250);"></div>
+				<b>Duncan O'Donnelly-Taggart</b>
+        </a>
+        <a href="../../public/usercp/user-inbox.html" class="memOnly onlyMobile">Inbox (0)</a>
+	    <a href="../../public/webpage.html" class="onlyMobile">Guidebook</a>
+	    <a href="?act=store" class="onlyMobile memOnly">Store</a>
+	    <a href="https://discord.gg/c67nREygaA" class="onlyMobile memOnly">Join the Discord</a>
+	    <a href="/admin.php" target="_blank" class="onlyMobile staffOnly">Admin CP</a>
+	    <tag-code>
+	        <button onclick="highlightCode()" class="copyQuick">copy</button>
+	        <pre><textarea class="scroll">tbd</textarea></pre>
+	    </tag-code>
+	</div>
+</nav>
+<nav class="nav--options">
+    <button title="Toggle color mode" onClick="toggleTheme()" class="toggle--theme">
+        <i class="fa-solid fa-sun"></i>
+        <div><span></span></div>
+    </button>
+    <button title="Toggle font size" onClick="toggleSize()" class="toggle--size">
+        <i class="fa-solid fa-font-case"></i>
+        <div><span></span></div>
+    </button>
+</nav>
+<div class="invisibleEl"></div>
 
         <!--Main Body-->
         <main>
@@ -267,6 +383,35 @@
         </main>
 
         
-        <script src="../../dist/js/scripts.js"></script>   
+        <div data-modal-box="switch" class="modal">
+	<div class="modal--close"><span><i class="fa-solid fa-xmark"></i></span></div>
+	<div id="account-switch">
+        <span id="subaccounts_menu">
+            <form action="https://totl.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
+            <input type="hidden" name="auth_key" value="c7667d50c5de503233d4240de12e6b54">
+            <input type="hidden" name="UserName" value="subacct">
+            <input type="hidden" name="PassWord" value="subacct">
+            <input type="hidden" name="referer" value="">
+            <select class="forminput" name="sub_id" onchange="this.form.submit()">
+            <option value="------------" selected="selected">Switch Account</option>
+            <option value="157"> adaline fawley </option><option value="669"> archer reid </option><option value="1147"> avery hayes </option><option value="670"> bryn williams </option><option value="1146"> cameron towner </option><option value="57"> connor king </option><option value="395"> darcy de león </option><option value="906"> diana crawford </option><option value="1578"> diego serrano alvarez </option><option value="408"> draco malfoy </option><option value="58"> duncan taggart </option><option value="705"> ellis hill </option><option value="273"> emmalina fawley </option><option value="1577"> everest wilkes </option><option value="901"> gavin dunbar </option><option value="750"> heiko reynders </option><option value="1088"> hiroki becker </option><option value="1145"> irina saidova </option><option value="315"> lottie fox </option><option value="56"> magnolia atwood </option><option value="1089"> marica kovac </option><option value="112"> milo nott </option><option value="54"> nikolas kovac </option><option value="314"> noah clark </option><option value="482"> percy weasley </option><option value="994"> rebecca warrington </option><option value="60"> tobias fletcher </option><option value="1148"> william talbot </option>
+            </select>
+            </form>
+        </span>
+    </div>
+</div>
+<div id="quick-login-clip" data-modal-box="login" class="modal">
+	<div class="modal--close"><span><i class="fa-solid fa-xmark"></i></span></div>
+    <div id="quick-login" class="hidden">
+        <form style="display:inline" action="https://godlybehaviour.jcink.net/index.php?act=Login&amp;CODE=01&amp;CookieDate=1" method="post">
+        <div align="right"><strong>Quick Log In</strong>
+        <input type="text" class="forminput" size="10" name="UserName" onfocus="this.value=''" value="User Name" placeholder="Username">
+        <input type="password" class="forminput" size="10" name="PassWord" onfocus="this.value=''" value="ibfrules" placeholder="Password">
+        <input type="submit" class="forminput" value="Go">
+        </div>
+        </form>
+    </div>
+</div>
+<script src="../../dist/js/scripts.js"></script>   
     </body>
 </html>

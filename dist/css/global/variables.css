@@ -17,7 +17,9 @@
   --dkGrey: rgba(26, 26, 26, 1);
   --dmGrey: rgba(34, 34, 34, 1);
   --mdGrey: rgba(40, 40, 40, 1);
-  --mlGrey: rgba(68, 68, 68, 1);
+  --ltmdGrey: rgba(60, 60, 60, 1);
+  --xltmdGrey: rgba(80, 80, 80, 1);
+  --mlGrey: rgba(110, 110, 110, 1);
   --lmGrey: rgba(150, 150, 150, 1);
   --ltGrey: rgba(166, 166, 166, 1);
   --xltGrey: rgba(200, 200, 200, 1);
@@ -28,12 +30,14 @@
 body {
   --bg-primary: var(--offWhite);
   --bg-secondary: var(--white);
-  --bg-tertiary: var(--xltGrey);
+  --bg-tertiary: var(--ltWhite);
   --bg-accent: var(--accent);
-  --text-primary: var(--mlGrey);
+  --bg-accent-transparent: rgba(var(--rgb-lt), 0.4);
+  --text-primary: var(--ltmdGrey);
   --text-secondary: var(--dkGrey);
   --text-tertiary: var(--xltGrey);
   --text-quaternary: var(--ltGrey);
+  --text-quinary: var(--mlGrey);
   --text-accent: var(--accent);
   --border-primary: var(--xltGrey);
   --border-secondary: var(--ltGrey);
@@ -45,27 +49,34 @@ body {
     --size-lg: 17px;
     --size-xl: 19px; }
   body.xlFont {
-    --size-xs: 12px;
-    --size-sm: 14px;
-    --size-md: 16px;
-    --size-lg: 18px;
-    --size-xl: 20px; }
+    --size-xs: 13px;
+    --size-sm: 15px;
+    --size-md: 17px;
+    --size-lg: 19px;
+    --size-xl: 21px; }
   body.dark {
-    --border-accent: var(--ltaccent);
+    --bg-primary: var(--dkGrey);
+    --bg-secondary: var(--dmGrey);
+    --bg-tertiary: var(--mdGrey);
     --bg-accent: var(--ltaccent);
-    --text-accent: var(--accent);
-    --bg-primary: var(--black);
-    --bg-secondary: var(--offBlack);
-    --bg-tertiary: var(--dkGrey);
-    --text-primary: var(--offWhite);
+    --bg-accent-transparent: rgba(var(--rgb-lt), 0.2);
+    --text-primary: var(--ltGrey);
     --text-secondary: var(--xltGrey);
-    --border-primary: var(--mdGrey); }
+    --text-tertiary: var(--dmGrey);
+    --text-quaternary: var(--mlGrey);
+    --text-quinary: var(--mlGrey);
+    --text-accent: var(--accent);
+    --border-primary: var(--ltmdGrey);
+    --border-secondary: var(--xltmdGrey);
+    --border-accent: rgba(var(--rgb-lt), 0.4); }
   body[class*="g-"],
-  body [class*="g-"] {
+  body [class*="g-"], body.dark[class*="g-"],
+  body.dark [class*="g-"] {
     --accent: rgb(var(--rgb));
     --ltaccent: rgb(var(--rgb-lt));
     --border-accent: rgba(var(--rgb-lt), 0.4);
     --bg-accent: var(--ltaccent);
+    --bg-accent-transparent: rgba(var(--rgb-lt), 0.4);
     --text-accent: var(--accent); }
   body.g-1,
   body .g-1, body.g-2,

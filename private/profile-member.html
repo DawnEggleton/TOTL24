@@ -1,155 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Site Name</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!--Styles-->
-<link rel="stylesheet" href="../dist/css/styles.css" />
-
-<!--Fonts-->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-
-<!--Icons-->
-<link href="https://dawneggleton.github.io/css/all.css" rel="stylesheet" />
-
-<!--Script Libraries-->
-<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
-<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
-<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
-<script src="../dist/js/clipboard.js"></script>
-<script src="../dist/js/functions.js"></script>
-
-<!--Settings-->
-<script type='text/javascript' src='../dist/js/settings.js'></script>
-<link rel="stylesheet" href="../dist/css/settings.css" />
+        @@include('../source/templates/head.html', {
+            "prefix": "../dist"
+        })
     </head>
     <body id="Profile" class="g-4">
-        <header class="header">
-    <a href="../public/index.html">
-        <h1>Turn on the Light</h1>
-        <span>Turn on the Light</span>
-        <p>A Semi-Private Post-Potter Site Set in 2008</p>
-    </a>
-    <div class="header--calendar"><b class="calendar-month">March 2008</b>
-
-        <!-- days -->
-        <span class="calendar-day cal-day">S</span>
-        <span class="calendar-day cal-day">M</span>
-        <span class="calendar-day cal-day">T</span>
-        <span class="calendar-day cal-day">W</span>
-        <span class="calendar-day cal-day">T</span>
-        <span class="calendar-day cal-day">F</span>
-        <span class="calendar-day cal-day">S</span>
-          
-        <!-- starting empty days -->
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        
-        
-        <!-- actual days -->
-        <span class="event">1</span>
-        <span class="event">2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
-        <span>6</span>
-        <span class="event">7</span>
-        <span class="event">8</span>
-        <span class="event">9</span>
-        <span>10</span>
-        <span>11</span>
-        <span>12</span>
-        <span>13</span>
-        <span class="event">14</span>
-        <span class="event">15</span>
-        <span class="event">16</span>
-        <span>17</span>
-        <span>18</span>
-        <span>19</span>
-        <span>20</span>
-        <span class="event">21</span>
-        <span class="event">22</span>
-        <span class="event">23</span>
-        <span class="event">24</span>
-        <span>25</span>
-        <span>26</span>
-        <span>27</span>
-        <span class="event">28</span>
-        <span class="event">29</span>
-        <span class="event">30</span>
-        <span class="event">31</span>
-    </div>
-</header>
-        <nav class="nav--main">
-    <div class="nav--left">
-        <button title="Open Menu" onClick="toggleSideMenu(this)" class="button--menu">
-            <i class="fa-solid fa-bars"></i>
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <a href="../public/index.html" title="Home" class="notMobile"><i class="fa-solid fa-home"></i></a>
-        <a href="../public/webpage.html" title="Guidebook" class="notMobile"><i class="fa-solid fa-books"></i></a>
-        <a href="../public/profile.html" title="View First Last" class="memOnly notMobile"><i class="fa-solid fa-user"></i></a>
-        <a href="../public/usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pencil"></i></a>
-        <a href="../public/usercp/user-inbox.html" title="Inbox (0)" data-new="0" class="memOnly notMobile"><i class="fa-solid fa-envelope"></i></a>
-        <a href="/" title="Alerts (0)" data-new="1" class="memOnly"><i class="fa-solid fa-bell"></i></a>
-        <button title="Switch Accounts" class="popup memOnly" data-modal="switch"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
-        <a href="../public/defaults/login.html" title="Logout" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
-        <a href="../public/store/store.html" title="Store" class="memOnly notMobile"><i class="fa-solid fa-store"></i></a>
-        <a href="https://discord.gg/c67nREygaA" title="Join Discord" class="notMobile"><i class="fa-brand fa-discord"></i></a>
-        <a href="/admin.php" title="Admin CP" target="_blank" class="staffOnly notMobile"><i class="fa-solid fa-screwdriver-wrench"></i></a>
-        <button title="Login" class="guestOnly"><i class="fa-solid fa-sign-in"></i></button>
-        <a href="../public/defaults/register1.html" title="Register" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
-    </div>
-    <div class="nav--right">
-        <button title="Open Menu" onClick="toggleOptionsMenu(this)" class="button--menu">
-            <i class="fa-solid fa-cog"></i>
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <a href="#top"><i class="fa-solid fa-angle-up"></i></a>
-        <a href="#bottom"><i class="fa-solid fa-angle-down"></i></a>
-    </div>
-</nav>
-<nav class="nav--breadcrumb">
-    <div id="navstrip" align="left">&nbsp;<a href="../public/index.html">Site Name</a></div>
-</nav>
-<nav class="nav--popout">
-    <div class="scroll">
-        <a href="../public/profile.html" class="memOnly character-block">
-            <div style="background-image: url(https://picsum.photos/250);"></div>
-				<b>Duncan O'Donnelly-Taggart</b>
-        </a>
-        <a href="../public/usercp/user-inbox.html" class="memOnly onlyMobile">Inbox (0)</a>
-	    <a href="../public/webpage.html" class="onlyMobile">Guidebook</a>
-	    <a href="?act=store" class="onlyMobile memOnly">Store</a>
-	    <a href="https://discord.gg/c67nREygaA" class="onlyMobile memOnly">Join the Discord</a>
-	    <a href="/admin.php" target="_blank" class="onlyMobile staffOnly">Admin CP</a>
-	    <tag-code>
-	        <button onclick="highlightCode()" class="copyQuick">copy</button>
-	        <pre><textarea class="scroll">tbd</textarea></pre>
-	    </tag-code>
-	</div>
-</nav>
-<nav class="nav--options">
-    <button title="Toggle color mode" onClick="toggleTheme()" class="toggle--theme">
-        <i class="fa-solid fa-sun"></i>
-        <div><span></span></div>
-    </button>
-    <button title="Toggle font size" onClick="toggleSize()" class="toggle--size">
-        <i class="fa-solid fa-font-case"></i>
-        <div><span></span></div>
-    </button>
-</nav>
-<div class="invisibleEl"></div>
+        @@include('../source/templates/header.html', {
+            "prefix": ".."
+        })
+        @@include('../source/templates/nav.html', {
+            "prefix": ".."
+        })
 
         <!--Main Body-->
         <main>
@@ -157,12 +19,12 @@
 		
 
             <!--Profile-->
-            <section class="profile g-8 tabbed">
+            <section class="profile g-4 tabbed">
                 <div class="profile--image">
                     <div class="profile--name">
-                        <h1>Duncan<span>O'Donnelly-Taggart</span></h1>
+                        <h1></h1>
                         <div class="profile--links">
-                            <a href="./profile-member.html">Directory</a>
+                            <a href="./profile-member.html" class="charOnly">Directory</a>
                             <a href="./post.html">Development</a>
                             <a href="./post.html">Wanted</a>
                             <a href="">Custom</a>
@@ -173,25 +35,32 @@
                     </div>
                     <nav class="profile--navigation">
                         <a class="tab-label" href="#intro">I.</a>
-                        <a class="tab-label" href="#basics">II.</a>
-                        <a class="tab-label" href="#details">III.</a>
-                        <a class="tab-label" href="#relationships">IV.</a>
-                        <a class="tab-label" href="#shipper">V.</a>
-                        <a class="tab-label" href="#tracker">VI.</a>
-                        <a class="tab-label" href="#player">VII.</a>
+                        <a class="tab-label charOnly" href="#basics">II.</a>
+                        <a class="tab-label charOnly" href="#details">III.</a>
+                        <a class="tab-label charOnly" href="#relationships">IV.</a>
+                        <a class="tab-label charOnly" href="#shipper">V.</a>
+                        <a class="tab-label charOnly" href="#tracker">VI.</a>
+                        <a class="tab-label" href="#player">
+                            <span class="charOnly">VII.</span>
+                            <span class="memAccOnly">II.</span>
+                        </a>
                     </nav>
-                    <img src="https://64.media.tumblr.com/99cd129465b5a06df39a59a9c709513d/tumblr_pyljwrJ4no1vz2ghao4_1280.jpg">
+                    <div class="profile--roster"><div class="scroll"></div></div>
+                    <img src="https://64.media.tumblr.com/99cd129465b5a06df39a59a9c709513d/tumblr_pyljwrJ4no1vz2ghao4_1280.jpg" class="charOnly">
                 </div>
                 <div class="profile--main">
                     <!-- Intro -->
                     <div class="profile--content warnings" data-tab="#intro">
                         <i class="fa-regular fa-triangle-exclamation"></i>
-                        <div class="scroll">
+                        <div class="scroll charOnly">
                             verbal and physical abuse, depression, suicidal attempt/ideation, severe injury
+                        </div>
+                        <div class="scroll memAccOnly">
+                            n/a
                         </div>
                     </div>
                     <!-- Basics -->
-                    <div class="profile--content" data-tab="#basics">
+                    <div class="profile--content charOnly" data-tab="#basics">
                         <div class="scroll">
                             <div class="profile--item">
                                 <strong>full name</strong>
@@ -211,11 +80,11 @@
                             </div>
                             <div class="profile--item">
                                 <strong>Age</strong>
-                                <span>37 Years Old</span>
+                                <span id="ageClip"></span>
                             </div>
                             <div class="profile--item">
                                 <strong>Birthday</strong>
-                                <span>June 23, 1970</span>
+                                <span id="birthdayClip"></span>
                             </div>
                             <div class="profile--item">
                                 <strong>Born In</strong>
@@ -254,11 +123,14 @@
                                 <span>Tom Hiddleston</span>
                             </div>
                             <div class="profile--item">
+                                <strong>Specs</strong>
+                                <span id="clip-specs"></span>
+                            </div>
+                            <div class="profile--item">
                                 <strong>Distinguishing Features</strong>
                                 <div>
                                     <span class="scroll">
                                         <ul>
-                                            <li>6'1", 174 lbs</li>
                                             <li>various scars across torso, arms, and legs from shrapnel</li>
                                             <li>a two-inch long, angled scar from his cheek to the back of his jawbone</li>
                                             <li>a surgical scar down his left le</li>
@@ -448,7 +320,7 @@
                         </div>
                     </div>
                     <!-- Freeform -->
-                    <div class="profile--content" data-tab="#details">
+                    <div class="profile--content charOnly" data-tab="#details">
                         <div class="scroll">
                             <div class="profile--item">
                                 <strong>cheatsheet</strong>
@@ -472,7 +344,7 @@
                         </div>
                     </div>
                     <!-- Relationships -->
-                    <div class="profile--content" data-tab="#relationships">
+                    <div class="profile--content charOnly" data-tab="#relationships">
                         <div class="scroll">
                             <div class="profile--item">
                                 <strong>Family</strong>
@@ -501,7 +373,7 @@
                         </div>
                     </div>
                     <!-- Shipper -->
-                    <div class="profile--content" data-tab="#shipper">
+                    <div class="profile--content charOnly" data-tab="#shipper">
                         <div class="scroll">
                             <div class="profile--item">
                                 <strong>Shipper</strong>
@@ -512,7 +384,7 @@
                         </div>
                     </div>
                     <!-- Activity -->
-                    <div class="profile--content" data-tab="#tracker">
+                    <div class="profile--content charOnly" data-tab="#tracker">
                         <div class="scroll">
                             <div class="profile--tracker accordion">
                                 <div class="accordion-label">Active</div>
@@ -612,7 +484,7 @@
                     <!-- Player -->
                     <div class="profile--content" data-tab="#player">
                         <div class="scroll">
-                            <div class="profile--item">
+                            <div class="profile--item charOnly">
                                 <strong>Played By</strong>
                                 <span>Lux</span>
                             </div>
@@ -622,7 +494,7 @@
                             </div>
                             <div class="profile--item">
                                 <strong>Age</strong>
-                                <span>32 Years Old</span>
+                                <span id="clip-player-age"></span>
                             </div>
                             <div class="profile--item">
                                 <strong>Timeone</strong>
@@ -648,11 +520,11 @@
                                 <strong>Last Seen</strong>
                                 <span>Month 00 0000, 00:00 AM/PM</span>
                             </div>
-                            <div class="profile--item">
+                            <div class="profile--item charOnly">
                                 <strong>Last Post</strong>
                                 <span>Month 00 0000, 00:00 AM/PM</span>
                             </div>
-                            <div class="profile--item">
+                            <div class="profile--item charOnly">
                                 <strong>Triggers</strong>
                                 <div>
                                     <span class="scroll">n/a</span>
@@ -668,6 +540,30 @@
                     </div>
                 </div>
             </section>
+            <span class="hidden">
+                <form action="index.php" name="subprofilemenu" method="GET">
+                    <select class="forminput" name="showuser" style="width: 180px;" onchange="this.form.submit()">
+                    <option value="-------------------" selected="selected">------------------------------</option>
+                    <option value="54">&nbsp;&nbsp;» nikolas kovac </option><option value="56">&nbsp;&nbsp;» magnolia atwood </option><option value="57">&nbsp;&nbsp;» connor king </option><option value="58">&nbsp;&nbsp;» duncan taggart </option><option value="60">&nbsp;&nbsp;» tobias fletcher </option><option value="112">&nbsp;&nbsp;» milo nott </option><option value="1089">&nbsp;&nbsp;» marica kovac </option><option value="395">&nbsp;&nbsp;» darcy de león </option><option value="157">&nbsp;&nbsp;» adaline fawley </option><option value="315">&nbsp;&nbsp;» lottie fox </option><option value="273">&nbsp;&nbsp;» emmalina fawley </option><option value="408">&nbsp;&nbsp;» draco malfoy </option><option value="1088">&nbsp;&nbsp;» hiroki becker </option><option value="314">&nbsp;&nbsp;» noah clark </option><option value="482">&nbsp;&nbsp;» percy weasley </option><option value="669">&nbsp;&nbsp;» archer reid </option><option value="670">&nbsp;&nbsp;» bryn williams </option><option value="705">&nbsp;&nbsp;» ellis hill </option><option value="750">&nbsp;&nbsp;» heiko reynders </option><option value="901">&nbsp;&nbsp;» gavin dunbar </option><option value="906">&nbsp;&nbsp;» diana crawford </option><option value="994">&nbsp;&nbsp;» rebecca warrington </option><option value="1145">&nbsp;&nbsp;» irina saidova </option><option value="1146">&nbsp;&nbsp;» cameron towner </option><option value="1147">&nbsp;&nbsp;» avery hayes </option><option value="1148">&nbsp;&nbsp;» william talbot </option><option value="1577">&nbsp;&nbsp;» everest wilkes </option><option value="1578">&nbsp;&nbsp;» diego serrano alvarez </option>
+                    </select>
+                    </form>
+            </span>
+            <script src="https://files.jcink.net/uploads/totl/TOTL24/tracker.js"></script>
+            <script>
+                //Global
+                document.querySelector('.profile--name h1').innerHTML = formatName(`Lux`);
+                clipPlayerAge(`<!-- |field_79| -->`, `<!-- |field_78| -->`, `<!-- |field_63| -->`);
+                
+                //Member Specific
+                if('4' == '4' || '<!-- |g_id| -->' == '20' || '<!-- |field_74| -->'.toLowerCase() == 'member') {
+                    clipSubaccounts();
+                } else {
+                    clipAge(`<!-- |age| -->`, `<!-- |field_73| -->`, `<!-- |field_13| -->`, `<!-- |field_72| -->`);
+                    clipBirthday(`<!-- |age| -->`, `<!-- |field_35| -->`);
+                    clipSpecs(`<!-- |field_40| -->`, `<!-- |field_41| -->`);
+                }
+                //FillTracker(`<!-- |name| -->`, trackerParams);
+            </script>
 
             <!-- Copyright Information -->
             <div class="tableborder" align="center">
@@ -688,35 +584,8 @@
             </div> 
         </main>
 
-        <div data-modal-box="switch" class="modal">
-	<div class="modal--close"><span><i class="fa-solid fa-xmark"></i></span></div>
-	<div id="account-switch">
-        <span id="subaccounts_menu">
-            <form action="https://totl.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
-            <input type="hidden" name="auth_key" value="c7667d50c5de503233d4240de12e6b54">
-            <input type="hidden" name="UserName" value="subacct">
-            <input type="hidden" name="PassWord" value="subacct">
-            <input type="hidden" name="referer" value="">
-            <select class="forminput" name="sub_id" onchange="this.form.submit()">
-            <option value="------------" selected="selected">Switch Account</option>
-            <option value="157"> adaline fawley </option><option value="669"> archer reid </option><option value="1147"> avery hayes </option><option value="670"> bryn williams </option><option value="1146"> cameron towner </option><option value="57"> connor king </option><option value="395"> darcy de león </option><option value="906"> diana crawford </option><option value="1578"> diego serrano alvarez </option><option value="408"> draco malfoy </option><option value="58"> duncan taggart </option><option value="705"> ellis hill </option><option value="273"> emmalina fawley </option><option value="1577"> everest wilkes </option><option value="901"> gavin dunbar </option><option value="750"> heiko reynders </option><option value="1088"> hiroki becker </option><option value="1145"> irina saidova </option><option value="315"> lottie fox </option><option value="56"> magnolia atwood </option><option value="1089"> marica kovac </option><option value="112"> milo nott </option><option value="54"> nikolas kovac </option><option value="314"> noah clark </option><option value="482"> percy weasley </option><option value="994"> rebecca warrington </option><option value="60"> tobias fletcher </option><option value="1148"> william talbot </option>
-            </select>
-            </form>
-        </span>
-    </div>
-</div>
-<div id="quick-login-clip" data-modal-box="login" class="modal">
-	<div class="modal--close"><span><i class="fa-solid fa-xmark"></i></span></div>
-    <div id="quick-login" class="hidden">
-        <form style="display:inline" action="https://godlybehaviour.jcink.net/index.php?act=Login&amp;CODE=01&amp;CookieDate=1" method="post">
-        <div align="right"><strong>Quick Log In</strong>
-        <input type="text" class="forminput" size="10" name="UserName" onfocus="this.value=''" value="User Name" placeholder="Username">
-        <input type="password" class="forminput" size="10" name="PassWord" onfocus="this.value=''" value="ibfrules" placeholder="Password">
-        <input type="submit" class="forminput" value="Go">
-        </div>
-        </form>
-    </div>
-</div>
-<script src="../dist/js/scripts.js"></script>   
+        @@include('../source/templates/scripts.html', {
+            "prefix": "../dist"
+        })   
     </body>
 </html>

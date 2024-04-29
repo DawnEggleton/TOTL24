@@ -231,6 +231,158 @@ function load_alerts() {
     }
 }
 
+/****** Settings ******/
+function setTheme() {
+    if(localStorage.getItem('theme') !== null) {
+        switch(localStorage.getItem('theme')) {
+            case 'light':
+                document.querySelector('body').classList.remove('dark');
+                document.querySelector('body').classList.add('light');
+                break;
+            case 'dark':
+            default:
+                document.querySelector('body').classList.add('dark');
+                document.querySelector('body').classList.remove('light');
+                break;
+        }
+    } else {
+        document.querySelector('body').classList.add('light');
+        document.querySelector('body').classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+    }
+}
+function setSize() {
+    if(localStorage.getItem('size') !== null) {
+        switch(localStorage.getItem('size')) {
+            case 'xl':
+                document.querySelector('body').classList.remove('smFont');
+                document.querySelector('body').classList.remove('lgFont');
+                document.querySelector('body').classList.add('xlFont');
+                break;
+            case 'large':
+                document.querySelector('body').classList.remove('smFont');
+                document.querySelector('body').classList.add('lgFont');
+                document.querySelector('body').classList.remove('xlFont');
+                break;
+            case 'small':
+            default:
+                document.querySelector('body').classList.remove('lgFont');
+                document.querySelector('body').classList.add('smFont');
+                document.querySelector('body').classList.remove('xlFont');
+                break;
+        }
+    } else {
+        document.querySelector('body').classList.remove('xlFont');
+        document.querySelector('body').classList.remove('lgFont');
+        document.querySelector('body').classList.add('smFont');
+        localStorage.setItem('size', 'small');
+    }
+}
+
+/****** Toggles ******/
+function toggleTheme() {
+    if(localStorage.getItem('theme') === 'dark') {
+        localStorage.setItem('theme', 'light');
+        setTheme();
+    } else {
+        localStorage.setItem('theme', 'dark');
+        setTheme();
+    }
+}
+function toggleSize() {
+    if(localStorage.getItem('size') === 'small') {
+        localStorage.setItem('size', 'large');
+        setSize();
+    } else if(localStorage.getItem('size') === 'large') {
+        localStorage.setItem('size', 'xl');
+        setSize();
+    } else {
+        localStorage.setItem('size', 'small');
+        setSize();
+    }
+}
+function toggleSideMenu(e) {
+    let menu = document.querySelector('.nav--popout');
+    if (e.classList.contains('is-open')) {
+        menu.classList.remove('is-open');
+        e.classList.remove('is-open');
+	    document.querySelector('.invisibleEl').classList.remove('menu-open');
+    } else {
+        menu.classList.add('is-open');
+        e.classList.add('is-open');
+	    document.querySelector('.invisibleEl').classList.add('menu-open');
+    }
+}
+function toggleOptionsMenu(e) {
+    let menu = document.querySelector('.nav--options');
+    if (e.classList.contains('is-open')) {
+        menu.classList.remove('is-open');
+        e.classList.remove('is-open');
+	    document.querySelector('.invisibleEl').classList.remove('menu-open');
+    } else {
+        menu.classList.add('is-open');
+        e.classList.add('is-open');
+	    document.querySelector('.invisibleEl').classList.add('menu-open');
+    }
+}
+
+/****** Global Initialization ******/
+function initQuickLogin() {
+    if($('#quick-login').length) {
+        $('#quick-login').appendTo('#quick-login-clip');
+        document.querySelector('#quick-login-clip input[name="UserName"]').setAttribute('placeholder', 'Username');
+        document.querySelector('#quick-login-clip input[name="PassWord"]').setAttribute('placeholder', 'Password');
+    } else {
+        var main_url = location.href.split('?')[0];
+        $.get(main_url, function (data) {
+            $('#quick-login', data).appendTo('#quick-login-clip');
+            document.querySelector('#quick-login-clip input[name="UserName"]').setAttribute('placeholder', 'Username');
+            document.querySelector('#quick-login-clip input[name="PassWord"]').setAttribute('placeholder', 'Password');
+        });
+    }
+}
+function initModals() {
+    document.querySelectorAll('.popup').forEach(popup => {
+        popup.addEventListener('click', () => {
+            let modalTag = popup.dataset.modal,
+                modals = document.querySelectorAll('.modal'),
+                modal;
+            for(let i = 0; i < modals.length; i++) {
+                if(modals[i].dataset.modalBox === modalTag) {
+                    modal = modals[i];
+                    modal.classList.add('is-open');
+                }
+            }
+        });
+    });
+    document.querySelectorAll('.modal').forEach(modal => {
+        window.addEventListener('click', e => {
+            if(e.target.classList.contains('modal') || e.target.classList.contains('modal--close') || (e.target.parentNode && e.target.parentNode.classList.contains('modal--close')) || (e.target.parentNode && e.target.parentNode.parentNode && e.target.parentNode.parentNode.classList.contains('modal--close'))) {
+                modal.classList.remove('is-open');
+            }
+        });
+    });
+}
+function initSwitcher() {
+	let characters = switcher.querySelectorAll('option');
+	let newSwitch = `<div class="switch">`;
+	characters.forEach((character, i) => {
+		if(i !== 0) {
+			let characterName = character.innerText.trim();
+			let characterId = character.value;
+            let siteString = `uploads/totl`;
+			newSwitch += `<label class="switch-block">
+				<input type="checkbox" value="${characterId}" onchange="this.form.submit()" name="sub_id" />
+				<div style="background-image: url(https://files.jcink.net/${siteString}/av-${characterId}.png), url(https://files.jcink.net/${siteString}/av-${characterId}.gif), url(https://files.jcink.net/${siteString}/av-${characterId}.jpg), url(https://files.jcink.net/${siteString}/av-${characterId}.jpeg), url(https://picsum.photos/250);"></div>
+				<b>${capitalize(characterName)}</b>
+			</label>`;
+		}
+	});
+	newSwitch += `</div>`;
+	switcher.insertAdjacentHTML('afterend', newSwitch);
+	switcher.remove();
+}
+
 /****** Profile Initialization ******/
 function formatName(name) {
     let nameArray = capitalize(name).split(' ').filter(item => item !== '');
@@ -243,4 +395,124 @@ function formatName(name) {
         formattedName = `${nameArray[0]}`;
     }
     return formattedName;
+}
+function threadBlock(threadLink, title, location, threadDesc, lastPosterId, lastPoster, postDate, status) {
+return `<div class="tracker--item ${status}">
+        <a href="${threadLink}" class="tracker--title">${title}</a>
+        <span class="tracker--info">${threadDesc}</span>
+        <span class="tracker--info">posted in ${location}</span>
+        <span class="tracker--info">last post by <a href="?showuser=${lastPosterId}">${lastPoster}</a></span>
+        <span class="tracker--info">posted ${postDate}</span>
+    </div>`;
+}
+function writeMessage(message) {
+    return `<p>${message}</p>`;
+}
+function clipSpecs(height, weight) {
+    if((height !== `<i>No Information</i>` && height !== ``) && (weight !== `<i>No Information</i>` && weight !== ``)) {
+        document.querySelector('#clip-specs').insertAdjacentHTML('afterbegin', `<!-- |field_40| -->, <!-- |field_41| -->`);
+    } else if ((height !== `<i>No Information</i>` && height !== ``)) {
+        document.querySelector('#clip-specs').insertAdjacentHTML('afterbegin', `<!-- |field_40| -->`);
+    } else if ((weight !== `<i>No Information</i>` && weight !== ``)) {
+        document.querySelector('#clip-specs').insertAdjacentHTML('afterbegin', `<!-- |field_41| -->`);
+    } else if ((height === `<i>No Information</i>` || height === ``) && (weight === `<i>No Information</i>` || weight === ``) && (`<!-- |field_75| -->` !==  `Traditional`)) {
+        document.querySelector('#clip-specs').insertAdjacentHTML('afterbegin', `<i>No Information</i>`);
+    }
+}
+function clipPlayerAge(bYear, bMonth, age) {
+    if(bYear != `` && bYear != `<i>No Information</i>` && bMonth != `` && bMonth != `<i>No Information</i>`) {
+        bMonth = setMonth(bMonth);
+        if(month < bMonth) {
+            playerAge = `${year - 1 - bYear} years old`;
+        } else {
+            playerAge = `${year - bYear} years old`;
+        }
+    } else {
+        playerAge = `${age} years old`;
+    }
+    document.querySelector('#clip-player-age').innerHTML = playerAge;
+}
+function clipAge(jcinkAge, returnYears, manualAge, groupId, returner) {
+    let age;
+    if(jcinkAge != '<i>No Information</i>' && (returnYears == '<i>No Information</i>' || returnYears == '0')) {
+        age = jcinkAge - 16;
+    } else if (jcinkAge == '<i>No Information</i>') {
+        age = manualAge;
+    } else {
+        age = jcinkAge - 16 - returnYears;
+    }
+    document.querySelector('#ageClip').innerHTML = `${age} years old`;
+
+    if(groupId == '17' && (returner != '<i>No Information</i>' || returner != '')){
+        document.querySelector('#ageClip').insertAdjacentHTML('beforeend', `<br><i>Dead for ${returnYears} years</i>`);
+    }
+}
+function clipBirthday(jcinkAge, birthday) {
+    if(jcinkAge != '<i>No Information</i>') {
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+        const birthDate = new Date(Date.parse('<!-- |birthday| -->'));
+        birthday = `${monthNames[birthDate.getMonth()]} ${birthDate.getDate()}, ${birthDate.getFullYear()}`;
+    }
+    document.querySelector('#birthdayClip').innerHTML = birthday;
+}
+function Alpha(arr) {
+    let newArr = Array.prototype.slice.call(arr).map(item => {
+        if (item.value === '-------------------') {
+            return null
+        }
+        return {
+            character: item.innerText.trim().toLowerCase().replace(`» `, ``),
+            account: item.value
+        }
+    }).filter(item => item !== null)
+    .sort((a, b) => {
+        if(a.character > b.character) {
+            return 1;
+        } else if (a.character < b.character) {
+            return -1;
+        } else {
+            return 0;
+        }
+    });
+    return newArr;
+}
+function clearImage() {
+    document.querySelectorAll('.profile--sub-image').forEach(image => {
+        if(!image.innerHTML) {
+            image.parentNode.classList.remove('with-image');
+            image.remove();
+        }
+    });
+}
+function clipSubaccounts() {
+    // SUBACCOUNTS PROFILE DISPLAY SCRIPT (ABC ORDER) by tonya aka wildflower
+    let alphaChars = Alpha(document.querySelectorAll('select[name=showuser] option'));
+    let siteString = `uploads/totl`;
+    alphaChars.forEach(character => {
+        let imageDiv = `<div class="profile--sub-image"><img src="https://files.jcink.net/${siteString}/av-${character.account}.jpg" class="jpg"><img src="https://files.jcink.net/${siteString}/av-${character.account}.gif" class="gif"><img src="https://files.jcink.net/${siteString}/av-${character.account}.png" class="png"></div>`;
+        console.log(imageDiv);
+
+        let html = `<a class="profile--account" href="?showuser=${character.account}">
+            ${imageDiv}
+            <div class="profile--account-info">
+                <b>${character.character}</b>
+                <span>view profile</span>
+            </div>
+        </a>`;
+
+        document.querySelector('.profile--roster .scroll').insertAdjacentHTML('beforeend', html);
+    });
+        
+    $('.profile--sub-image .jpg').on('error', function() {
+        $(this).remove();
+        clearImage();
+    });
+    $('.profile--sub-image .gif').on('error', function() {
+        $(this).remove();
+        clearImage();
+    });
+    $('.profile--sub-image .png').on('error', function() {
+        $(this).remove();
+        clearImage();
+    });
 }

@@ -1,3 +1,92 @@
 /*******************************
     Header
 ********************************/
+.header {
+  display: flex;
+  padding: 100px 40px;
+  gap: 40px; }
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column; } }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: var(--bg-accent); }
+  .header > a {
+    flex: 1 1 auto;
+    font-family: var(--font-head);
+    text-transform: lowercase;
+    font-weight: 900;
+    color: var(--text-secondary);
+    font-style: italic;
+    letter-spacing: -6px;
+    text-align: center;
+    font-size: 50px;
+    height: max-content;
+    margin-bottom: 160px; }
+    @media only screen and (min-width: 480px) {
+      .header > a {
+        font-size: calc(50px + 70 * (100vw - 480px) / (1280 - 480)); } }
+    @media only screen and (min-width: 1280px) {
+      .header > a {
+        font-size: 120px; } }
+    @media (max-width: 768px) {
+      .header > a {
+        margin-bottom: 80px; } }
+    .header > a h1 {
+      font-size: inherit;
+      line-height: 100%;
+      margin: 0;
+      height: max-content; }
+    .header > a span {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      color: var(--text-tertiary);
+      z-index: -1;
+      font-size: 2em;
+      width: 100%;
+      line-height: 60%; }
+    .header > a p {
+      font-size: var(--size-xs);
+      letter-spacing: 0.1em;
+      font-family: var(--font-body);
+      font-style: normal;
+      text-transform: uppercase;
+      font-weight: 700; }
+  .header--calendar {
+    align-self: end;
+    flex: 0 0 240px;
+    width: 100%;
+    border: 1px solid var(--border-primary);
+    background: var(--bg-secondary);
+    padding: 20px;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: var(--size-sm);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+    gap: 2px;
+    z-index: 2;
+    margin-bottom: -60px; }
+    .header--calendar .calendar-month {
+      grid-column: 1 / -1;
+      text-align: center;
+      font-weight: 900; }
+    .header--calendar .calendar-day {
+      font-weight: 700; }
+    .header--calendar span:not(.calendar-day):not(:empty) {
+      border: 1px solid var(--border-primary);
+      border-radius: 5px; }
+    .header--calendar span.event {
+      background: var(--bg-accent-transparent);
+      color: var(--text-secondary);
+      font-weight: 600;
+      border-color: var(--border-secondary) !important; }

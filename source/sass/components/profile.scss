@@ -4,8 +4,7 @@
     Profile
 ********************************/
 #Profile {
-    header,
-    #navstrip {
+    header {
         display: none;
     }
 
@@ -26,7 +25,11 @@
     }
 
     & ~ div,
-    & ~ br { 
+    & ~ br,
+    &.g-4 .charOnly,
+    &.g-20 .charOnly,
+    &.g-3.acc-Member .charOnly,
+    &:not(.g-4):not(.g-20):not(.g-3.acc-Member) .memAccOnly { 
         display: none;
     }
 
@@ -45,13 +48,18 @@
                 height: 100%;
             }
 
-            img {
+            & > img {
                 filter: grayscale(0);
                 transition-duration: 0.5s;
                 opacity: 0;
 
                 @include mq-up(xxs) {
-                    opacity: 0.4;
+                    opacity: 0.6;
+                }
+                .dark & {
+                    @include mq-up(xxs) {
+                        opacity: 0.4;
+                    }
                 }
             }
             &::after {
@@ -107,6 +115,15 @@
                 border-color: var(--border-primary);
             }
         }
+
+
+        .profile--roster {
+            .scroll {
+                @include mq-up(md) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+        }
     }
 
     &--navigation {
@@ -141,7 +158,7 @@
 
             &:hover,
             &.is-active {
-                background: rgba(var(--rgb-lt), 0.4);
+                background: var(--bg-accent-transparent);
                 border-color: var(--border-secondary);
                 color: var(--text-secondary);
             }
@@ -173,39 +190,136 @@
             }
         }
 
-        &::after {
+        .profile:not(.g-4):not(.g-20):not(.g-3.acc-Member) &::after {
             content: '';
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+            width: m#{i}n(calc(100% - 100px), 80vw);
+            max-width: 500px;
+            height: 200px;
+            background-color: var(--offBlack);
+            background-image: url(https://files.jcink.net/uploads2/legends/lux/noisy_texture_300x300_o14_000000000000002_d10_c_212121_t1.png);
+            border-radius: 30px 30px 0 0;
+
+            @include mq-up(sm) {
+                bottom: 0;
+                height: 230px;
+            }
+
+            @include mq-up(md) {
+                max-width: 1150px;
+                height: 460px;
+                border-radius: 90px 90px 0 0;
+            }
+        }
+        .profile--roster {
             position: absolute;
             bottom: 30px;
             right: 30px;
             width: m#{i}n(calc(100% - 100px), 80vw);
             max-width: 500px;
             height: 200px;
-            background-color: var(--offBlack);
-            background-image: url(https://files.jcink.net/uploads2/legends/lux/noisy_texture_300x300_o14_000000000000002_d10_c_212121_t1.png);
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 15px 15px 0 0;
+            padding: 30px;
 
             @include mq-up(md) {
                 bottom: 0;
                 max-width: 1150px;
                 height: 460px;
             }
+
+            .scroll {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 5px;
+                padding-right: 10px;
+                height: 100%;
+
+                .profile--account {
+                    border: 1px solid var(--border-primary);
+                    display: grid;
+                    grid-template-columns: 50px auto;
+                    border-radius: 15px;
+                    padding: 10px;
+                    gap: 10px;
+                    align-items: center;
+    
+                    &:hover {
+                        border-color: var(--border-secondary);
+                        background: var(--bg-accent-transparent);
+                    }
+                }
+                .profile--sub-image {
+                    width: 50px;
+                    height: 100%;
+                    min-height: 50px;
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                        border-radius: 10px;
+                    }
+                }
+                .profile--account-info {
+                    display: flex;
+                    justify-content: center;
+                    height: max-content;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    &:only-child {
+                        grid-column: 1 / -1;
+                    }
+
+                    b {
+                        font-size: 20px !important;
+                        font-family: var(--font-head) !important;
+                        color: var(--text-secondary) !important;
+                        text-transform: lowercase;
+                        line-height: 100%;
+                    }
+
+                    span {
+                        text-transform: uppercase;
+                        font-size: var(--size-xs);
+                        letter-spacing: 1px;
+                        color: var(--text-primary);
+                        font-weight: 700;
+                        line-height: 100%;
+                    }
+                }
+            }
         }
 
-        img {
+        & > img {
             position: absolute;
             bottom: 30px;
-            right: 30px;
+            right: 20px;
             width: m#{i}n(calc(100% - 100px), 80vw);
             max-width: 500px;
             height: 200px;
             filter: grayscale(1);
             opacity: 0.4;
             z-index: 1;
+            border-radius: 30px 30px 0 0;
+
+            @include mq-up(sm) {
+                bottom: 0;
+                height: 230px;
+            }
 
             @include mq-up(md) {
-                bottom: 0;
                 max-width: 1150px;
                 height: 460px;
+                border-radius: 90px 90px 0 0;
             }
         }
 
@@ -337,7 +451,7 @@
                 position: absolute;
                 height: calc(100% - 12px);
                 width: 100%;
-                background: rgba(var(--rgb-lt), 0.4);
+                background: var(--bg-accent-transparent);
                 top: 6px;
                 left: 0;
                 z-index: -1;
@@ -394,7 +508,7 @@
         flex-wrap: wrap;
         justify-content: end;
         gap: 5px 20px;
-        margin-top: 5px;
+        margin-top: 20px;
         z-index: 2;
 
         a {
@@ -438,7 +552,7 @@
                 position: absolute;
                 height: calc(100% - 16px);
                 width: 0;
-                background: rgba(var(--rgb-lt), 0.4);
+                background: var(--bg-accent-transparent);
                 top: 8px;
                 left: 0;
                 z-index: -1;

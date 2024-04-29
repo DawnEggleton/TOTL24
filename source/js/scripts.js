@@ -1,6 +1,81 @@
 let pageType = document.querySelector('body').id;
 let pageClasses = document.querySelector('body').classList;
 
+//click to change subaccounts
+document.querySelectorAll('#post_as_menu option').forEach(account => {
+    account.innerHTML = account.innerHTML.replace(/&nbsp;&nbsp;»/g,'');
+});
+let switcher = document.querySelector('#account-switch #subaccounts_menu select');
+if(switcher !== null) {
+    document.querySelectorAll('select[name="sub_id"] option').forEach(account => {
+        account.innerHTML = account.innerHTML.replace(/&nbsp;&nbsp;»/g,'');
+    });
+    initSwitcher();
+}
+
+//remove empty tooltips
+$('*[title=""]').removeAttr('title');
+$('*[tooltip=""]').removeAttr('tooltip');
+if (typeof tippy === 'function') {
+    tippy(document.querySelectorAll('[title]'), {
+        content: (reference) => {
+	    function htmlDecode(input){
+		var e = document.createElement('div');
+		e.innerHTML = input;
+		return e.childNodes[0].nodeValue;
+	    }
+	    if(!reference.querySelector('.macro--button')) {
+                const title = reference.getAttribute('title');
+                reference.removeAttribute('title');
+		const stringified = JSON.stringify({title: title});
+		
+		if(reference.classList.contains('profile-link')) {
+                    return capitalize(htmlDecode(title));
+		} else {
+                    return htmlDecode(title);
+		}
+	    }
+        },
+        theme: 'godlybehaviour',
+        arrow: false
+    });
+}
+
+//quick login
+if(document.querySelector('body').classList.contains('g-2')) {
+    initQuickLogin();
+} else {
+    if($('#quick-login').length) {
+        //$('#quick-login').remove();
+    }
+    //$('#quick-login-clip').remove();
+}
+
+//init clipboards
+let clipboards = document.querySelectorAll('tag-code');
+let codes = document.querySelectorAll(`table[id='CODE-WRAP']`);
+if (clipboards.length > 0) {
+    initClipboard();
+}
+if (codes.length > 0) {
+    initCodebox();
+}
+
+/********** Window Click **********/
+document.querySelector('.invisibleEl').addEventListener('click', e => {
+	document.querySelector('.nav--popout').classList.remove('is-open');
+	document.querySelector('.nav--options').classList.remove('is-open');
+	document.querySelector('.button--menu').classList.remove('is-open');
+	e.target.classList.remove('menu-open');
+});
+
+/********** Initializations **********/
+setTheme();
+setSize();
+initModals();
+initCopyLink();
+highlightCode();
+
 /********** Universal Tabbing, with Hash **********/
 if(document.querySelector('.tabbed')) {
     let tabbed = document.querySelectorAll('.tabbed');
@@ -87,11 +162,18 @@ if(pageType === 'Profile') {
         }
     });
 
-    let triggers = document.querySelector('.warnings .scroll');
+    let warnings = document.querySelector('.warnings .scroll.charOnly');
+    if(warnings.innerText.toLowerCase().trim() === 'no information' ||
+    warnings.innerText.toLowerCase().trim() === 'n/a' ||
+    warnings.innerText.toLowerCase().trim() === 'none') {
+        warnings.innerText = 'This application does require content warnings.';
+    }
+
+    let triggers = document.querySelector('.warnings .scroll.memAccOnly');
     if(triggers.innerText.toLowerCase().trim() === 'no information' ||
     triggers.innerText.toLowerCase().trim() === 'n/a' ||
     triggers.innerText.toLowerCase().trim() === 'none') {
-        triggers.innerText = 'This application does require content warnings.';
+        triggers.innerText = 'This member has no triggers.';
     }
 }
 

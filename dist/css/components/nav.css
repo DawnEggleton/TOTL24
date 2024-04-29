@@ -1,3 +1,241 @@
 /*******************************
     Navigation
 ********************************/
+.nav--main {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-primary);
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  justify-content: space-between;
+  z-index: 10; }
+
+.nav--left {
+  display: flex;
+  gap: 5px; }
+  .nav--left a,
+  .nav--left button {
+    background: var(--transparent);
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid var(--border-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-primary);
+    transition-duration: 0.3s; }
+    .nav--left a:hover, .nav--left a.is-open,
+    .nav--left button:hover,
+    .nav--left button.is-open {
+      border-color: var(--border-secondary);
+      background: rgba(var(--rgb), 0.4);
+      color: var(--text-secondary); }
+  .nav--left .button--menu.is-open .fa-bars,
+  .nav--left .button--menu:not(.is-open) .fa-xmark {
+    display: none; }
+
+.nav--right {
+  display: flex;
+  gap: 5px; }
+  .nav--right a,
+  .nav--right button {
+    background: var(--transparent);
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid var(--border-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-primary);
+    transition-duration: 0.3s; }
+    .nav--right a:hover, .nav--right a.is-open,
+    .nav--right button:hover,
+    .nav--right button.is-open {
+      border-color: var(--border-secondary);
+      background: rgba(var(--rgb), 0.4);
+      color: var(--text-secondary); }
+  .nav--right .button--menu.is-open .fa-cog,
+  .nav--right .button--menu:not(.is-open) .fa-xmark {
+    display: none; }
+
+.nav--breadcrumb {
+  position: sticky;
+  top: 50px;
+  width: 100%;
+  height: 30px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-primary);
+  z-index: 10;
+  font-size: var(--size-xs);
+  text-transform: uppercase;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1em;
+  font-weight: 600; }
+  .nav--breadcrumb a {
+    color: var(--text-primary); }
+  .nav--breadcrumb i {
+    color: var(--text-secondary); }
+
+.nav--popout {
+  position: fixed;
+  top: 80px;
+  left: -325px;
+  width: 325px;
+  max-width: 100vw;
+  height: calc(100vh - 80px);
+  z-index: 10;
+  transition-duration: 0.5s;
+  border-right: 1px solid var(--border-primary);
+  background: var(--bg-tertiary);
+  padding: 15px; }
+  .nav--popout.is-open {
+    left: 0; }
+  .nav--popout .scroll {
+    max-height: calc(100vh - 110px); }
+  .nav--popout a {
+    margin-bottom: 5px; }
+    .nav--popout a.character-block {
+      border: 1px solid var(--border-primary);
+      padding: 10px;
+      border-radius: 15px;
+      display: grid;
+      grid-template-columns: 50px auto;
+      align-items: center;
+      gap: 10px; }
+      .nav--popout a.character-block input {
+        display: none; }
+      .nav--popout a.character-block:hover {
+        border-color: var(--border-secondary);
+        background: var(--bg-accent-transparent); }
+        .nav--popout a.character-block:hover > b {
+          color: var(--text-secondary); }
+      .nav--popout a.character-block > img {
+        width: 50px;
+        height: 100%;
+        min-height: 50px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px; }
+      .nav--popout a.character-block > b {
+        font-family: var(--font-head);
+        text-transform: lowercase;
+        font-size: 20px;
+        letter-spacing: -1px;
+        color: var(--text-primary); }
+        .nav--popout a.character-block > b:only-child {
+          grid-column: 1 / -1;
+          text-align: center; }
+    .nav--popout a:not(.character-block) {
+      border: 1px solid var(--border-primary);
+      padding: 10px;
+      border-radius: 15px;
+      display: block;
+      font-family: var(--font-head);
+      text-transform: lowercase;
+      font-size: 20px;
+      letter-spacing: -1px;
+      color: var(--text-primary);
+      font-weight: 700;
+      text-align: center; }
+      .nav--popout a:not(.character-block):hover {
+        border-color: var(--border-secondary);
+        background: var(--bg-accent-transparent);
+        color: var(--text-secondary); }
+
+.nav--options {
+  position: fixed;
+  top: 80px;
+  right: -250px;
+  width: 135px;
+  height: auto;
+  z-index: 10;
+  transition-duration: 0.5s;
+  background: var(--bg-tertiary);
+  padding: 15px;
+  border-left: 1px solid var(--border-primary);
+  border-bottom: 1px solid var(--border-primary);
+  border-radius: 0 0 0 15px;
+  display: flex;
+  gap: 5px; }
+  .nav--options.is-open {
+    right: 0; }
+
+.toggle--theme, .toggle--size {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  align-items: center;
+  text-align: center;
+  border: 1px solid var(--border-primary);
+  background: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--text-primary); }
+  .toggle--theme > div, .toggle--size > div {
+    width: 30px;
+    height: 5px;
+    background: var(--bg-tertiary);
+    border-radius: 2.5px;
+    margin: 0 auto;
+    border: 1px solid var(--border-primary); }
+    .toggle--theme > div::before, .toggle--size > div::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 3.5px;
+      background: var(--text-primary);
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: -2px;
+      left: 0; }
+    .toggle--theme > div > span, .toggle--size > div > span {
+      width: 0;
+      height: 100%;
+      display: block;
+      background: var(--bg-accent);
+      border-radius: 1.5px; }
+
+.dark .toggle--theme > div::before,
+.xlFont .toggle--size > div::before {
+  left: calc(100% - 7px); }
+
+.dark .toggle--theme > div > span,
+.xlFont .toggle--size > div > span {
+  width: 100%; }
+
+.lgFont .toggle--size > div::before {
+  left: calc(50% - 3.5px); }
+
+.lgFont .toggle--size > div > span {
+  width: 50%; }
+
+.invisibleEl {
+  position: fixed;
+  z-index: -999999999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.5s, z-index 0s 0.5s; }
+
+.invisibleEl.menu-open {
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.75);
+  transition: background-color 0.5s, z-index 0s 0s; }
