@@ -5,7 +5,7 @@
 ********************************/
 .header {
     display: flex;
-    padding: 100px 40px;
+    padding: 40px;
     gap: 40px;
 
     @include mq-down(sm) {
@@ -22,6 +22,19 @@
         background: var(--bg-accent);
     }
 
+    #idx & {
+        padding: 100px 40px;
+
+        & > a {
+            @include fluid-type(50, 120, 480, 1280);
+            margin: 0 0 160px 0;
+        }
+
+        span {
+            display: block;
+        }
+    }
+
     & > a {
         flex: 1 1 auto;
         font-family: var(--font-head);
@@ -31,9 +44,9 @@
         font-style: italic;
         letter-spacing: -6px;
         text-align: center;
-        @include fluid-type(50, 120, 480, 1280);
+        @include fluid-type(32, 64, 480, 1280);
         height: max-content;
-        margin-bottom: 160px;
+        margin: 20px 0 0 0;
 
         @include mq-down(sm) {
             margin-bottom: 80px;
@@ -47,6 +60,7 @@
         }
 
         span {
+            display: none;
             position: absolute;
             top: 50%;
             left: 0;
@@ -65,6 +79,8 @@
             font-style: normal;
             text-transform: uppercase;
             font-weight: 700;
+            line-height: 100%;
+            margin: 20px auto 0;
         }
     }
     
@@ -84,7 +100,10 @@
         text-align: center;
         gap: 2px;
         z-index: 2;
-        margin-bottom: -60px;
+
+        body:not(#idx) {
+            margin-bottom: -60px;
+        }
 
         .calendar-month {
             grid-column: 1 / -1;

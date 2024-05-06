@@ -3,7 +3,7 @@
 ********************************/
 .header {
   display: flex;
-  padding: 100px 40px;
+  padding: 40px;
   gap: 40px; }
   @media (max-width: 768px) {
     .header {
@@ -16,6 +16,19 @@
     width: 100%;
     height: 120px;
     background: var(--bg-accent); }
+  #idx .header {
+    padding: 100px 40px; }
+    #idx .header > a {
+      font-size: 50px;
+      margin: 0 0 160px 0; }
+      @media only screen and (min-width: 480px) {
+        #idx .header > a {
+          font-size: calc(50px + 70 * (100vw - 480px) / (1280 - 480)); } }
+      @media only screen and (min-width: 1280px) {
+        #idx .header > a {
+          font-size: 120px; } }
+    #idx .header span {
+      display: block; }
   .header > a {
     flex: 1 1 auto;
     font-family: var(--font-head);
@@ -25,15 +38,15 @@
     font-style: italic;
     letter-spacing: -6px;
     text-align: center;
-    font-size: 50px;
+    font-size: 32px;
     height: max-content;
-    margin-bottom: 160px; }
+    margin: 20px 0 0 0; }
     @media only screen and (min-width: 480px) {
       .header > a {
-        font-size: calc(50px + 70 * (100vw - 480px) / (1280 - 480)); } }
+        font-size: calc(32px + 32 * (100vw - 480px) / (1280 - 480)); } }
     @media only screen and (min-width: 1280px) {
       .header > a {
-        font-size: 120px; } }
+        font-size: 64px; } }
     @media (max-width: 768px) {
       .header > a {
         margin-bottom: 80px; } }
@@ -43,6 +56,7 @@
       margin: 0;
       height: max-content; }
     .header > a span {
+      display: none;
       position: absolute;
       top: 50%;
       left: 0;
@@ -58,7 +72,9 @@
       font-family: var(--font-body);
       font-style: normal;
       text-transform: uppercase;
-      font-weight: 700; }
+      font-weight: 700;
+      line-height: 100%;
+      margin: 20px auto 0; }
   .header--calendar {
     align-self: end;
     flex: 0 0 240px;
@@ -74,8 +90,9 @@
     text-transform: uppercase;
     text-align: center;
     gap: 2px;
-    z-index: 2;
-    margin-bottom: -60px; }
+    z-index: 2; }
+    .header--calendar body:not(#idx) {
+      margin-bottom: -60px; }
     .header--calendar .calendar-month {
       grid-column: 1 / -1;
       text-align: center;

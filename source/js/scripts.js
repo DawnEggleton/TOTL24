@@ -134,6 +134,20 @@ if(document.querySelector('.accordion')) {
     });
 }
 
+/********** Index & Category View Only **********/
+if(pageType === 'idx' || pageType === 'SC') {
+	initForums();
+
+    document.querySelector('.stats--recent').innerHTML = document.querySelector('#recent-topics table').outerHTML;
+    document.querySelector('#recent-topics').remove();
+}
+
+/********** Topic List Only **********/
+if(pageType === 'SF') {
+	initForums();
+    initTopicsWrap();
+}
+
 /********** Profile **********/
 if(pageType === 'Profile') {
     let profile = document.querySelector('.profile');

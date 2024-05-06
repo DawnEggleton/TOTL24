@@ -383,6 +383,40 @@ function initSwitcher() {
 	switcher.remove();
 }
 
+/****** Index Initialization ******/
+function initForums() {
+    //manual links
+    document.querySelectorAll('.forum .manual-links').forEach(linkSet => {
+        //subforums exist
+        let subforumEl = linkSet.closest('.forum--desc').nextElementSibling.nextElementSibling.querySelector('.subforums');
+        if(subforumEl) {
+            if(linkSet.dataset.position === 'start') {
+                subforumEl.insertAdjacentHTML('afterbegin', linkSet.innerHTML);
+            } else {
+                subforumEl.insertAdjacentHTML('beforeend', linkSet.innerHTML);
+            }
+        }
+        //subforums don't exist
+        else {
+            linkSet.closest('.forum').querySelector('.forum--links').insertAdjacentHTML('beforeend', linkSet.innerHTML);
+            linkSet.closest('.forum').querySelector('.forum--links').classList.add('manual-only');
+        }
+
+        linkSet.remove();
+    });
+}
+
+/****** Topic Initialization ******/
+function initTopicsWrap() {
+    if(document.querySelector('.macro--header')) {
+        $(`.macro--header`).each(function (index) {
+            $(this).nextUntil(`.macro--header`).wrapAll(`<div class="topics--section"></div>`);
+        }); 
+    } else {
+        document.querySelector('.topics--list').classList.add('no-headers');
+    }
+}
+
 /****** Profile Initialization ******/
 function formatName(name) {
     let nameArray = capitalize(name).split(' ').filter(item => item !== '');

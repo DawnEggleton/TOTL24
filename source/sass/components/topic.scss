@@ -3,3 +3,304 @@
 /*******************************
     Topic List
 ********************************/
+#SF {
+    main {
+        & > table {
+            display: block;
+            background: var(--bg-primary);
+            padding: 10px;
+            z-index: 2;
+            text-transform: uppercase;
+            font-size: var(--size-sm);
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-primary);
+            border-top: 1px solid var(--border-primary);
+
+            &:first-of-type {
+                position: sticky;
+                top: 80px;
+                border-top: 0;
+            }
+
+            tbody {
+                display: block;
+
+                tr {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+
+                    td {
+                        width: max-content;
+
+                        &:last-child {
+                            display: flex;
+                            gap: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.topics {
+    padding-top: 40px;
+    display: grid;
+    gap: 80px 0;
+
+    &--title {
+        font-family: var(--font-head);
+        text-transform: lowercase;
+        font-weight: 900;
+        @include fluid-type(28, 48, 480, 768);
+        line-height: 100%;
+        font-style: italic;
+        text-align: center;
+        z-index: 1;
+        height: max-content;
+ 
+        h2 {
+            margin: 0;
+            @include fluid-type(28, 48, 480, 768);
+            font-weight: 900;
+            color: var(--text-secondary);
+        }
+
+        span {
+            font-size: 1.4em;
+            color: var(--text-tertiary);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            z-index: -1;
+            line-height: 60%;
+            min-width: 100%;
+        }
+    }
+
+    &--list,
+    &--section {
+        display: grid;
+        gap: 10px;
+
+        @include mq-up(sm) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include mq-up(md) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        &.no-headers {
+            padding: 0 40px 40px;
+    
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100px;
+                background: var(--bg-accent);
+                z-index: -1;
+            }
+        }
+    }
+
+    &--section {
+        padding: 40px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--bg-accent);
+            z-index: -1;
+        }
+    }
+
+    .macro--header,
+    .topics--section {
+        grid-column: 1 / -1;
+    }
+
+    .macro--header {
+        font-family: var(--font-head);
+        text-transform: lowercase;
+        font-weight: 900;
+        @include fluid-type(18, 28, 480, 768);
+        line-height: 100%;
+        font-style: italic;
+        text-align: center;
+        z-index: 1;
+        height: max-content;
+        width: max-content;
+        margin: 40px auto 0;
+        padding: 0 5px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: calc(100% - 12px);
+            width: 100%;
+            background: var(--bg-accent-transparent);
+            top: 6px;
+            left: 0;
+            z-index: -1;
+            transition-duration: 0.3s;
+        }
+    }
+
+    &--info {
+        font-size: var(--size-xs);
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+        padding: 10px 0;
+
+        a {
+            color: var(--text-accent);
+            font-weight: 700;
+        }
+
+        & > .darkrow2 {
+            border-top: 1px solid var(--border-primary);
+            border-bottom: 1px solid var(--border-primary);
+            padding: 10px 0;
+            margin: 10px 0;
+        }
+
+        & + br {
+            display: none;
+        }
+    }
+}
+
+.topic {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: var(--size-xs);
+    letter-spacing: 0.1em;
+
+    &--title {
+        display: block;
+        font-family: var(--font-head);
+        font-style: italic;
+        color: var(--text-secondary);
+        font-size: 24px;
+        text-transform: lowercase;
+        font-weight: 600;
+        letter-spacing: -2px;
+        opacity: 0.8;
+        max-width: max-content;
+        padding: 0 5px;
+        transition-duration: 0.3s;
+
+        &:hover {
+            letter-spacing: -1px;
+
+            &::before {
+                background: var(--bg-accent-transparent-alt);
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: calc(100% - 12px);
+            width: 100%;
+            background: var(--bg-accent-transparent);
+            top: 6px;
+            left: 0;
+            z-index: -1;
+            transition-duration: 0.3s;
+        }
+    }
+
+    &--stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px 15px;
+    }
+
+    &--stat {
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: var(--size-xs);
+        font-weight: 700;
+        color: var(--text-primary);
+
+        b,
+        a {
+            color: var(--text-secondary);
+            font-weight: 900;
+            font-size: 1.05em;
+        }
+    }
+
+    &--desc {
+        font-size: var(--size-sm);
+        letter-spacing: 0.03em;
+        line-height: 200%;
+        border-top: 1px solid var(--border-primary);
+        padding: 10px 0 6px;
+        text-align: justify;
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    &--latest,
+    &--started {
+        border-top: 1px solid var(--border-primary);
+        display: flex;
+        flex-direction: column;
+        line-height: 160%;
+        gap: 0;
+        text-transform: uppercase;
+
+        a {
+            font-weight: 700;
+            color: var(--text-accent);
+            font-size: var(--size-sm);
+            line-height: 160%;
+        }
+        & > span {
+            font-style: italic;
+        }
+    }
+
+    &--latest {
+        padding: 15px 0 10px;
+
+        a {
+            &::before {
+                content: 'last post by ';
+                color: var(--text-secondary);
+            }
+        }
+    }
+
+    &--started {
+        padding: 15px 0 0;
+
+        a {
+            &::before {
+                content: 'started by ';
+                color: var(--text-secondary);
+            }
+        }
+    }
+}

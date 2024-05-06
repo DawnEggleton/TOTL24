@@ -30,6 +30,66 @@
 <link rel="stylesheet" href="../dist/css/settings.css" />  
     </head>
     <body id="Members" class="g-4">
+        <nav class="nav--main">
+    <div class="nav--left">
+        <button title="Open Menu" onClick="toggleSideMenu(this)" class="button--menu">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="../public/index.html" title="Home" class="notMobile"><i class="fa-solid fa-home"></i></a>
+        <a href="../public/webpage.html" title="Guidebook" class="notMobile"><i class="fa-solid fa-books"></i></a>
+        <a href="../public/profile.html" title="View First Last" class="memOnly notMobile"><i class="fa-solid fa-user"></i></a>
+        <a href="../public/usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pencil"></i></a>
+        <a href="../public/usercp/user-inbox.html" title="Inbox (0)" data-new="0" class="memOnly notMobile"><i class="fa-solid fa-envelope"></i></a>
+        <a href="/" title="Alerts (0)" data-new="1" class="memOnly"><i class="fa-solid fa-bell"></i></a>
+        <button title="Switch Accounts" class="popup memOnly" data-modal="switch"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        <a href="../public/defaults/login.html" title="Logout" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
+        <a href="../public/store/store.html" title="Store" class="memOnly notMobile"><i class="fa-solid fa-store"></i></a>
+        <a href="https://discord.gg/c67nREygaA" title="Join Discord" class="notMobile"><i class="fa-brand fa-discord"></i></a>
+        <a href="/admin.php" title="Admin CP" target="_blank" class="staffOnly notMobile"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+        <button title="Login" class="guestOnly"><i class="fa-solid fa-sign-in"></i></button>
+        <a href="../public/defaults/register1.html" title="Register" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
+    </div>
+    <div class="nav--right">
+        <button title="Open Menu" onClick="toggleOptionsMenu(this)" class="button--menu">
+            <i class="fa-solid fa-cog"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="#top"><i class="fa-solid fa-angle-up"></i></a>
+        <a href="#bottom"><i class="fa-solid fa-angle-down"></i></a>
+    </div>
+</nav>
+<nav class="nav--breadcrumb">
+    <div id="navstrip" align="left">&nbsp;<a href="../public/index.html">Site Name</a></div>
+</nav>
+<nav class="nav--popout">
+    <div class="scroll">
+        <a href="../public/profile.html" class="memOnly character-block">
+            <div style="background-image: url(https://picsum.photos/250);"></div>
+				<b>Duncan O'Donnelly-Taggart</b>
+        </a>
+        <a href="../public/usercp/user-inbox.html" class="memOnly onlyMobile">Inbox (0)</a>
+	    <a href="../public/webpage.html" class="onlyMobile">Guidebook</a>
+	    <a href="?act=store" class="onlyMobile memOnly">Store</a>
+	    <a href="https://discord.gg/c67nREygaA" class="onlyMobile memOnly">Join the Discord</a>
+	    <a href="/admin.php" target="_blank" class="onlyMobile staffOnly">Admin CP</a>
+	    <tag-code>
+	        <button onclick="highlightCode()" class="copyQuick">copy</button>
+	        <pre><textarea class="scroll">tbd</textarea></pre>
+	    </tag-code>
+	</div>
+</nav>
+<nav class="nav--options">
+    <button title="Toggle color mode" onClick="toggleTheme()" class="toggle--theme">
+        <i class="fa-solid fa-sun"></i>
+        <div><span></span></div>
+    </button>
+    <button title="Toggle font size" onClick="toggleSize()" class="toggle--size">
+        <i class="fa-solid fa-font-case"></i>
+        <div><span></span></div>
+    </button>
+</nav>
+<div class="invisibleEl"></div>
         <header class="header">
     <a href="../public/index.html">
         <h1>Turn on the Light</h1>
@@ -90,66 +150,6 @@
         <span class="event">31</span>
     </div>
 </header>
-      <nav class="nav--main">
-    <div class="nav--left">
-        <button title="Open Menu" onClick="toggleSideMenu(this)" class="button--menu">
-            <i class="fa-solid fa-bars"></i>
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <a href="../public/index.html" title="Home" class="notMobile"><i class="fa-solid fa-home"></i></a>
-        <a href="../public/webpage.html" title="Guidebook" class="notMobile"><i class="fa-solid fa-books"></i></a>
-        <a href="../public/profile.html" title="View First Last" class="memOnly notMobile"><i class="fa-solid fa-user"></i></a>
-        <a href="../public/usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pencil"></i></a>
-        <a href="../public/usercp/user-inbox.html" title="Inbox (0)" data-new="0" class="memOnly notMobile"><i class="fa-solid fa-envelope"></i></a>
-        <a href="/" title="Alerts (0)" data-new="1" class="memOnly"><i class="fa-solid fa-bell"></i></a>
-        <button title="Switch Accounts" class="popup memOnly" data-modal="switch"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
-        <a href="../public/defaults/login.html" title="Logout" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
-        <a href="../public/store/store.html" title="Store" class="memOnly notMobile"><i class="fa-solid fa-store"></i></a>
-        <a href="https://discord.gg/c67nREygaA" title="Join Discord" class="notMobile"><i class="fa-brand fa-discord"></i></a>
-        <a href="/admin.php" title="Admin CP" target="_blank" class="staffOnly notMobile"><i class="fa-solid fa-screwdriver-wrench"></i></a>
-        <button title="Login" class="guestOnly"><i class="fa-solid fa-sign-in"></i></button>
-        <a href="../public/defaults/register1.html" title="Register" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
-    </div>
-    <div class="nav--right">
-        <button title="Open Menu" onClick="toggleOptionsMenu(this)" class="button--menu">
-            <i class="fa-solid fa-cog"></i>
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <a href="#top"><i class="fa-solid fa-angle-up"></i></a>
-        <a href="#bottom"><i class="fa-solid fa-angle-down"></i></a>
-    </div>
-</nav>
-<nav class="nav--breadcrumb">
-    <div id="navstrip" align="left">&nbsp;<a href="../public/index.html">Site Name</a></div>
-</nav>
-<nav class="nav--popout">
-    <div class="scroll">
-        <a href="../public/profile.html" class="memOnly character-block">
-            <div style="background-image: url(https://picsum.photos/250);"></div>
-				<b>Duncan O'Donnelly-Taggart</b>
-        </a>
-        <a href="../public/usercp/user-inbox.html" class="memOnly onlyMobile">Inbox (0)</a>
-	    <a href="../public/webpage.html" class="onlyMobile">Guidebook</a>
-	    <a href="?act=store" class="onlyMobile memOnly">Store</a>
-	    <a href="https://discord.gg/c67nREygaA" class="onlyMobile memOnly">Join the Discord</a>
-	    <a href="/admin.php" target="_blank" class="onlyMobile staffOnly">Admin CP</a>
-	    <tag-code>
-	        <button onclick="highlightCode()" class="copyQuick">copy</button>
-	        <pre><textarea class="scroll">tbd</textarea></pre>
-	    </tag-code>
-	</div>
-</nav>
-<nav class="nav--options">
-    <button title="Toggle color mode" onClick="toggleTheme()" class="toggle--theme">
-        <i class="fa-solid fa-sun"></i>
-        <div><span></span></div>
-    </button>
-    <button title="Toggle font size" onClick="toggleSize()" class="toggle--size">
-        <i class="fa-solid fa-font-case"></i>
-        <div><span></span></div>
-    </button>
-</nav>
-<div class="invisibleEl"></div>
 
         <!--Main Body-->
         <main>

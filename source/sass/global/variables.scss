@@ -37,6 +37,7 @@ body {
     --bg-tertiary: var(--ltWhite);
     --bg-accent: var(--accent);
     --bg-accent-transparent: rgba(var(--rgb-lt), 0.4);
+    --bg-accent-transparent-alt: rgba(var(--rgb-lt), 0.6);
 
     --text-primary: var(--ltmdGrey);
     --text-secondary: var(--dkGrey);
@@ -69,6 +70,7 @@ body {
         --bg-tertiary: var(--mdGrey);
         --bg-accent: var(--ltaccent);
         --bg-accent-transparent: rgba(var(--rgb-lt), 0.2);
+        --bg-accent-transparent-alt: rgba(var(--rgb-lt), 0.4);
 
         --text-primary: var(--ltGrey);
         --text-secondary: var(--xltGrey);
@@ -93,6 +95,7 @@ body {
         --border-accent: rgba(var(--rgb-lt), 0.4);
         --bg-accent: var(--ltaccent);
         --bg-accent-transparent: rgba(var(--rgb-lt), 0.4);
+        --bg-accent-transparent-alt: rgba(var(--rgb-lt), 0.6);
         --text-accent: var(--accent);
     }
 
