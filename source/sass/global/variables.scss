@@ -45,6 +45,7 @@ body {
     --text-quaternary: var(--ltGrey);
     --text-quinary: var(--mlGrey);
     --text-accent: var(--accent);
+    --text-on-accent: var(--white);
 
     --border-primary: var(--xltGrey);
     --border-secondary: var(--ltGrey);
@@ -122,8 +123,8 @@ body {
     //Members
     &.g-20,
     .g-20 {
-        --rgb: 82, 154, 162;
-        --rgb-lt: 108, 181, 189;
+        --rgb: 97, 177, 202;
+        --rgb-lt: 130, 201, 223;
     }
     //Banned, Inactive
     &.g-5,
@@ -146,8 +147,8 @@ body {
     .g-23,
     students,
     .miscellaneous.students {
-        --rgb: 179, 73, 85;
-        --rgb-lt: 200, 107, 118;
+        --rgb: 196, 146, 183;
+        --rgb-lt: 213, 168, 201;
     }
     //Gryffindor
     &.g-7,
@@ -186,8 +187,8 @@ body {
     .g-12,
     ministry,
     .ministry {
-        --rgb: 176, 134, 84;
-        --rgb-lt: 200, 160, 112;
+        --rgb: 78, 134, 126;
+        --rgb-lt: 101, 157, 149;
     }
     //Quidditch
     &.g-13,

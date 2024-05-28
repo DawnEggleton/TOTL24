@@ -12,21 +12,36 @@ a[href=""] {
   display: none !important; }
 
 /***** Custom Defaults - Input Wraps *****/
-.input-wrap input {
-  display: none; }
-  .input-wrap input:checked ~ .fancy-input {
-    color: black; }
-
-.input-wrap .fancy-input {
-  border: 1px solid black;
-  display: flex;
+.input-wrap {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: transparent;
-  width: var(--spacing-lg);
-  height: var(--spacing-lg); }
-  .input-wrap .fancy-input.radio {
-    border-radius: 50%; }
+  gap: 5px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: var(--size-xs);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin: 0 10px; }
+  .input-wrap input {
+    display: none; }
+    .input-wrap input:checked ~ .fancy-input {
+      color: var(--text-secondary);
+      background: var(--bg-accent-transparent);
+      border-color: var(--text-secondary); }
+  .input-wrap .fancy-input {
+    border: 1px solid var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    width: 16px;
+    height: 16px;
+    border-radius: 5px;
+    font-size: 10px; }
+    .input-wrap .fancy-input.radio {
+      border-radius: 50%; }
+  .input-wrap p {
+    margin: 0; }
 
 /***** Variables for Defaults *****/
 :root {
@@ -36,22 +51,36 @@ a[href=""] {
   --spacing-lg: 30px;
   --spacing-xl: 60px;
   --menuHeight: 0;
-  --storeImageWidth: 16px; }
+  --storeImageWidth: 24px; }
 
 /***** Online List ******/
 #Online main > .tableborder:nth-of-type(2) .maintitle {
-  text-align: left;
-  margin: var(--spacing-lg) 0;
-  line-height: 160%;
-  max-width: max-content;
-  padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-lg); }
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: -0.08em;
+  font-family: var(--font-head);
+  text-transform: lowercase;
+  font-weight: 900;
+  font-style: italic;
+  margin: 30px auto;
+  line-height: 120%; }
+  @media only screen and (min-width: 480px) {
+    #Online main > .tableborder:nth-of-type(2) .maintitle {
+      font-size: calc(24px + 12 * (100vw - 480px) / (1440 - 480)); } }
+  @media only screen and (min-width: 1440px) {
+    #Online main > .tableborder:nth-of-type(2) .maintitle {
+      font-size: 36px; } }
+  #Online main > .tableborder:nth-of-type(2) .maintitle a {
+    color: var(--text-secondary);
+    font-size: 0.8em; }
   #Online main > .tableborder:nth-of-type(2) .maintitle + table {
     display: block;
     width: 100%; }
     #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
       display: grid;
       grid-template-columns: 1fr;
-      gap: var(--spacing-md); }
+      gap: 30px;
+      padding: 30px; }
       @media (min-width: 769px) {
         #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
           grid-template-columns: repeat(2, 1fr); } }
@@ -62,110 +91,78 @@ a[href=""] {
         #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
           grid-template-columns: repeat(4, 1fr); } }
       #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr {
-        padding: var(--spacing-md);
         display: flex;
-        flex-direction: column;
-        align-items: center; }
+        flex-wrap: wrap;
+        padding: 15px;
+        border: 1px solid var(--border-primary);
+        border-radius: 15px;
+        background: var(--bg-secondary); }
         #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:first-child {
           display: none; }
         #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:last-child {
-          grid-column: 1 / -1; }
-        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td {
+          grid-column: 1 / -1;
+          justify-content: center; }
+        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:not(:last-child) > td {
           display: block;
           width: 100%;
           padding: 0;
-          text-align: center; }
-          #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:first-child {
-            text-align: center; }
-            #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:first-child span.g-2:first-child,
-            #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:first-child a:first-child {
-              display: block;
-              line-height: 120%; }
-          #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:last-child:not(:only-child) {
+          text-align: center;
+          text-transform: uppercase;
+          font-size: var(--size-xs);
+          letter-spacing: 0.1em;
+          font-weight: 600;
+          line-height: 160%; }
+          #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:not(:last-child) > td a {
+            color: var(--text-accent); }
+          #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:not(:last-child) > td:first-child {
+            text-align: center;
+            text-align: center;
+            font-family: var(--font-head);
+            font-size: 18px;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: lowercase;
+            letter-spacing: 0; }
+            #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:not(:last-child) > td:first-child span.g-2,
+            #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:not(:last-child) > td:first-child a {
+              color: var(--text-secondary); }
+              #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:not(:last-child) > td:first-child span.g-2:first-child,
+              #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:not(:last-child) > td:first-child a:first-child {
+                display: block;
+                line-height: 120%; }
+          #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:not(:last-child) > td:last-child:not(:only-child) {
             display: none; }
-
-/***** Quick Reply/Options *****/
-#ST #qr_open,
-#ST #topic_open {
-  margin: 0 auto var(--spacing-lg);
-  text-align: justify;
-  padding: var(--spacing-lg); }
-
-#ST #qr_open .maintitle {
-  line-height: 160%;
-  max-width: max-content;
-  padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-lg);
-  margin-top: 0; }
-
-#ST #qr_open .tablepad {
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 0;
-  justify-content: center; }
-
-#ST #qr_open .input-wrap:first-of-type {
-  margin-right: calc(var(--spacing-md) / 2); }
-  #ST #qr_open .input-wrap:first-of-type + .input-wrap {
-    margin-left: calc(var(--spacing-md) / 2); }
-
-#ST #qr_open textarea {
-  width: 100%;
-  flex: 0 0 100%;
-  margin-top: var(--spacing-lg);
-  margin-bottom: var(--spacing-md); }
-  #ST #qr_open textarea ~ br {
-    display: none; }
-
-#ST #qr_open .input-wrap {
-  font-size: 1rem; }
-
-#ST #qr_open .qr_buttons {
-  width: 100%;
-  flex: 0 0 100%;
-  margin-top: var(--spacing-md);
-  display: flex;
-  gap: var(--spacing-md);
-  justify-content: center; }
-  #ST #qr_open .qr_buttons input {
-    margin-left: 0;
-    margin-right: 0;
-    font-size: 1rem; }
-
-#ST #qr_open #post_as_selector {
-  width: 100%;
-  flex: 0 0 100%;
-  margin: var(--spacing-md) 0 var(--spacing-xs); }
-  #ST #qr_open #post_as_selector br {
-    display: none; }
-
-#ST #topic_open .maintitle {
-  font-size: 0; }
-  #ST #topic_open .maintitle a {
-    font-size: 1rem; }
-
-#ST #topic_open .tablepad b {
-  display: block;
-  max-width: max-content;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  line-height: 160%;
-  max-width: max-content;
-  margin: var(--spacing-lg) 0 var(--spacing-xs); }
-  #ST #topic_open .tablepad b ~ br {
-    display: none; }
 
 /***** New Post/Reply ******/
 #Post main > form ~ br {
   display: none; }
 
 #Post #posting-form {
-  display: block; }
+  display: block;
+  max-width: 900px;
+  margin: 0 auto; }
+  #Post #posting-form input,
+  #Post #posting-form textarea {
+    text-align: left;
+    text-transform: none; }
   #Post #posting-form .maintitle {
     display: block;
-    text-align: center;
-    grid-column: 1 / -1 !important;
+    text-align: left;
     line-height: 160%;
-    max-width: max-content;
-    padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-lg); }
+    padding: 30px 30px 0 30px;
+    width: 100%;
+    font-family: var(--font-head);
+    text-transform: lowercase;
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: -0.08em;
+    font-style: italic; }
+    @media only screen and (min-width: 480px) {
+      #Post #posting-form .maintitle {
+        font-size: calc(24px + 12 * (100vw - 480px) / (1440 - 480)); } }
+    @media only screen and (min-width: 1440px) {
+      #Post #posting-form .maintitle {
+        font-size: 36px; } }
   #Post #posting-form > tbody {
     display: block;
     width: 100%; }
@@ -194,11 +191,17 @@ a[href=""] {
         #Post #posting-form > tbody > tr#topic-title .pformright input, #Post #posting-form > tbody > tr#topic-desc .pformright input {
           width: 100%;
           box-sizing: border-box;
-          text-transform: none; }
+          text-transform: none;
+          border-radius: 15px;
+          background: var(--bg-tertiary); }
     #Post #posting-form > tbody > tr#topic-title .pformright input {
-      padding: var(--spacing-xs) var(--spacing-md); }
+      font-size: 24px;
+      line-height: 160%;
+      padding: 30px 20px;
+      font-family: var(--font-serif); }
     #Post #posting-form > tbody > tr#topic-desc .pformright input {
-      padding: var(--spacing-xs) var(--spacing-md); }
+      padding: 20px 15px;
+      font-size: var(--size-md); }
     #Post #posting-form > tbody > tr#code-buttons {
       display: block;
       padding: var(--spacing-md); }
@@ -215,7 +218,7 @@ a[href=""] {
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons input,
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons select {
             margin: 0;
-            font-size: 1rem;
+            font-size: var(--size-md);
             line-height: 160%; }
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons > a,
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons > br {
@@ -226,8 +229,14 @@ a[href=""] {
         display: block; }
         #Post #posting-form > tbody > tr#enter-your-post > td textarea {
           width: 100%;
-          height: 400px;
-          box-sizing: border-box; }
+          height: 350px;
+          box-sizing: border-box;
+          font-size: var(--size-md);
+          line-height: 200%;
+          font-weight: normal;
+          padding: 15px;
+          border-radius: 15px;
+          background: var(--bg-tertiary); }
     #Post #posting-form > tbody > tr#post-options {
       display: block; }
       #Post #posting-form > tbody > tr#post-options .pformright {
@@ -271,9 +280,18 @@ a[href=""] {
     #Post #topic-summary {
       margin-top: var(--spacing-lg); } }
   #Post #topic-summary > .tableborder .pformstrip {
-    display: block;
     max-width: max-content;
-    padding: var(--spacing-xs) var(--spacing-sm); }
+    margin: 0 auto;
+    border: 1px solid var(--border-primary);
+    border-radius: 15px;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    font-size: var(--size-xs);
+    letter-spacing: 0.1em; }
+    #Post #topic-summary > .tableborder .pformstrip:last-child {
+      margin: 30px auto; }
+      #Post #topic-summary > .tableborder .pformstrip:last-child a {
+        color: var(--text-secondary); }
   #Post #topic-summary > .tableborder > table {
     display: block;
     margin-top: var(--spacing-md); }
@@ -282,43 +300,97 @@ a[href=""] {
         margin-top: var(--spacing-lg); } }
     #Post #topic-summary > .tableborder > table tbody {
       display: flex;
-      flex-direction: column; }
-      #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-sm);
-        padding: var(--spacing-lg); }
-        #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td {
-          padding: 0;
-          width: 100%; }
-      #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) {
+      flex-direction: column;
+      gap: 30px; }
+      #Post #topic-summary > .tableborder > table tbody tr {
         display: block;
-        padding: var(--spacing-lg);
-        margin: var(--spacing-md) 0 var(--spacing-lg); }
+        padding: 0 20px;
+        margin: 0 auto;
+        max-width: 900px;
+        width: 100%; }
+        #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) {
+          display: flex;
+          flex-direction: column;
+          margin-top: 30px; }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td {
+            padding: 0;
+            width: 100%; }
+            #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td:first-child {
+              font-family: var(--font-head);
+              text-transform: lowercase;
+              font-style: italic;
+              font-weight: 900;
+              font-size: 24px;
+              letter-spacing: -0.08em;
+              line-height: 120%; }
+              @media only screen and (min-width: 480px) {
+                #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td:first-child {
+                  font-size: calc(24px + 12 * (100vw - 480px) / (1440 - 480)); } }
+              @media only screen and (min-width: 1440px) {
+                #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td:first-child {
+                  font-size: 36px; } }
+            #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td:last-child {
+              text-transform: uppercase;
+              font-size: var(--size-xs);
+              letter-spacing: 0.1em;
+              line-height: 160%; }
         #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) td {
           display: block;
           width: 100%;
           padding: 0;
           text-align: justify;
-          line-height: 200%; }
+          line-height: 200%;
+          background: var(--bg-secondary);
+          padding: 30px;
+          border: 1px solid var(--border-primary);
+          border-radius: 30px; }
           #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) td:first-child {
             display: none; }
 
 #Post #post-preview .pformstrip {
-  display: block;
-  max-width: max-content;
-  padding: var(--spacing-xs) var(--spacing-sm); }
+  font-family: var(--font-head);
+  text-transform: lowercase;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 32px;
+  letter-spacing: -0.08em;
+  text-align: center;
+  margin: 60px auto; }
+  @media only screen and (min-width: 480px) {
+    #Post #post-preview .pformstrip {
+      font-size: calc(32px + 16 * (100vw - 480px) / (1440 - 480)); } }
+  @media only screen and (min-width: 1440px) {
+    #Post #post-preview .pformstrip {
+      font-size: 48px; } }
 
 #Post #post-preview .row1 {
-  padding: var(--spacing-lg) !important;
-  margin-top: var(--spacing-md); }
+  display: block;
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%; }
+  #Post #post-preview .row1 .postcolor {
+    display: block;
+    width: 100%;
+    padding: 0;
+    text-align: justify;
+    line-height: 200%;
+    background: var(--bg-secondary);
+    padding: 30px;
+    border: 1px solid var(--border-primary);
+    border-radius: 30px; }
 
 /***** Registration ******/
 #Reg main > .tableborder:first-of-type .tablepad b {
-  margin: var(--spacing-md) 0;
   display: block;
   max-width: max-content;
-  padding: var(--spacing-xs) var(--spacing-sm); }
+  font-family: var(--font-head);
+  text-transform: lowercase;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -1px;
+  margin: 10px 0 15px; }
   #Reg main > .tableborder:first-of-type .tablepad b + br {
     display: none; }
 
@@ -327,14 +399,25 @@ a[href=""] {
 
 #Reg main > .tableborder:first-of-type,
 #Reg main > form > .tableborder {
-  padding: var(--spacing-lg); }
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px;
+  border: 1px solid var(--border-primary);
+  border-radius: 30px;
+  background: var(--bg-secondary); }
   #Reg main > .tableborder:first-of-type .maintitle,
   #Reg main > form > .tableborder .maintitle {
     text-align: left;
-    margin: var(--spacing-lg) 0;
     line-height: 160%;
     max-width: max-content;
-    padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-lg) !important; }
+    font-family: var(--font-head);
+    text-transform: lowercase;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 24px;
+    letter-spacing: -1px;
+    margin-bottom: 15px; }
   #Reg main > .tableborder:first-of-type .tablepad b + br + br,
   #Reg main > .tableborder:first-of-type .tablepad b + br + br + br,
   #Reg main > form > .tableborder .tablepad b + br + br,
@@ -343,7 +426,8 @@ a[href=""] {
 
 #Reg main > form {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  font-size: 0; }
   #Reg main > form > br,
   #Reg main > form .maintitle + .pformstrip {
     display: none; }
@@ -359,14 +443,14 @@ a[href=""] {
           #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child,
           #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td {
             display: grid;
-            grid-template-columns: repeat(2, calc(50% - (var(--spacing-lg) / 2)));
-            gap: var(--spacing-lg); }
+            gap: 30px; }
             #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child > br,
             #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td > br {
               display: none; }
             #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset,
             #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset {
               width: 100%;
+              max-width: none;
               box-sizing: border-box; }
               #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset input,
               #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset select,
@@ -375,6 +459,10 @@ a[href=""] {
               #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset select,
               #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset textarea {
                 width: 100%; }
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset select,
+              #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset select {
+                text-align: left;
+                padding-left: 10px; }
             #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child > div > b,
             #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td > div > b {
               display: none; }
@@ -389,6 +477,11 @@ a[href=""] {
               display: block; }
           #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset {
             grid-column: 1 / -1; }
+          #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child > fieldset:nth-of-type(2) > table > tbody > tr,
+          #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child > fieldset:nth-of-type(3) > table > tbody > tr {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px; }
       #Reg main > form .tablepad > table > tbody > tr:last-child {
         display: block; }
         #Reg main > form .tablepad > table > tbody > tr:last-child > td:first-child {
@@ -406,20 +499,33 @@ a[href=""] {
             #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap {
               display: block;
               text-align: left; }
+              #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap.tos {
+                display: flex; }
               #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap .fancy-input {
                 margin-right: var(--spacing-sm); }
 
 /***** Login ******/
 #Login .textNodes {
-  padding: var(--spacing-lg); }
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px;
+  border: 1px solid var(--border-primary);
+  border-radius: 30px;
+  background: var(--bg-secondary); }
   #Login .textNodes br {
     display: none; }
   #Login .textNodes .tableborder > .maintitle {
     text-align: left;
-    margin: var(--spacing-lg) 0;
     line-height: 160%;
     max-width: max-content;
-    padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-lg); }
+    font-family: var(--font-head);
+    text-transform: lowercase;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 24px;
+    letter-spacing: -1px;
+    margin: 15px 0; }
   #Login .textNodes form .tablebasic {
     margin-bottom: var(--spacing-lg); }
     #Login .textNodes form .tablebasic:first-of-type {
@@ -446,6 +552,57 @@ a[href=""] {
 #Search main > br:nth-child(2) {
   display: none; }
 
+#Search main [name="top"] + div {
+  position: sticky;
+  top: 80px;
+  border-top: 0;
+  display: block;
+  background: var(--bg-primary);
+  padding: 10px;
+  z-index: 2;
+  text-transform: uppercase;
+  font-size: var(--size-sm);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-primary); }
+
+#Search #active-topics .maintitle,
+#Search #search-topics .maintitle {
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: -0.08em;
+  font-family: var(--font-head);
+  text-transform: lowercase;
+  font-weight: 900;
+  font-style: italic;
+  margin: 30px auto;
+  line-height: 120%; }
+  @media only screen and (min-width: 480px) {
+    #Search #active-topics .maintitle,
+    #Search #search-topics .maintitle {
+      font-size: calc(24px + 12 * (100vw - 480px) / (1440 - 480)); } }
+  @media only screen and (min-width: 1440px) {
+    #Search #active-topics .maintitle,
+    #Search #search-topics .maintitle {
+      font-size: 36px; } }
+  #Search #active-topics .maintitle a,
+  #Search #search-topics .maintitle a {
+    color: var(--text-secondary);
+    font-size: 0.8em; }
+
+#Search #active-topics .titlemedium,
+#Search #search-topics .titlemedium {
+  margin: 0 auto;
+  border: 1px solid var(--border-primary);
+  border-radius: 15px;
+  padding: 5px 15px;
+  text-transform: uppercase;
+  font-size: var(--size-xs);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  text-align: center;
+  width: max-content;
+  max-width: calc(100vw - 60px); }
+
 #Search.code-show main > #search-topics .tablebasic,
 #Search.code-getactive .tablebasic {
   display: block; }
@@ -453,11 +610,8 @@ a[href=""] {
   #Search.code-getactive .tablebasic > tbody {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--spacing-md); }
-    @media (min-width: 601px) {
-      #Search.code-show main > #search-topics .tablebasic > tbody,
-      #Search.code-getactive .tablebasic > tbody {
-        gap: var(--spacing-lg); } }
+    gap: 30px;
+    padding: 30px; }
     @media (min-width: 769px) {
       #Search.code-show main > #search-topics .tablebasic > tbody,
       #Search.code-getactive .tablebasic > tbody {
@@ -474,8 +628,10 @@ a[href=""] {
     #Search.code-getactive .tablebasic > tbody > tr {
       display: flex;
       flex-wrap: wrap;
-      padding: var(--spacing-md);
-      gap: 0 var(--spacing-md); }
+      padding: 15px;
+      border: 1px solid var(--border-primary);
+      border-radius: 15px;
+      background: var(--bg-secondary); }
       #Search.code-show main > #search-topics .tablebasic > tbody > tr:first-child,
       #Search.code-getactive .tablebasic > tbody > tr:first-child {
         display: none; }
@@ -484,7 +640,15 @@ a[href=""] {
         flex: 0 0 100%;
         width: 100%;
         text-align: left;
-        padding: 0; }
+        padding: 0;
+        text-transform: uppercase;
+        font-size: var(--size-xs);
+        letter-spacing: 0.1em;
+        font-weight: 600;
+        line-height: 160%; }
+        #Search.code-show main > #search-topics .tablebasic > tbody > tr > td a,
+        #Search.code-getactive .tablebasic > tbody > tr > td a {
+          color: var(--text-accent); }
         #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(1), #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(2), #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(7),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(1),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(2),
@@ -495,7 +659,17 @@ a[href=""] {
           order: 1; }
           #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(3) table,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(3) table {
-            padding-bottom: var(--spacing-md); }
+            font-family: var(--font-head);
+            font-style: italic;
+            font-weight: 700;
+            color: var(--text-secondary);
+            font-size: 18px;
+            letter-spacing: -1px;
+            text-transform: lowercase;
+            line-height: 160%; }
+            #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(3) table a,
+            #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(3) table a {
+              color: var(--text-secondary); }
         #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(4),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(4) {
           order: 3;
@@ -531,13 +705,7 @@ a[href=""] {
 #Search.code-getactive main > form > div:not(.pagelinks) {
   width: 100% !important; }
   #Search.code-getactive main > form > div:not(.pagelinks) fieldset {
-    margin: 0; }
-
-#Search.code-show main > div:not(.wrapmini):not(.tableborder):not(#search-topics) {
-  position: sticky;
-  top: var(--menuHeight);
-  padding: var(--spacing-md);
-  z-index: 1; }
+    margin-top: 30px !important; }
 
 #Search.code-show main #search-topics > .tableborder > .maintitle {
   padding: var(--spacing-sm) 0 var(--spacing-md) var(--spacing-md) !important; }
@@ -545,25 +713,99 @@ a[href=""] {
     display: block;
     margin-left: 0; }
 
-#Search.code-show main > .tableborder .tablebasic {
-  display: block; }
-  #Search.code-show main > .tableborder .tablebasic tbody {
-    display: flex;
-    flex-direction: column; }
-    #Search.code-show main > .tableborder .tablebasic tbody tr td {
-      padding: 0; }
-    #Search.code-show main > .tableborder .tablebasic tbody tr:first-child {
+#Search.code-show main > .tableborder {
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+  border-top: 1px solid var(--border-primary);
+  padding-top: 60px;
+  margin-top: 30px; }
+  #Search.code-show main > .tableborder .maintitle {
+    text-align: center;
+    font-size: 32px;
+    letter-spacing: -0.08em;
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-style: italic;
+    color: var(--text-secondary);
+    text-transform: lowercase; }
+    @media only screen and (min-width: 480px) {
+      #Search.code-show main > .tableborder .maintitle {
+        font-size: calc(32px + 16 * (100vw - 480px) / (1440 - 480)); } }
+    @media only screen and (min-width: 1440px) {
+      #Search.code-show main > .tableborder .maintitle {
+        font-size: 48px; } }
+    #Search.code-show main > .tableborder .maintitle a {
+      color: var(--text-secondary); }
+  #Search.code-show main > .tableborder .tablebasic {
+    display: block;
+    margin-top: var(--spacing-md); }
+    @media (min-width: 601px) {
+      #Search.code-show main > .tableborder .tablebasic {
+        margin-top: var(--spacing-lg); } }
+    #Search.code-show main > .tableborder .tablebasic tbody {
       display: flex;
       flex-direction: column;
-      padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-md);
-      line-height: 160%;
-      max-width: max-content; }
-    #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(2) {
-      margin: var(--spacing-md) 0; }
-      #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(2) td:first-child {
-        display: none; }
-    #Search.code-show main > .tableborder .tablebasic tbody tr:last-child {
-      padding: var(--spacing-sm); }
+      gap: 30px; }
+      #Search.code-show main > .tableborder .tablebasic tbody tr {
+        display: block; }
+        #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(3n + 1) {
+          display: flex;
+          flex-direction: column;
+          margin-top: 30px; }
+          #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(3n + 1) td {
+            padding: 0;
+            width: 100%; }
+            #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(3n + 1) td:first-child {
+              font-family: var(--font-head);
+              text-transform: lowercase;
+              font-style: italic;
+              font-weight: 900;
+              font-size: 24px;
+              letter-spacing: -0.08em;
+              line-height: 120%; }
+              @media only screen and (min-width: 480px) {
+                #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(3n + 1) td:first-child {
+                  font-size: calc(24px + 12 * (100vw - 480px) / (1440 - 480)); } }
+              @media only screen and (min-width: 1440px) {
+                #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(3n + 1) td:first-child {
+                  font-size: 36px; } }
+              #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(3n + 1) td:first-child a {
+                color: var(--text-secondary); }
+            #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(3n + 1) td:last-child {
+              text-transform: uppercase;
+              font-size: var(--size-xs);
+              letter-spacing: 0.1em;
+              line-height: 160%; }
+        #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(3n + 2) td {
+          display: block;
+          width: 100%;
+          padding: 0;
+          text-align: justify;
+          line-height: 200%;
+          background: var(--bg-secondary);
+          padding: 30px;
+          border: 1px solid var(--border-primary);
+          border-radius: 30px; }
+          #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(3n + 2) td:first-child {
+            display: none; }
+        #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(3n) td:first-child {
+          display: none; }
+        #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(3n) td:last-child {
+          border: 1px solid var(--border-primary);
+          border-radius: 15px;
+          padding: 5px 15px;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          font-size: var(--size-xs);
+          margin: 0 auto;
+          width: max-content;
+          max-width: 100%;
+          display: block; }
+          #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(3n) td:last-child a {
+            color: var(--text-secondary);
+            font-weight: 700; }
 
 #Search.code-show div:empty {
   display: none; }
@@ -576,6 +818,62 @@ a[href=""] {
   height: 100vh;
   padding: 0; }
   #redirect-screen .tablefill {
-    max-width: 325px;
+    max-width: 350px;
     line-height: 200%;
-    z-index: 3; }
+    z-index: 3;
+    border: 1px solid #c8c8c8;
+    border-radius: 15px;
+    background: #ebebeb;
+    padding: 15px;
+    font-size: 14px; }
+    #redirect-screen .tablefill a {
+      color: #1a1a1a;
+      text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      font-weight: 700; }
+
+/***** Board Message ******/
+#board-message {
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px;
+  border: 1px solid var(--border-primary);
+  border-radius: 30px;
+  background: var(--bg-secondary); }
+  #board-message .maintitle {
+    text-align: left;
+    line-height: 160%;
+    max-width: max-content;
+    font-family: var(--font-head);
+    text-transform: lowercase;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 24px;
+    letter-spacing: -1px;
+    margin: 15px 0; }
+    #board-message .maintitle img {
+      display: none; }
+  #board-message .tablefill .postcolor {
+    padding: 10px;
+    display: block;
+    border: 1px solid var(--border-primary);
+    border-radius: 15px; }
+    #board-message .tablefill .postcolor + br,
+    #board-message .tablefill .postcolor + br + br {
+      display: none; }
+    #board-message .tablefill .postcolor ~ b {
+      text-align: left;
+      line-height: 160%;
+      max-width: max-content;
+      font-family: var(--font-head);
+      text-transform: lowercase;
+      font-weight: 900;
+      font-style: italic;
+      font-size: 24px;
+      letter-spacing: -1px;
+      margin: 15px 0; }
+  #board-message a {
+    color: var(--text-secondary);
+    font-weight: 700; }

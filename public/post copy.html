@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Site Name</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--Styles-->
+<link rel="stylesheet" href="../dist/css/styles.css" />
+
+<!--Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+<!--Icons-->
+<link href="https://dawneggleton.github.io/css/all.css" rel="stylesheet" />
+
+<!--Script Libraries-->
+<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
+<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="../dist/js/clipboard.js"></script>
+<script src="../dist/js/functions.js"></script>
+
+<!--Settings-->
+<script type='text/javascript' src='../dist/js/settings.js'></script>
+<link rel="stylesheet" href="../dist/css/settings.css" />
+
+<script>
+    const localUCPLinks = `<div class="accordion--trigger" data-category="account"><b>Account</b></div>
+        <div class="accordion--content" data-category="account">
+            <a href="./user-edit.html">Edit Profile</a>
+            <a href="./user-avatar.html">Update Avatar</a>
+            <a href="./user-accounts.html">Sub-accounts</a>
+            <a href="./user-name.html">Edit Username</a>
+            <a href="./user-pass.html">Change Password</a>
+            <a href="./user-email.html">Update Email</a>
+        </div>
+        <div class="accordion--trigger" data-category="messages"><b>Messages</b></div>
+        <div class="accordion--content" data-category="messages">
+            <a href="./user-inbox.html">Inbox</a>
+            <a href="./user-sendmessage.html">Send Message</a>
+            <a href="./user-viewmessage.html">View Message</a>
+        </div>
+        <div class="accordion--trigger" data-category="tracking"><b>Tracking</b></div>
+        <div class="accordion--content" data-category="tracking">
+            <a href="./user-alerts.html">Alerts</a>
+            <a href="./user-forums.html">Forums</a>
+            <a href="./user-forum-none.html">Forums (None)</a>
+            <a href="./user-topics.html">Topics</a>
+            <a href="./user-topics-none.html">Topics (None)</a>
+        </div>
+        <div class="accordion--trigger" data-category="settings"><b>Settings</b></div>
+        <div class="accordion--content" data-category="settings">
+            <a href="./user-boardset.html">Board</a>
+            <a href="./user-alertset.html">Alerts</a>
+            <a href="./user-emailset.html">Emails</a>
+        </div>`;
+
+    const localStoreLinks = `<a href="./store.html" class="accordion--link" data-category="home">Home</a>
+        <div class="accordion--trigger" data-category="shop"><b>Shop</b></div>
+        <div class="accordion--content" data-category="shop">
+            <a href="./store-category.html">Category</a>
+        </div>
+        <div class="accordion--trigger" data-category="personal"><b>Personal</b></div>
+        <div class="accordion--content" data-category="personal">
+            <a href="./store-inventory.html">Inventory</a>
+            <a href="./store-sendmoney.html">Send Money</a>
+            <a href="./store-senditem.html">Send Item</a>
+            <a href="./store-useitem.html">Use Item</a>
+        </div>
+        <div class="accordion--trigger staffOnly" data-category="staff"><b>Staff</b></div>
+        <div class="accordion--content staffOnly" data-category="staff">
+            <a href="./store-fine.html" class="staffOnly">Fine</a>
+            <a href="./store-editpoints.html" class="staffOnly">Edit Points</a>
+            <a href="./store-editpoints-screen2.html" class="staffOnly">Edit Points (pt2)</a>
+            <a href="./store-edititems.html" class="staffOnly">Edit Inventory</a>
+            <a href="./store-edititems-screen2.html" class="staffOnly">Edit Inventory (pt2)</a>
+        </div>`;
+</script>  
+    </head>
+    <body id="ST" class="g-4">
+        <nav class="nav--main">
+    <div class="nav--left">
+        <button title="Open Menu" onClick="toggleSideMenu(this)" class="button--menu">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="../public/index.html" title="Home" class="notMobile"><i class="fa-solid fa-home"></i></a>
+        <a href="../public/webpage.html" title="Guidebook" class="notMobile"><i class="fa-solid fa-books"></i></a>
+        <a href="../public/profile.html" title="View First Last" class="memOnly notMobile"><i class="fa-solid fa-user"></i></a>
+        <a href="../public/usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pencil"></i></a>
+        <a href="../public/usercp/user-inbox.html" title="Inbox (0)" data-new="0" class="memOnly notMobile"><i class="fa-solid fa-envelope"></i></a>
+        <a href="/" title="Alerts (0)" data-new="1" class="memOnly"><i class="fa-solid fa-bell"></i></a>
+        <button title="Switch Accounts" class="popup memOnly" data-modal="switch"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        <a href="../public/defaults/login.html" title="Logout" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
+        <a href="../public/store/store.html" title="Store" class="memOnly notMobile"><i class="fa-solid fa-store"></i></a>
+        <a href="https://discord.gg/c67nREygaA" title="Join Discord" class="notMobile"><i class="fa-brand fa-discord"></i></a>
+        <a href="/admin.php" title="Admin CP" target="_blank" class="staffOnly notMobile"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+        <button title="Login" class="guestOnly"><i class="fa-solid fa-sign-in"></i></button>
+        <a href="../public/defaults/register1.html" title="Register" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
+    </div>
+    <div class="nav--right">
+        <button title="Open Menu" onClick="toggleOptionsMenu(this)" class="button--menu">
+            <i class="fa-solid fa-cog"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="#top"><i class="fa-solid fa-angle-up"></i></a>
+        <a href="#bottom"><i class="fa-solid fa-angle-down"></i></a>
+    </div>
+</nav>
+<nav class="nav--breadcrumb">
+    <div id="navstrip" align="left">&nbsp;<a href="../public/index.html">Site Name</a></div>
+</nav>
+<nav class="nav--popout">
+    <div class="scroll">
+        <a href="../public/profile.html" class="memOnly character-block">
+            <div style="background-image: url(https://picsum.photos/250);"></div>
+				<b>Duncan O'Donnelly-Taggart</b>
+        </a>
+        <a href="../public/usercp/user-inbox.html" class="memOnly onlyMobile">Inbox (0)</a>
+	    <a href="../public/webpage.html" class="onlyMobile">Guidebook</a>
+	    <a href="?act=store" class="onlyMobile memOnly">Store</a>
+	    <a href="https://discord.gg/c67nREygaA" class="onlyMobile memOnly">Join the Discord</a>
+	    <a href="/admin.php" target="_blank" class="onlyMobile staffOnly">Admin CP</a>
+	    <tag-code>
+	        <button onclick="highlightCode()" class="copyQuick">copy</button>
+	        <pre><textarea class="scroll">tbd</textarea></pre>
+	    </tag-code>
+	</div>
+</nav>
+<nav class="nav--options">
+    <button title="Toggle color mode" onClick="toggleTheme()" class="toggle--theme">
+        <i class="fa-solid fa-sun"></i>
+        <div><span></span></div>
+    </button>
+    <button title="Toggle font size" onClick="toggleSize()" class="toggle--size">
+        <i class="fa-solid fa-font-case"></i>
+        <div><span></span></div>
+    </button>
+</nav>
+<div class="invisibleEl"></div>
+        <header class="header">
+    <a href="../public/index.html">
+        <h1>Turn on the Light</h1>
+        <span>Turn on the Light</span>
+        <p>A Semi-Private Post-Potter Site Set in 2008</p>
+    </a>
+    <div class="header--calendar"><b class="calendar-month">March 2008</b>
+
+        <!-- days -->
+        <span class="calendar-day cal-day">S</span>
+        <span class="calendar-day cal-day">M</span>
+        <span class="calendar-day cal-day">T</span>
+        <span class="calendar-day cal-day">W</span>
+        <span class="calendar-day cal-day">T</span>
+        <span class="calendar-day cal-day">F</span>
+        <span class="calendar-day cal-day">S</span>
+          
+        <!-- starting empty days -->
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        
+        
+        <!-- actual days -->
+        <span class="event">1</span>
+        <span class="event">2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span class="event">7</span>
+        <span class="event">8</span>
+        <span class="event">9</span>
+        <span>10</span>
+        <span>11</span>
+        <span>12</span>
+        <span>13</span>
+        <span class="event">14</span>
+        <span class="event">15</span>
+        <span class="event">16</span>
+        <span>17</span>
+        <span>18</span>
+        <span>19</span>
+        <span>20</span>
+        <span class="event">21</span>
+        <span class="event">22</span>
+        <span class="event">23</span>
+        <span class="event">24</span>
+        <span>25</span>
+        <span>26</span>
+        <span>27</span>
+        <span class="event">28</span>
+        <span class="event">29</span>
+        <span class="event">30</span>
+        <span class="event">31</span>
+    </div>
+</header>
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+		
+                
+            <!--Post Row Defaults-->
+            <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                    <tr>
+                        <td width="20%" nowrap="nowrap" align="left">
+                            <span class="pagination">
+                                <span class="pagination_pagetxt">
+                                    <a title="Jump to page..." href="javascript:multi_page_jump('?showtopic=1556',69,15);" class="">
+                                        Pages:
+                                    </a> 
+                                    (5)
+                                </span>
+                                &nbsp;
+                                <span class="pagination_current">
+                                    <b>1</b>
+                                </span>
+                                &nbsp;
+                                <a href="?showtopic=1556&amp;st=15" class="pagination_page">2</a>
+                                &nbsp;
+                                <a href="?showtopic=1556&amp;st=30" class="pagination_page">3</a>
+                                &nbsp;...&nbsp;
+                                <a href="?showtopic=1556&amp;st=60" title="Page: 5" class="pagination_last">Last »</a>
+                            </span>
+                            &nbsp;
+                            <span class="goto-firstunread">( 
+                                <a href="?act=ST&amp;f=154&amp;t=1556&amp;view=getnewpost">Go to first unread post</a> 
+                            )</span>
+                        </td>
+                        <td width="80%" align="right">
+                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button">Add Reply</span></a>
+                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a new topic"><span class="macro--button">New Topic</span></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+
+            <div class="tableborder">
+                <div class="maintitle">
+                    <span class="topic-title-space">&nbsp;</span>
+                    <span class="topic-title">Topic Title Goes Here</span>
+                    <span class="topic-desc">Topic Description Goes Here</span>
+                </div>
+                <!--{IBF.POLL}-->
+                <div class="postlinksbar" align="right">
+                    <strong>
+                        <!--{IBF.START_NEW_POLL}-->
+                        <a href="?act=Track&amp;f=1&amp;t=1">Track This Topic</a> | 
+                        <a href="?act=Forward&amp;f=1&amp;t=1">Email This Topic</a> | 
+                        <a href="?act=Print&amp;client=printer&amp;f=1&amp;t=1">Print This Topic</a>
+                    </strong>
+                </div>
+                
+                <!--Post Content-->
+                <a name='entry1' class="anchorLink"></a>
+                <section class="post g-8 p-1">
+                    <div class="post--left">
+                        <div class="post--sticky">
+                            <div class="post--name">
+                                <div class="post--actions">
+                                    <a href="/">Edit</a>
+                                    <a href="/">Quote</a>
+                                    <a href="/">Report</a>
+                                    <a href="/">Delete</a>
+                                </div>
+                                <h1><b>Duncan</b><span>O'Donnelly-Taggart</span></h1>
+                                <div class="post--links">
+                                    <a href="./profile-member.html">Directory</a>
+                                    <a href="./post.html">Development</a>
+                                    <a href="./post.html">Wanted</a>
+                                    <a href="">Custom</a>
+                                    <a href="./defaults/usertopics.html">Topics</a>
+                                    <a href="./defaults/userposts.html">Posts</a>
+                                    <a href="./usercp/user-sendmessage.html">Message</a>
+                                </div>
+                            </div>
+                            <div class="post--avatar">
+                                <div class="post--image">
+                                    <img src="https://64.media.tumblr.com/c84f51ddbbab07c792a00af21815dd78/tumblr_pyljuakclp1vz2ghao8_400.jpg" />
+                                </div>
+                                <div class="post--mini">
+                                    <div class="post--mini-slide is-active"></div>
+                                    <div class="post--mini-slide">
+                                        <div class="post--mini-slide-inner charOnly">
+                                            <div class="scroll">
+                                                <div class="post--item">
+                                                    <strong>pronouns</strong>
+                                                    <span>he/him</span>
+                                                </div>
+                                                <div class="post--item">
+                                                    <strong>age</strong>
+                                                    <span>37 years old</span>
+                                                </div>
+                                                <div class="post--item">
+                                                    <strong>occupation</strong>
+                                                    <span>librarian</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post--mini-slide">
+                                        <div class="post--mini-slide-inner">
+                                            <div class="scroll">
+                                                <div class="post--item">
+                                                    <strong>alias</strong>
+                                                    <span>lux</span>
+                                                </div>
+                                                <div class="post--item">
+                                                    <strong>pronouns</strong>
+                                                    <span>she/her</span>
+                                                </div>
+                                                <div class="post--item">
+                                                    <strong>bank</strong>
+                                                    <span>2850</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post--mini-slide">
+                                        <div class="post--mini-slide-inner">
+                                            <div class="scroll">
+                                                <div class="post--item">
+                                                    <strong>please avoid</strong>
+                                                    <span class="triggers">
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                                                    </span>
+                                                </div>
+                                                <div class="post--item">
+                                                    <strong>awards</strong>
+                                                    <span class="awards">
+                                                        <img src="https://i.postimg.cc/qvxfdRFS/joined-in-the-first-month.png"> <img src="https://i.postimg.cc/bw8MLPvT/one_month.png"> <img src="https://i.postimg.cc/XYVHdg21/posted_a_playlist.png"> <img src="https://i.postimg.cc/zXPbFzpm/three-month.png"> <img src="https://i.postimg.cc/zfykF2T7/seer.png"> <img src="https://i.postimg.cc/J722wJzG/halfblood.png"> <img src="https://i.postimg.cc/HxfvMDKb/pet-owner.png"> <img src="https://i.postimg.cc/bNMr26Np/went-to-hogwarts.png"> <img src="https://i.postimg.cc/yx1BwR1f/cancer.png"> <img src="https://i.postimg.cc/Dyc5vX2r/queer.png"> <img src="https://files.jcink.net/uploads/whenthemomentcomes/Awards/flag_british.svg"> <img src="https://i.postimg.cc/Qt5kRB4W/romantic.png"> <img src="https://i.postimg.cc/T3zKBtZC/traveller.png"> <img src="https://i.postimg.cc/QdKFDXgh/quiet.png"> <img src="https://i.postimg.cc/ZYHy0Fd5/temperamence.png"> <img src="https://i.postimg.cc/T10m6nrh/six_months.png"> <img src="https://files.jcink.net/uploads/totl/careerfair.svg"> <img src="https://i.postimg.cc/XvYPSgdB/one_year.png"> <img src="https://i.postimg.cc/RV85TyHp/eighteen-months.png"> <img src="https://files.jcink.net/uploads/totl/beltane.svg"> 
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="post--mini-nav">
+                                    <button class="post--arrow arrow-left"><i class="fa-light fa-long-arrow-left"></i></button>
+                                    <button class="post--arrow arrow-right"><i class="fa-light fa-long-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post--right">
+                        <div id="pid_0"><div class='postcolor'>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet nunc laoreet, fringilla neque eu, aliquam urna. Quisque sagittis nunc id dignissim placerat. Curabitur congue, mauris ac ultrices efficitur, tortor nibh mattis arcu, et lobortis elit magna id ipsum. Mauris a turpis quis lorem efficitur mollis nec quis ante. Morbi ullamcorper venenatis metus, eget pretium diam. Suspendisse potenti. Nunc ipsum dolor, molestie nec malesuada vitae, gravida quis sem. Vestibulum ultricies sagittis ipsum at varius. Fusce dapibus mattis leo quis tempus. Etiam mollis enim sit amet massa vulputate, eu cursus orci varius. Donec in consequat mi. Nulla efficitur interdum mauris, quis scelerisque leo volutpat posuere. Etiam quis quam ut ante tristique mollis. Nam eros nulla, hendrerit sit amet dapibus sit amet, dignissim quis odio. Vivamus sollicitudin neque nec diam pellentesque, sed luctus lectus aliquet.<br><br>
+                            
+                            Pellentesque interdum sodales tortor in condimentum. Pellentesque et quam eu odio pellentesque molestie dapibus luctus orci. Aliquam porta tortor eget consequat posuere. Praesent fermentum tempor tortor, eu efficitur nisl mattis a. Nunc enim mauris, tincidunt at feugiat nec, suscipit vitae purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sodales ex sed metus tristique venenatis. Praesent quis euismod elit, semper varius erat. Nunc quis purus dignissim, tristique velit at, porttitor odio. Morbi ac ipsum at nisl cursus malesuada. Donec non congue nunc.<br><br>
+                            
+                            Fusce ultricies elementum accumsan. Vestibulum ultricies, nunc eu pellentesque luctus, ante magna molestie purus, non rhoncus justo mauris eu tortor. Cras et porttitor nunc, nec varius nibh. Ut id rutrum ex. Suspendisse imperdiet purus ac volutpat rutrum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse efficitur lacus sit amet urna ornare volutpat. Aliquam erat volutpat. Praesent egestas nulla non augue ornare eleifend. Donec posuere orci lectus, eget imperdiet quam fringilla vel. Interdum et malesuada fames ac ante ipsum primis in faucibus.<br><br>
+                            
+                            Curabitur pulvinar vulputate nibh. Vestibulum consequat tempus ornare. Pellentesque magna arcu, egestas sed condimentum id, dignissim sed lectus. Fusce et leo maximus, luctus augue eget, vulputate elit. Donec ultricies eros volutpat purus feugiat tincidunt. Fusce sit amet nisl vitae nulla scelerisque mattis. Nam ultricies turpis vel lorem elementum, vel dignissim diam vehicula. Duis ac malesuada sem. Praesent iaculis ex nunc, vitae iaculis massa rutrum vitae. Etiam faucibus, lacus non ullamcorper congue, mauris ex lacinia lectus, pretium euismod diam risus et eros. Cras eu diam tempus, vestibulum orci nec, tristique mi. Maecenas id erat ut nisl dictum malesuada dapibus eu velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi at erat sodales, porttitor est egestas, tincidunt erat. Suspendisse sed arcu et orci eleifend laoreet vel vitae velit. Etiam porttitor ante eget fringilla mollis.<br><br>
+                            
+                            Integer felis est, consequat quis congue quis, vestibulum sed lectus. Nunc ac rutrum sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac mattis augue. Curabitur lectus massa, elementum in pulvinar vitae, tincidunt eu lectus. Suspendisse lobortis, urna id imperdiet maximus, diam ante sodales nisi, sit amet mattis felis libero et leo. Duis ligula elit, interdum sed eros nec, finibus commodo sapien. Praesent varius pellentesque ipsum et blandit. Nullam suscipit sagittis elit, a pretium nisl faucibus condimentum. Duis mattis lorem magna. Nullam dapibus arcu ac fermentum dignissim. Ut id elementum lacus. Sed porta blandit ante eget egestas. Nam elementum sollicitudin tristique. Integer a pellentesque velit. Suspendisse potenti.
+                        </div></div>
+                        <div class="post--date">
+                            Posted May 11 2024, 6:52 PM
+                        </div>
+                    </div>
+                </section>
+
+                <!--Remaining Defaults-->
+                <div class="activeuserstrip">1 User(s) are reading this topic (0 Guests and 0 Anonymous Users)</div>
+                <div class="row2" style="padding:6px">
+                    1 Members: 
+                    <a href="?showuser=1">lux</a>
+                </div>
+                <div class="activeuserstrip" align="center">
+                    <!--SOCIAL_BOOKMARKS-->
+                     « <a href="?showtopic=1&amp;view=old">Next Oldest</a> | 
+                     <strong><a href="?showforum=1">Features: All</a></strong> | 
+                     <a href="?showtopic=1&amp;view=new">Next Newest</a> »
+                </div>
+                      
+            </div>
+                 
+            <br>
+            <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                    <tr>
+                        <td width="20%" nowrap="nowrap" align="left">
+                            <a href="javascript:$('#topic_open').toggle();void(0);" title="Open Topic Options"><span class="macro--button">Topic Options</span></a>
+                        </td>
+                        <td width="80%" align="right">
+                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button">Add Reply</span></a>
+                            <a href="javascript:ShowHide('qr_open','qr_closed');" title="Open Fast Reply Window" accesskey="f"><span class="macro--button">Fast Reply</span></a>
+                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a new topic"><span class="macro--button">New Topic</span></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <br>
+            <div id="qr_open" style="display:none;position:relative;" align="left">
+                <form name="REPLIER" action="?" method="post">
+                    <input type="hidden" name="act" value="Post">
+                    <input type="hidden" name="CODE" value="03">
+                    <input type="hidden" name="f" value="1">
+                    <input type="hidden" name="t" value="1">
+                    <input type="hidden" name="st" value="0">
+                    <input type="hidden" name="enabletrack" value="0">
+                    <input type="hidden" name="auth_key" value="c2f225f4f7de24d8c997a8cef2a9092e">
+                    <!-- TITLE DIV -->
+                    <div class="tableborder">
+                        <div class="maintitle">&nbsp;Fast Reply</div>
+                        <div class="tablepad" align="center">
+                            <textarea cols="70" rows="8" name="Post" class="textinput" tabindex="1"></textarea>
+                            <br><br>
+                            <a href="javascript:emo_pop();">Show Smilies Pop Up Window</a> |
+                            <input type="checkbox" name="enableemo" value="yes" class="checkbox" checked="checked">
+                            &nbsp;Enable Smilies |
+                            <input type="checkbox" name="enablesig" value="yes" class="checkbox" checked="checked">
+                            &nbsp;Enable Signature
+                            <br><br>
+                            <!--POST AS FIELD-->
+                            <input type="submit" name="submit" value="Add Reply" class="forminput" tabindex="2" accesskey="s">
+                            &nbsp;
+                            <input type="submit" name="preview" value="More Options" class="forminput">
+                            &nbsp;&nbsp; 
+                            <input type="button" name="qrc" onclick="ShowHide('qr_open','qr_closed');" value="Close Fast Reply" class="forminput">
+                        </div>
+                    </div>
+                </form>
+            </div>
+                
+            <div id="topic_open" style="display:none;z-index:2;">
+                <div class="tableborder">
+                    <div class="maintitle">&nbsp;
+                        <a href="javascript:$('#topic_open').toggle();void(0);">Close Topic Options</a>
+                    </div>
+                    <div class="tablepad">
+                        <b><a href="?act=Track&amp;f=1&amp;t=1">Track This Topic</a></b>
+                        <br>
+                        <span class="desc">Receive email notification when a reply has been made to this topic and you are not active on the board.</span>
+                        <br><br>
+                        <b><a href="?act=Track&amp;f=1&amp;type=forum">Subscribe to this forum</a></b>
+                        <br>
+                        <span class="desc">Receive email notification when a new topic is posted in this forum and you are not active on the board.</span>
+                        <br><br>
+                        <b><a href="?act=Print&amp;client=choose&amp;f=1&amp;t=1">Download / Print this Topic</a></b>
+                        <br>
+                        <span class="desc">Download this topic in different formats or view a printer friendly version.</span>
+                    </div>
+                </div>
+            </div>
+            <br>
+                
+            <div class="bar" style="padding: 5px;">
+                <div style="float: right; text-align: right;">
+                    <form name="mod_post_options" method="post" action="?act=Mod&amp;CODE=indvp&amp;f=1&amp;t=1">
+                        <input type="hidden" value="" id="selected_posts" name="selected_posts">
+                        <input type="hidden" name="act" value="Mod">
+                        <input type="hidden" name="auth_key" value="c2f225f4f7de24d8c997a8cef2a9092e">
+                        <input type="hidden" name="st" value="0">
+                        <select class="forminput" name="tact">
+                            <option value="delete">Delete Posts</option>
+                            <option value="split">Split Posts</option>
+                            <option value="approve">Set Visible (Approve Post)</option>
+                            <option value="unapprove">Set Invisible (Unapprove Post)</option>
+                        </select>
+                        <input type="submit" name="go" id="mod_posts_submit" value="With Selected (0)" class="forminput">
+                    </form>
+                </div>
+                <div>
+                    <form method="POST" style="display:inline" name="modform" action="?">
+                        <input type="hidden" name="t" value="1">
+                        <input type="hidden" name="f" value="1">
+                        <input type="hidden" name="st" value="0">
+                        <input type="hidden" name="auth_key" value="c2f225f4f7de24d8c997a8cef2a9092e">
+                        <input type="hidden" name="act" value="Mod">
+                        <select name="CODE" class="forminput">
+                            <option value="-1" style="color:black">Moderation Options</option>
+                            <option value="35">Pin as Announcement</option>
+                            <option value="36">Unpin as Announcement</option>
+                            <option value="02">Move this topic</option>
+                            <option value="00">Close this topic</option>
+                            <option value="03">Delete this topic</option>
+                            <option value="05">Edit Topic Title</option>
+                            <option value="15">Pin this Topic</option>
+                            <option value="30">Unsubscribe all from topic</option>
+                            <option value="60">Merge Topic</option>
+                            <option value="50">Mass Split Topic</option>
+                            <option value="90">View Topic History (Admin Option)</option>
+                        </select>
+                        &nbsp;
+                        <input type="submit" value="Go" class="forminput">
+                    </form>     
+                </div>
+            </div>
+                
+            <br>
+            <div align="right">
+                <form action="?act=SF" method="get" name="jumpmenu">
+                    <input type="hidden" name="act" value="SF">
+                    <input type="hidden" name="s" value="">
+                    <select name="f" class="forminput">
+                        <optgroup label="Site Jump">
+                            <option value="sj_home">Forum Home</option>
+                            <option value="sj_search">Search</option>
+                            <option value="sj_help">Help</option>
+                        </optgroup>
+                        <optgroup label="Forum Jump">
+                            <option value="-1">Three In a Row</option>
+                            <option value="1" selected="selected">&nbsp;&nbsp;- Features: All </option><!--fx:1-->
+                            <option value="7">  ---- Features: Image, Manual Links</option>
+                            <option value="8">  ---- Features: Nothing</option>
+                            <option value="2">&nbsp;&nbsp;- Features: Image, Description </option><!--fx:2-->
+                            <option value="3">&nbsp;&nbsp;- Features: Image Only </option><!--fx:3-->
+                            <option value="-1">Two in a Row</option>
+                            <option value="4">&nbsp;&nbsp;- Features: Description, Manual Links </option><!--fx:4-->
+                            <option value="5">&nbsp;&nbsp;- Features: Description Only </option><!--fx:5-->
+                            <option value="-1">One in a Row</option>
+                            <option value="6">&nbsp;&nbsp;- Features: Manual Links Only </option><!--fx:6-->
+                        </optgroup>
+                    </select>&nbsp;
+                    <input type="submit" value="Go" class="forminput">
+                </form>
+                <br><br>
+                <form action="?" method="post" name="SearchForm">
+                    <input type="hidden" name="act" value="Search">
+                    <input type="hidden" name="CODE" value="01">
+                    <input type="hidden" name="t" value="1">
+                    <input type="hidden" name="forums[]" value="1">
+                    <input type="hidden" name="searchtopic" value="1">
+                    <input type="hidden" name="result_type" value="posts">
+                    <input type="hidden" name="search_in" value="posts">
+                    <input type="hidden" name="sort_key" value="post_date">
+                    <input type="hidden" name="sort_order" value="asc">
+                    <input type="text" name="keywords" value="Search this thread" size="30" maxlength="60" class="textinput" onfocus="this.value=''">&nbsp;
+                    <input type="submit" value="Go" class="forminput">
+                </form>
+            </div>
+            <br>
+                 
+            <!-- Copyright Information -->
+            <div class="tableborder" align="center">
+                <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                    <div class="copyright" align="center">
+                        Powered by 
+                        <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                        (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                        <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                        ) © 2020 &nbsp;
+                        <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                        <br>
+                        Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                        <a href="index.php?act=Mobile">Mobile Version</a> · 
+                        <a href="index.php?act=privacy">Privacy Policy</a>
+                    </div>
+                </div>
+            </div> 
+        </main>
+        
+        <div data-modal-box="switch" class="modal">
+	<div class="modal--close"><span><i class="fa-solid fa-xmark"></i></span></div>
+	<div id="account-switch">
+        <span id="subaccounts_menu">
+            <form action="https://totl.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
+            <input type="hidden" name="auth_key" value="c7667d50c5de503233d4240de12e6b54">
+            <input type="hidden" name="UserName" value="subacct">
+            <input type="hidden" name="PassWord" value="subacct">
+            <input type="hidden" name="referer" value="">
+            <select class="forminput" name="sub_id" onchange="this.form.submit()">
+            <option value="------------" selected="selected">Switch Account</option>
+            <option value="157"> adaline fawley </option><option value="669"> archer reid </option><option value="1147"> avery hayes </option><option value="670"> bryn williams </option><option value="1146"> cameron towner </option><option value="57"> connor king </option><option value="395"> darcy de león </option><option value="906"> diana crawford </option><option value="1578"> diego serrano alvarez </option><option value="408"> draco malfoy </option><option value="58"> duncan taggart </option><option value="705"> ellis hill </option><option value="273"> emmalina fawley </option><option value="1577"> everest wilkes </option><option value="901"> gavin dunbar </option><option value="750"> heiko reynders </option><option value="1088"> hiroki becker </option><option value="1145"> irina saidova </option><option value="315"> lottie fox </option><option value="56"> magnolia atwood </option><option value="1089"> marica kovac </option><option value="112"> milo nott </option><option value="54"> nikolas kovac </option><option value="314"> noah clark </option><option value="482"> percy weasley </option><option value="994"> rebecca warrington </option><option value="60"> tobias fletcher </option><option value="1148"> william talbot </option>
+            </select>
+            </form>
+        </span>
+    </div>
+</div>
+<div id="quick-login-clip" data-modal-box="login" class="modal">
+	<div class="modal--close"><span><i class="fa-solid fa-xmark"></i></span></div>
+    <div id="quick-login" class="hidden">
+        <form style="display:inline" action="https://godlybehaviour.jcink.net/index.php?act=Login&amp;CODE=01&amp;CookieDate=1" method="post">
+        <div align="right"><strong>Quick Log In</strong>
+        <input type="text" class="forminput" size="10" name="UserName" onfocus="this.value=''" value="User Name" placeholder="Username">
+        <input type="password" class="forminput" size="10" name="PassWord" onfocus="this.value=''" value="ibfrules" placeholder="Password">
+        <input type="submit" class="forminput" value="Go">
+        </div>
+        </form>
+    </div>
+</div>
+<script src="../dist/js/scripts.js"></script>   
+    </body>
+</html>

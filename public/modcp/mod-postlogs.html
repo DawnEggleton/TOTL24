@@ -6,6 +6,7 @@
 
 <!--Styles-->
 <link rel="stylesheet" href="../../dist/css/styles.css" />
+<link rel="stylesheet" href="../../dist/css/templates.css" />
 
 <!--Fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,13 +22,70 @@
 <!--Script Libraries-->
 <script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
 <script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
 <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="../../dist/js/clipboard.js"></script>
 <script src="../../dist/js/functions.js"></script>
 
 <!--Settings-->
 <script type='text/javascript' src='../../dist/js/settings.js'></script>
-<link rel="stylesheet" href="../../dist/css/settings.css" />   
+<link rel="stylesheet" href="../../dist/css/settings.css" />
+
+<script>
+    const localUCPLinks = `<div class="accordion--trigger" data-category="account"><b>Account</b></div>
+        <div class="accordion--content" data-category="account">
+            <a href="./user-edit.html">Edit Profile</a>
+            <a href="./user-avatar.html">Update Avatar</a>
+            <a href="./user-accounts.html">Sub-accounts</a>
+            <a href="./user-name.html">Edit Username</a>
+            <a href="./user-pass.html">Change Password</a>
+            <a href="./user-email.html">Update Email</a>
+        </div>
+        <div class="accordion--trigger" data-category="messages"><b>Messages</b></div>
+        <div class="accordion--content" data-category="messages">
+            <a href="./user-inbox.html">Inbox</a>
+            <a href="./user-sendmessage.html">Send Message</a>
+            <a href="./user-viewmessage.html">View Message</a>
+        </div>
+        <div class="accordion--trigger" data-category="tracking"><b>Tracking</b></div>
+        <div class="accordion--content" data-category="tracking">
+            <a href="./user-alerts.html">Alerts</a>
+            <a href="./user-forums.html">Forums</a>
+            <a href="./user-forum-none.html">Forums (None)</a>
+            <a href="./user-topics.html">Topics</a>
+            <a href="./user-topics-none.html">Topics (None)</a>
+        </div>
+        <div class="accordion--trigger" data-category="settings"><b>Settings</b></div>
+        <div class="accordion--content" data-category="settings">
+            <a href="./user-boardset.html">Board</a>
+            <a href="./user-alertset.html">Alerts</a>
+            <a href="./user-emailset.html">Emails</a>
+        </div>`;
+
+    const localStoreLinks = `<a href="./store.html" class="accordion--link" data-category="home">Home</a>
+        <div class="accordion--trigger" data-category="shop"><b>Shop</b></div>
+        <div class="accordion--content" data-category="shop">
+            <a href="./store-category.html">Category</a>
+        </div>
+        <div class="accordion--trigger" data-category="personal"><b>Personal</b></div>
+        <div class="accordion--content" data-category="personal">
+            <a href="./store-inventory.html">Inventory</a>
+            <a href="./store-sendmoney.html">Send Money</a>
+            <a href="./store-senditem.html">Send Item</a>
+            <a href="./store-useitem.html">Use Item</a>
+        </div>
+        <div class="accordion--trigger staffOnly" data-category="staff"><b>Staff</b></div>
+        <div class="accordion--content staffOnly" data-category="staff">
+            <a href="./store-fine.html" class="staffOnly">Fine</a>
+            <a href="./store-editpoints.html" class="staffOnly">Edit Points</a>
+            <a href="./store-editpoints-screen2.html" class="staffOnly">Edit Points (pt2)</a>
+            <a href="./store-edititems.html" class="staffOnly">Edit Inventory</a>
+            <a href="./store-edititems-screen2.html" class="staffOnly">Edit Inventory (pt2)</a>
+        </div>`;
+</script>   
     </head>
     <body id="modcp" class="dark g-4 code-modlogs">
         <header class="header">

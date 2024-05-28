@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @@include('../source/templates/head.html', {
+            "prefix": "../dist"
+        })  
+    </head>
+    <body id="Pages" class="g-4">
+        @@include('../source/templates/nav.html', {
+              "prefix": ".."
+        })
+        @@include('../source/templates/header.html', {
+            "prefix": ".."
+        })
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+		
+		
+            <div id="loading">
+                <div class="loading-bubble">
+                    <i class="fa-regular fa-spinner fa-spin"></i>
+                    <p>Loading</p>
+                </div>
+            </div>
+
+            <section class="webpage">
+                <div class="webpage--menu">
+                    <h1>students<span>claims</span></h1>
+                    <div class="webpage--menu-inner">
+                        <div class="accordion scroll">
+                            <tag-label class="tab-category accordion--trigger" data-category="classes">
+                                <span>Class Lists</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="classes"></div>
+                            <tag-label class="tab-category accordion--trigger" data-category="dorms">
+                                <span>Dormitories</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="dorms"></div>
+                            <tag-label class="tab-category accordion--trigger" data-category="quidditch">
+                                <span>Quidditch</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="quidditch"></div>
+                            <tag-label class="tab-category accordion--trigger" data-category="leadership">
+                                <span>Leadership</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="leadership"></div>
+                            <tag-label class="tab-category accordion--trigger" data-category="external">
+                                <span>External Schools</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="external"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="webpage--content">
+                    <div class="scroll">
+                        <tag-tab class="tab-category" data-category="classes">
+                            <tag-tabset>
+                            </tag-tabset>
+                        </tag-tab>
+                        <tag-tab class="tab-category" data-category="dorms">
+                            <tag-tabset>
+                            </tag-tabset>
+                        </tag-tab>
+                        <tag-tab class="tab-category" data-category="quidditch">
+                            <tag-tabset>
+                            </tag-tabset>
+                        </tag-tab>
+                        <tag-tab class="tab-category" data-category="leadership">
+                            <tag-tabset>
+                            </tag-tabset>
+                        </tag-tab>
+                        <tag-tab class="tab-category" data-category="external">
+                            <tag-tabset>
+                            </tag-tabset>
+                        </tag-tab>
+                    </div>
+                </div>
+            </section>
+            <script src="../dist/js/claimsFunctions.js"></script>
+            <script>
+                const url = `https://opensheet.elk.sh/146rEeh3eiyftnC-9NXF29rgSPRLAhuG2gss_nWp_xxw/NewClaims`;
+                fetch(url)
+                .then((response) => response.json())
+                .then((data) => {
+                    initStudents(data);
+
+                }).then(() => {
+                    initWebpages();
+                });
+            </script>
+
+            <!-- Copyright Information -->
+            <div class="tableborder" align="center">
+                <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                    <div class="copyright" align="center">
+                        Powered by 
+                        <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                        (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                        <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                        ) © 2020 &nbsp;
+                        <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                        <br>
+                        Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                        <a href="index.php?act=Mobile">Mobile Version</a> · 
+                        <a href="index.php?act=privacy">Privacy Policy</a>
+                    </div>
+                </div>
+            </div> 
+        </main>
+        
+        @@include('../source/templates/scripts.html', {
+            "prefix": "../dist"
+        })   
+    </body>
+</html>

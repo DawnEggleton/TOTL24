@@ -1,0 +1,15 @@
+<form id="wipadd" data-type="grid" data-columns="2">
+    <label>
+        <strong>Alias</strong>
+        <input type="text" name="wip-alias" id="wip-alias" placeholder="Alias" required="">
+    </label>
+    <label>
+        <strong>Face</strong>
+        <input type="text" name="wip-face" id="wip-face" placeholder="Face" required="">
+    </label>
+    <div id="wip-warning" class="form-warning"></div>
+    <div class="form-buttons fullWidth">
+        <button type="submit">Submit</button>
+	<button onclick="formReset('#wipadd')">Reset</button>
+    </div>
+</form>

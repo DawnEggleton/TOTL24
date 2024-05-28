@@ -6,3 +6,20 @@
 
 ul li::marker {
   content: '\f178'; }
+
+.accordion--trigger::after {
+  content: '\2b'; }
+
+.accordion--trigger.is-active::after {
+  content: '\f068'; }
+
+.webpage form > label .form-flex label .checkbox::before,
+.webpage form > .form-item .form-flex label .checkbox::before {
+  content: '\f00c'; }
+
+#UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_74, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_71, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_82, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_63, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_9, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_26, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_81, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_80, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_27, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_75, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_32, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_25, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_42, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_62, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_60, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_61, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_14, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_76, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_77, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_22, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_16, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_59 {
+  grid-column: 1 / -1; }
+
+#UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_33 textarea, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_11 textarea, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_25 textarea, #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr#field_40 textarea {
+  resize: none;
+  height: 35px; }

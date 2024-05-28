@@ -28,3 +28,153 @@
 [data-text-align="justify"] {
     text-align: justify !important;
 }
+
+[data-type="flex"],
+[data-type="Flex"],
+[data-type="FLEX"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 30px;
+}
+
+[data-type="grid"],
+[data-type="Grid"],
+[data-type="GRID"],
+[data-type="imagegrid"],
+[data-type="imageGrid"],
+[data-type="ImageGrid"],
+[data-type="IMAGEGRID"] {
+    display: grid;
+    gap: 30px;
+    grid-template-rows: max-content;
+
+    .fullWidth {
+        grid-column: 1 / -1;
+    }
+
+    &[data-columns="1"] {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    &[data-columns="2"] {
+        grid-template-columns: repeat(1, 1fr);
+
+        @include mq-up(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &[data-columns="3"] {
+        grid-template-columns: repeat(1, 1fr);
+
+        @include mq-up(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mq-up(lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &[data-columns="4"] {
+        grid-template-columns: repeat(1, 1fr);
+
+        @include mq-up(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mq-up(lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include mq-up(xl) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    [data-box-align="left"],
+    [data-box-align="Left"],
+    [data-box-align="LEFT"],
+    [data-box-align="center"],
+    [data-box-align="Center"],
+    [data-box-align="CENTER"],
+    [data-box-align="right"],
+    [data-box-align="Right"],
+    [data-box-align="RIGHT"] {
+        max-width: max-content;
+    }
+
+    &[data-gap="xsmall"],
+    &[data-gap="XSmall"],
+    &[data-gap="Xsmall"],
+    &[data-gap="XSMALL"],
+    &[data-gap="xs"],
+    &[data-gap="Xs"],
+    &[data-gap="XS"] {
+        gap: 5px 15px;
+    }
+
+    &[data-gap="xsmallsquare"],
+    &[data-gap="XSmallSquare"],
+    &[data-gap="XSMALLSQUARE"],
+    &[data-gap="xssquare"],
+    &[data-gap="XsSquare"],
+    &[data-gap="XSSQUARE"] {
+        gap: 5px;
+    }
+
+    &[data-gap="sm"],
+    &[data-gap="Sm"],
+    &[data-gap="SM"],
+    &[data-gap="small"],
+    &[data-gap="Small"],
+    &[data-gap="SMALL"] {
+        gap: 10px 30px;
+    }
+
+    &[data-gap="smsquare"],
+    &[data-gap="SmSquare"],
+    &[data-gap="SMSQUARE"],
+    &[data-gap="smallsquare"],
+    &[data-gap="SmallSquare"],
+    &[data-gap="SMALLSQUARE"] {
+        gap: 10px;
+    }
+
+    &[data-gap="md"],
+    &[data-gap="Md"],
+    &[data-gap="MD"],
+    &[data-gap="medium"],
+    &[data-gap="Medium"],
+    &[data-gap="MEDIUM"] {
+        gap: 30px;
+    }
+
+    &[data-gap="xl"],
+    &[data-gap="Xl"],
+    &[data-gap="XL"],
+    &[data-gap="xlarge"],
+    &[data-gap="XLarge"],
+    &[data-gap="Xlarge"],
+    &[data-gap="XLARGE"] {
+        gap: 60px;
+    }
+}
+[data-type="imagegrid"],
+[data-type="imageGrid"],
+[data-type="ImageGrid"],
+[data-type="IMAGEGRID"] {
+    gap: 10px;
+
+    tag-image {
+        width: 100% !important;
+    }
+}
+
+
+.effect--image-fade {
+    img {
+        filter: blur(3px) grayscale(1) opacity(0.5);
+        transform: scale(1.3);
+    }
+}

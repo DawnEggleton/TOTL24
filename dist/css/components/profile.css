@@ -9,8 +9,8 @@
 
 .profile {
   display: grid;
-  height: 100vh;
-  min-height: 900px;
+  height: calc(100vh - 80px);
+  min-height: 600px;
   transition-duration: 0.5s; }
   @media (min-width: 1025px) {
     .profile {
@@ -154,7 +154,7 @@
       @media (min-width: 1025px) {
         .profile:not(.g-4):not(.g-20):not(.g-3.acc-Member) .profile--image::after {
           max-width: 1150px;
-          height: 460px;
+          height: 380px;
           border-radius: 90px 90px 0 0; } }
     .profile--image .profile--roster {
       position: absolute;
@@ -171,7 +171,7 @@
         .profile--image .profile--roster {
           bottom: 0;
           max-width: 1150px;
-          height: 460px; } }
+          height: 380px; } }
       .profile--image .profile--roster .scroll {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -241,7 +241,7 @@
       @media (min-width: 1025px) {
         .profile--image > img {
           max-width: 1150px;
-          height: 460px;
+          height: 380px;
           border-radius: 90px 90px 0 0; } }
     .profile--image h1 {
       text-align: right;
@@ -315,11 +315,11 @@
     background: var(--bg-secondary);
     padding: 40px;
     transition-duration: 0.5s;
-    border: 1px solid var(--bg-secondary);
-    border-radius: 0; }
+    border: 1px solid var(--border-primary);
+    border-radius: 15px; }
     @media (min-width: 1025px) {
       .profile--content {
-        height: calc(100vh - 40px);
+        height: calc(100vh - 120px);
         min-height: 560px; } }
     .profile--content > .scroll {
       height: 100%;

@@ -102,35 +102,6 @@
   .topics .macro--header,
   .topics .topics--section {
     grid-column: 1 / -1; }
-  .topics .macro--header {
-    font-family: var(--font-head);
-    text-transform: lowercase;
-    font-weight: 900;
-    font-size: 18px;
-    line-height: 100%;
-    font-style: italic;
-    text-align: center;
-    z-index: 1;
-    height: max-content;
-    width: max-content;
-    margin: 40px auto 0;
-    padding: 0 5px; }
-    @media only screen and (min-width: 480px) {
-      .topics .macro--header {
-        font-size: calc(18px + 10 * (100vw - 480px) / (768 - 480)); } }
-    @media only screen and (min-width: 768px) {
-      .topics .macro--header {
-        font-size: 28px; } }
-    .topics .macro--header::before {
-      content: '';
-      position: absolute;
-      height: calc(100% - 12px);
-      width: 100%;
-      background: var(--bg-accent-transparent);
-      top: 6px;
-      left: 0;
-      z-index: -1;
-      transition-duration: 0.3s; }
   .topics--info {
     font-size: var(--size-xs);
     text-transform: uppercase;

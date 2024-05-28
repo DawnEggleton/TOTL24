@@ -1,0 +1,288 @@
+<form id="newsort" data-type="grid" data-columns="2">
+    <h2 class="fullWidth">Required</h2>
+    <label class="required">
+        <strong>Alias</strong>
+        <input type="text" name="sort-alias" id="sort-alias" placeholder="Alias" required="">
+    </label>
+    <label class="required">
+        <strong>Character Name</strong>
+        <input type="text" name="sort-character" id="sort-character" placeholder="Character Name" required="">
+    </label>
+    <label class="required">
+        <strong>
+            Account ID
+            <button onclick="openHelp(this)" type="button">
+                <i class="fa-solid fa-circle-question"></i>
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </strong>
+        <i class="help">Can be found by getting the numbers at the end of the URL of your main profile.</i>
+        <input type="text" name="sort-id" id="sort-id" placeholder="Account ID" required="">
+    </label>
+    <label class="required">
+        <strong>Group</strong>
+        <select name="sort-group" id="sort-group" required="">
+            <option value="">(select)</option>
+            <optgroup label="Students">
+                <option value="7">Gryffindor</option>
+                <option value="9">Hufflepuff</option>
+                <option value="14">Ravenclaw</option>
+                <option value="16">Slytherin</option>
+                <option value="23">Miscellaneous Students</option>
+            </optgroup>
+            <optgroup label="Adults">
+                <option value="18">Entertainment</option>
+                <option value="15">Healers</option>
+                <option value="8">Hogwarts Staff</option>
+                <option value="12">Ministry</option>
+                <option value="11">Press</option>
+                <option value="13">Quidditch</option>
+                <option value="17">Returners</option>
+                <option value="6">Adults</option>
+            </optgroup>
+        </select>
+    </label>
+
+    <label class="fullWidth required">
+        <strong>Face Claim</strong>
+        <input type="text" name="sort-face" id="sort-face" placeholder="Face Claim" required="">
+    </label>
+
+    <label class="required">
+        <strong>Ability or Species?</strong>
+        <select name="sort-abspexists" id="sort-abspexists" required="">
+            <option value="">(select)</option>
+            <option value="y">yes</option>
+            <option value="n">no</option>
+        </select>
+    </label>
+
+    <label class="required">
+        <strong>Canon?</strong>
+        <select name="sort-canon" id="sort-canon">
+            <option value="">(select)</option>
+            <option value="y">yes</option>
+            <option value="n">no</option>
+        </select>
+    </label>
+
+    <!--Abilities and Species-->
+    <h2 class="fullWidth hide ifAbSp">Abilities &amp; Species</h2>
+    <div class="form-item hide ifAbSp fullWidth">
+        <strong>
+            Abilities &amp; Species Selections
+            <button onclick="openHelp(this)" type="button">
+                <i class="fa-solid fa-circle-question"></i>
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </strong>
+        <i class="help">Check all that apply. If using the 'other' field, please make sure to separate entries by a comma with a space after (e.g., ability 1, ability 2, ability 3, species). If a character is a mixture of species beyond 1 non-human and human (e.g., a veela and vampire hybrid), please use the Other field instead of the checkboxes for respective species and place their blood percentage for each in brackets. E.g., Veela (quarter), Vampire (half). Wandless and non-verbal magic do not need to be claimed.</i>
+        <div class="form-flex">
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-animagus" value="animagus">
+                <strong class="checkbox">Animagus</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-metamorphmagus" value="metamorphmagus">
+                <strong class="checkbox">Metamorphmagus</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-legilimens" value="legilimens">
+                <strong class="checkbox">Legilimens</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-occlumens" value="occlumens">
+                <strong class="checkbox">Occlumens</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-seer" value="seer">
+                <strong class="checkbox">Seer</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-squib" value="squib">
+                <strong class="checkbox">Squib</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-vamp" value="vamp" data-species="true">
+                <strong class="checkbox">Vampire</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-veela" value="veela" data-species="true">
+                <strong class="checkbox">Veela</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-were" value="were">
+                <strong class="checkbox">Werecreature</strong>
+            </label>
+        </div>
+        <div data-type="grid" data-columns="2">
+            <label class="fullWidth">
+                <strong>Other Abilities &amp; Species</strong>
+                <input type="text" name="sort-otherabsp" id="sort-otherabsp" placeholder="Other Abilities and Species, comma separated">
+            </label>
+            <label class="hide ifAnimagus required">
+                <strong>Animagus Form</strong>
+                <input type="text" name="sort-animagusform" id="sort-animagusform" placeholder="Animagus Form">
+            </label>
+            <label class="hide ifWere required">
+                <strong>Were Type</strong>
+                <input type="text" name="sort-weretype" id="sort-weretype" placeholder="Werecreature Type">
+            </label>
+            <label class="hide ifPercent fullWidth required">
+                <strong>Species Percentage</strong>
+                <select name="sort-speciesamount" id="sort-speciesamount">
+                    <option value="">(select)</option>
+                    <option value="full">Full</option>
+                    <option value="half">Half</option>
+                    <option value="quarter">Quarter</option>
+                    <option value="eighth">Eighth</option>
+                    <option value="minimal">Minimal</option>
+                </select>
+            </label>
+        </div>
+    </div>
+    
+    <!--Adults-->
+    <h2 class="fullWidth hide ifAdult">Adults</h2>
+    <label class="hide ifAdult required">
+        <strong>Employed?</strong>
+        <select name="sort-employed" id="sort-employed">
+            <option value="">(select)</option>
+            <option value="y">yes</option>
+            <option value="n">no</option>
+        </select>
+    </label>
+    <label class="hide ifAdult required">
+        <strong>University Student?</strong>
+        <select name="sort-unistudent" id="sort-unistudent">
+            <option value="">(select)</option>
+            <option value="y">yes</option>
+            <option value="n">no</option>
+        </select>
+    </label>
+
+    <!--Employed-->
+    <h2 class="fullWidth hide ifJob">Employed</h2>
+    <label class="hide ifJob required fullWidth">
+        <strong>Number of Jobs</strong>
+        <input type="number" name="sort-jobcount" id="sort-jobcount" value="1">
+    </label>
+    <div class="hide fullWidth ifJob form--jobs-clip form--sort" data-type="grid" data-columns="2"></div>
+
+    <!--University-->
+    <h2 class="fullWidth hide ifUni">University</h2>
+    <label class="hide ifUni required fullWidth">
+        <strong>University/College</strong>
+        <input type="text" name="sort-uniname" id="sort-uniname" placeholder="University/College">
+    </label>
+    <label class="hide ifUni required">
+        <strong>Program</strong>
+        <input type="text" name="sort-uniprogram" id="sort-uniprogram" placeholder="Program">
+    </label>
+    <label class="hide ifUni required">
+        <strong>Year</strong>
+        <select name="sort-uniyear" id="sort-uniyear">
+            <option value="">(select)</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Third Year</option>
+            <option value="4">Fourth Year</option>
+            <option value="post">Post-Grad</option>
+        </select>
+    </label>
+
+    <!--Misc Students-->
+    <h2 class="fullWidth hide ifMiscStudent">Miscellaneous Students</h2>
+    <label class="hide ifMiscStudent required">
+        <strong>School Name</strong>
+        <input type="text" name="sort-basicschool" id="sort-basicschool" placeholder="School Name">
+    </label>
+
+    <!--Students-->
+    <h2 class="fullWidth hide ifStudent">Hogwarts Students</h2>
+    <label class="hide ifStudent ifMiscStudent required">
+        <strong>Year</strong>
+        <select name="sort-hwyear" id="sort-hwyear">
+            <option value="">(select)</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Third Year</option>
+            <option value="4">Fourth Year</option>
+            <option value="5">Fifth Year</option>
+            <option value="6">Sixth Year</option>
+            <option value="7">Seventh Year</option>
+        </select>
+    </label>
+    <label class="hide ifStudent">
+        <strong>
+            Preferred Dorm Arrangement
+            <button onclick="openHelp(this)" type="button">
+                <i class="fa-solid fa-circle-question"></i>
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </strong>
+        <i class="help">If there is a specific room or dormmate you would like, please let us know. Otherwise, we will randomly assign characters to rooms. This occurs manually upon character sorting and so will NOT appear within 30-60s on the claims after submission.</i>
+        <input type="text" name="sort-hwdorm" id="sort-hwdorm" placeholder="Dorm preference">
+    </label>
+    <label class="hide ifStudent required">
+        <strong>Quidditch?</strong>
+        <select name="sort-hwquidditch" id="sort-hwquidditch">
+            <option value="">(select)</option>
+            <option value="y">yes</option>
+            <option value="n">no</option>
+        </select>
+    </label>
+    <label class="hide ifLeadershipPossible required">
+        <strong>Leadership?</strong>
+        <select name="sort-hwlead" id="sort-hwlead">
+            <option value="">(select)</option>
+            <option value="y">yes</option>
+            <option value="n">no</option>
+        </select>
+    </label>
+    <label class="hide ifHogwartsQuidditch required">
+        <strong>Quidditch Position</strong>
+        <input type="text" name="sort-hwquidditchposition" id="sort-hwquidditchposition" placeholder="Quidditch Position">
+    </label>
+    <label class="hide ifLeadership required">
+        <strong>Leadership Position</strong>
+        <select name="sort-hwleadposition" id="sort-hwleadposition">
+            <option value="">(select)</option>
+            <option value="prefect">Prefect</option>
+            <option value="head">Head Boy/Girl</option>
+        </select>
+    </label>
+
+    <!--Required Classes-->
+    <div class="hide fullWidth ifStudent form--reqclass-clip form--sort" data-type="grid" data-columns="2"></div>
+
+    <!--Electives-->
+    <h2 class="fullWidth hide ifElec">Electives</h2>
+    <i class="hide ifElec fullWidth">Minimum of 2 electives for years 3 to 5. Minimum of 4 electives for years 6 and 7.</i>
+    <div class="hide fullWidth ifStudent form--elecclass-clip form--sort" data-type="grid" data-columns="2"></div>
+
+    <!--Canon-->
+    <h2 class="fullWidth hide ifCanon">Canon</h2>
+    <label class="hide ifCanon fullWidth required">
+        <strong>Birth Year</strong>
+        <input type="text" name="entry.1227238528" id="sort-birth" placeholder="Birth year">
+    </label>
+    <label class="hide ifReturn required">
+        <strong>Death Year</strong>
+        <input type="text" name="entry.1227238528" id="sort-death" placeholder="Death Year">
+    </label>
+    <label class="hide ifReturn required">
+        <strong>Return Year</strong>
+        <input type="text" name="entry.1227238528" id="sort-return" placeholder="Return Year">
+    </label>
+    <label class="hide ifCanon fullWidth required">
+        <strong>Relation to Canon</strong>
+        <textarea name="entry.1227238528" id="sort-canonRelation" placeholder="Relation to Canon"></textarea>
+    </label>
+
+    <div id="warning" class="form-warning"></div>
+    <div class="form-buttons fullWidth">
+        <button type="submit">Submit</button>
+	    <button onclick="formReset('#newsort')">Reset</button>
+    </div>
+</form>

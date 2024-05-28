@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @@include('../source/templates/head.html', {
+            "prefix": "../dist"
+        })  
+    </head>
+    <body id="Pages" class="g-4">
+        @@include('../source/templates/nav.html', {
+              "prefix": ".."
+        })
+        @@include('../source/templates/header.html', {
+            "prefix": ".."
+        })
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+		
+		
+            <div id="loading">
+                <div class="loading-bubble">
+                    <i class="fa-regular fa-spinner fa-spin"></i>
+                    <p>Loading</p>
+                </div>
+            </div>
+
+            <section class="webpage canons">
+                <div class="webpage--menu">
+                    <h1>canon<span>families</span></h1>
+                    <div class="webpage--menu-inner">
+                        <div class="accordion scroll">
+                            @@include('../source/templates/canonsMenu.html')
+                        </div>
+                    </div>
+                </div>
+                <div class="webpage--content">
+                    <div class="scroll">
+                        @@include('../source/templates/canons.html')
+                    </div>
+                </div>
+            </section>
+            <script>
+                function expandCanons(e) {
+                    e.classList.toggle('closed-branch');
+                    e.nextElementSibling.classList.toggle('closed-branch');
+                }
+                function expandAllCanons(e) {
+                    e.parentNode.querySelectorAll('.webpage--canon-expansion').forEach(button => {
+                        button.classList.remove('closed-branch');
+                    });
+                    e.parentNode.querySelectorAll('canonbranch').forEach(button => {
+                        button.classList.remove('closed-branch');
+                    });
+                }
+                function collapseAllCanons(e) {
+                    e.parentNode.querySelectorAll('.webpage--canon-expansion').forEach(button => {
+                        button.classList.add('closed-branch');
+                    });
+                    e.parentNode.querySelectorAll('canonbranch').forEach(button => {
+                        button.classList.add('closed-branch');
+                    });
+                }
+
+                initWebpages();
+            </script>
+
+            <!-- Copyright Information -->
+            <div class="tableborder" align="center">
+                <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                    <div class="copyright" align="center">
+                        Powered by 
+                        <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                        (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                        <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                        ) © 2020 &nbsp;
+                        <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                        <br>
+                        Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                        <a href="index.php?act=Mobile">Mobile Version</a> · 
+                        <a href="index.php?act=privacy">Privacy Policy</a>
+                    </div>
+                </div>
+            </div> 
+        </main>
+        
+        @@include('../source/templates/scripts.html', {
+            "prefix": "../dist"
+        })   
+    </body>
+</html>

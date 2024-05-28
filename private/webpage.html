@@ -17,9 +17,214 @@
         <main>
             <a name="top"></a>
 		
-            
-            <!--Webpage-->
-            <section class="webpage"></section>
+		
+            <div id="loading">
+                <div class="loading-bubble">
+                    <i class="fa-regular fa-spinner fa-spin"></i>
+                    <p>Loading</p>
+                </div>
+            </div>
+
+            <section class="webpage">
+                <div class="webpage--menu">
+                    <h1>turn on the light<span>welcome to</span></h1>
+                    <div class="webpage--menu-inner">
+                        <div class="accordion scroll">
+                            <tag-label class="tab-category accordion--trigger" data-category="info">
+                                <span>Required</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="info">
+                                <a href="#rules">Rules</a>
+                                <a href="#plot">Plot</a>
+                                <a href="#groups">Groups</a>
+                                <a href="#appguide">App Guide</a>
+                                <a href="#credits">Credits</a>
+                            </div>
+                            <tag-label class="tab-category accordion--trigger" data-category="guides">
+                                <span>Guides</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="guides">
+                                <a href="#abilities-species">Abilities & Species</a>
+                                <a href="#hogwarts">Hogwarts</a>
+                                <a href="#locations">Locations</a>
+                                <a href="#society-culture">Society & Culture</a>
+                            </div>
+                            <tag-label class="tab-category accordion--trigger" data-category="schools">
+                                <span>Schools</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="schools">
+                                <a href="#africa">Africa</a>
+                                <a href="#asia">Asia</a>
+                                <a href="#australia">Australia</a>
+                                <a href="#europe">Europe</a>
+                                <a href="#north-america">North America</a>
+                                <a href="#south-america">South America</a>
+                                <a href="#post-secondary">Post-Secondary</a>
+                            </div>
+                            <tag-label class="tab-category accordion--trigger" data-category="forms">
+                                <span>Forms</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="forms">
+                                <a href="#sorting">Get Sorted</a>
+                                <a href="#wipclaim">Reserve a Face</a>
+                                <a href="#updateclaim">Update Claims</a>
+                            </div>
+                            <tag-label class="tab-category accordion--trigger" data-category="claims">
+                                <span>Claims</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="claims">
+                                <a href="#upcoming">reserves</a>
+                                <a href="#faces">faces</a>
+                                <a href="#ability-claims">abilities & species</a>
+                                <a href="/">jobs <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                <a href="/">students <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                <a href="/">canons <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="webpage--content">
+                    <div class="scroll">
+                        <tag-tab class="tab-category" data-category="info">
+                            <tag-tabset>
+                                <tag-tab data-key="#rules">
+                                    <% rules %>
+                                </tag-tab>
+                                <tag-tab data-key="#plot">
+                                    <% plot %>
+                                </tag-tab>
+                                <tag-tab data-key="#groups">
+                                    <% groups %>
+                                </tag-tab>
+                                <tag-tab data-key="#appguide">
+                                    <% apps %>
+                                </tag-tab>
+                                <tag-tab data-key="#credits">
+                                    <% credits %>
+                                </tag-tab>
+                            </tag-tabset>
+                        </tag-tab>
+                        <tag-tab class="tab-category" data-category="guides">
+                            <tag-tabset>
+                                <tag-tab data-key="#abilities-species">
+                                    <% goblins %>
+                        <% houseelves %>
+                        <% seers %>
+                        <% vamps %>
+                        <% were %>
+                                </tag-tab>
+                                <tag-tab data-key="#hogwarts">
+                                    <% summ %>
+                        <% classes %>
+                        <% health %>
+                        <% quid %>
+                        <% rel %>
+                        <% sched %>
+                        <% staffing %>
+                        <% prefect %>
+                                </tag-tab>
+                                <tag-tab data-key="#locations">
+                                    <% diagon %>
+                        <% hogsmeade %>
+                        <% ilkley %>
+                                </tag-tab>
+                                <tag-tab data-key="#society-culture">
+                                    <% scouts %>
+                        <% magic %>
+                        <% politics %>
+                        <% pblood %>
+                        <% returns %>
+                                </tag-tab>
+                            </tag-tabset>
+                        </tag-tab>
+                        <tag-tab class="tab-category" data-category="schools">
+                            <tag-tabset>
+                                <tag-tab data-key="#africa">
+                                    <% africa %>
+                                </tag-tab>
+                                <tag-tab data-key="#asia">
+                                    <% asia %>
+                                </tag-tab>
+                                <tag-tab data-key="#australia">
+                                    <% aus %>
+                                </tag-tab>
+                                <tag-tab data-key="#europe">
+                                    <% europe %>
+                                </tag-tab>
+                                <tag-tab data-key="#north-america">
+                                    <% namerica %>
+                                </tag-tab>
+                                <tag-tab data-key="#south-america">
+                                    <% samerica %>
+                                </tag-tab>
+                                <tag-tab data-key="#post-secondary">
+                                    <% postsec %>
+                                </tag-tab>
+                            </tag-tabset>
+                        </tag-tab>
+                        <tag-tab class="tab-category" data-category="forms">
+                            <tag-tabset>
+                                <tag-tab data-key="#sorting">
+                                    @@include('../source/templates/sort.html')
+                                </tag-tab>
+                                <tag-tab data-key="#wipclaim">
+                                    @@include('../source/templates/reserve.html')
+                                </tag-tab>
+                                <tag-tab data-key="#updateclaim">
+                                    @@include('../source/templates/update.html')
+                                </tag-tab>
+                            </tag-tabset>
+                        </tag-tab>
+                        <tag-tab class="tab-category" data-category="claims">
+                            <tag-tabset>
+                                <tag-tab data-key="#upcoming">
+                                    <div class="claim--filters" data-type="grid" data-columns="2" data-gap="smsquare">
+                                        <h3 class="fullWidth claims-header">filter by</h3>
+                                        <input type="text" data-filter="#clip-reserves" data-objects="> b" data-headers="h3" onkeyup="filterValue(this)" placeholder="Face">
+                                        <input type="text" data-filter="#clip-reserves" data-objects="> b + span" data-headers="h3" onkeyup="filterValue(this)" placeholder="Member">
+                                    </div>
+                                    <div id="clip-reserves" class="claim-grid" data-type="grid" data-columns="3" data-gap="smsquare"></div>
+                                </tag-tab>
+                                <tag-tab data-key="#faces">
+                                    <div class="claim--filters" data-type="grid" data-columns="3" data-gap="smsquare">
+                                        <h3 class="fullWidth claims-header">filter by</h3>
+                                        <input type="text" data-filter="#clip-faces" data-objects="> a" data-headers="h3" onkeyup="filterValue(this)" placeholder="Face">
+                                        <input type="text" data-filter="#clip-faces" data-objects="> a + span" data-headers="h3" onkeyup="filterValue(this)" placeholder="Character">
+                                        <input type="text" data-filter="#clip-faces" data-objects="> a + span + span" data-headers="h3" onkeyup="filterValue(this)" placeholder="Member">
+                                    </div>
+                                    <div id="clip-faces" class="claim-grid" data-type="grid" data-columns="3" data-gap="smsquare"></div>
+                                </tag-tab>
+                                <tag-tab data-key="#ability-claims">
+                                    <div id="clip-abilities" class="accordion claims"></div>
+                                </tag-tab>
+                            </tag-tabset>
+                        </tag-tab>
+                    </div>
+                </div>
+            </section>
+            <script src="../dist/js/formFunctions.js"></script>
+            <script src="../dist/js/formScripts.js"></script>
+            <script src="../dist/js/claimsFunctions.js"></script>
+            <script src="../dist/js/claimsScripts.js"></script>
+            <script>
+                const url = `https://opensheet.elk.sh/146rEeh3eiyftnC-9NXF29rgSPRLAhuG2gss_nWp_xxw/NewClaims`;
+                const upcomingurl = `https://opensheet.elk.sh/1W-Ffhi7pIe4X1X_tt1SoYaasEewx7Hk5IPd5EJZllOI/Sheet1`;
+                fetch(url)
+                .then((response) => response.json())
+                .then((data) => {
+                    initFaces(data);
+                    initAbilities(data);
+
+                    fetch(upcomingurl)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        initReserves(data);
+
+                    }).then(() => {
+                        initWebpages();
+                    });
+                });
+            </script>
 
             <!-- Copyright Information -->
             <div class="tableborder" align="center">

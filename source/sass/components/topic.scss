@@ -129,33 +129,6 @@
         grid-column: 1 / -1;
     }
 
-    .macro--header {
-        font-family: var(--font-head);
-        text-transform: lowercase;
-        font-weight: 900;
-        @include fluid-type(18, 28, 480, 768);
-        line-height: 100%;
-        font-style: italic;
-        text-align: center;
-        z-index: 1;
-        height: max-content;
-        width: max-content;
-        margin: 40px auto 0;
-        padding: 0 5px;
-
-        &::before {
-            content: '';
-            position: absolute;
-            height: calc(100% - 12px);
-            width: 100%;
-            background: var(--bg-accent-transparent);
-            top: 6px;
-            left: 0;
-            z-index: -1;
-            transition-duration: 0.3s;
-        }
-    }
-
     &--info {
         font-size: var(--size-xs);
         text-transform: uppercase;

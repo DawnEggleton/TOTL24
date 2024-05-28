@@ -18,35 +18,123 @@
                 display: block;
 
                 & > tr {
-                    display: flex;
-                    gap: var(--spacing-lg);
+                    display: grid;
+                    gap: 20px;
+                    padding: 20px 0 0 0;
+
+                    @include mq-up(sm) {
+                        height: calc(100vh - 80px);
+                        min-height: 600px;
+                        grid-template-columns: 350px 1fr;
+                        padding: 20px 20px 0 0;
+                    }
+
+                    @include mq-up(md) {
+                        grid-template-columns: 450px 1fr;
+                    }
                     
                     & > td {
                         &#ucpmenu {
-                            flex: 0 0 150px;
-
-                            .sticky {
-                                display: flex;
-                                flex-direction: column;
-                                gap: var(--spacing-sm);
-                                position: sticky;
-                                top: var(--menuHeight);
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 80px;
+                                background: var(--bg-accent);
                             }
-                            .menu-section {
-                                display: flex;
-                                flex-direction: column;
-                                gap: var(--spacing-sm);
+
+                            .ucp--menu-inner {
+                                background: var(--bg-tertiary);
+                                border-radius: 15px 15px 0 0;
+                                border: 1px solid var(--border-primary);
+                                position: absolute;
+                                bottom: 0;
+                                right: 20px;
+                                border-bottom: 0;
+                                width: 80%;
+                                min-height: 420px;
+                                height: calc(80vh - 100px);
+                                padding: 20px;
+                                z-index: 1;
+                    
+                                @include mq-down(sm) {
+                                    position: relative;
+                                    left: 20px;
+                                    bottom: 20px;
+                                    width: calc(100% - 40px);
+                                    min-height: 0;
+                                    height: 300px;
+                                    margin-top: 30px;
+                                }
+                            }
+
+                            .accordion {
+                                height: 100%;
+                                padding-right: 20px;
+
+                                &--content {
+                                    &.is-active {
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 15px;
+                                    }
+
+                                    a {
+                                        display: block;
+                                        font-family: var(--font-head);
+                                        font-style: italic;
+                                        color: var(--text-secondary);
+                                        font-size: 24px;
+                                        text-transform: lowercase;
+                                        font-weight: 600;
+                                        letter-spacing: -2px;
+                                        opacity: 0.8;
+                                        max-width: max-content;
+                                        padding: 0 5px;
+    
+                                        &::before {
+                                            content: '';
+                                            position: absolute;
+                                            height: calc(100% - 12px);
+                                            width: 0;
+                                            background: var(--bg-accent-transparent);
+                                            top: 6px;
+                                            left: 0;
+                                            z-index: -1;
+                                            transition-duration: 0.3s;
+                                        }
+    
+                                        &:hover {
+                                            &::before {
+                                                width: 100%;
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                         &:nth-child(2) {
                             display: none;
                         }
                         &#ucpcontent {
-                            flex-grow: 1;
-                            padding: var(--spacing-md);
+                            margin: 0 20px 20px;
+                            height: calc(80vh - 80px);
+                            border: 1px solid var(--border-primary);
+                            background: var(--bg-secondary);
+                            border-radius: 15px;
+                            padding: 30px 15px 30px 30px;
+                    
+                            @include mq-up(sm) {
+                                height: calc(100vh - 180px);
+                                min-height: 588px;
+                                margin: 0 0 20px 0;
+                            }
 
-                            @include mq-up(xs) {
-                                padding: var(--spacing-lg);
+                            .scroll {
+                                height: 100%;
+                                padding-right: 15px;
                             }
 
                             input[type="text"],
@@ -59,6 +147,18 @@
 
                             .maintitle {
                                 display: none;
+                            }
+
+                            .pformstrip {
+                                font-family: var(--font-head);
+                                text-transform: lowercase;
+                                grid-column: 1 / -1 !important;
+                                color: var(--text-secondary);
+                                font-weight: 900;
+                                font-style: italic;
+                                letter-spacing: -3px;
+                                margin: 40px auto;
+                                @include fluid-type(24, 36, 480, 1024);
                             }
                     
                             form {
@@ -128,6 +228,7 @@
 //Store Home
 #store.store-home {
     #ucpcontent {
+        .ucp--content-inner > table,
         & > table {
             & > tbody {
                 & > tr {
@@ -148,9 +249,33 @@
                             line-height: 160%;
                             max-width: max-content;
                             margin-bottom: var(--spacing-sm);
+                            font-family: var(--font-head);
+                            text-transform: lowercase;
+                            font-weight: 900;
+                            font-size: 28px;
+                            font-style: italic;
+                            color: var(--text-secondary);
+                            letter-spacing: -2px;
+                            z-index: 1;
 
                             & + br {
                                 display: none;
+                            }
+        
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                height: calc(100% - 28px);
+                                width: 0;
+                                background: var(--bg-accent-transparent);
+                                top: 14px;
+                                left: 0;
+                                z-index: -1;
+                                transition-duration: 0.3s;
+                            }
+            
+                            &:hover::before {
+                                width: 100%;
                             }
                         }
                     }
@@ -168,6 +293,7 @@
 //Store Shop
 #store.store-shop {
     #ucpcontent {
+        .ucp--content-inner > table,
         & > table {
             display: block;
 
@@ -176,12 +302,8 @@
                 grid-template-columns: repeat(1, 1fr);
                 gap: var(--spacing-md);
 
-                @include mq-up(sm) {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-
                 @include mq-up(md) {
-                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-columns: repeat(2, 1fr);
                 }
 
                 & > tr {
@@ -222,6 +344,12 @@
                         & > td {
                             display: block;
                             text-align: left;
+                            font-size: 16px;
+                            letter-spacing: -1px;
+
+                            a {
+                                color: var(--text-accent);
+                            }
 
                             &:nth-child(2) {
                                 text-align: center;
@@ -238,6 +366,8 @@
                         grid-template-columns: var(--storeImageWidth) 1fr 1fr var(--storeImageWidth);
                         grid-template-rows: repeat(auto-fit, minmax(0, max-content));
                         gap: var(--spacing-md);
+                        border: 1px solid var(--border-primary);
+                        border-radius: 15px;
 
                         & > td {
                             padding: 0;
@@ -253,6 +383,12 @@
                                 line-height: 160%;
                                 max-width: max-content;
                                 padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-md);
+                                text-transform: lowercase;
+                                font-style: italic;
+                                font-family: var(--font-head);
+                                font-weight: 700;
+                                font-size: 18px;
+                                letter-spacing: -1px;
                             }
     
                             &:nth-child(3) {
@@ -301,9 +437,31 @@
                                 a {
                                     max-width: max-content;
                                     margin: 0 0 0 auto;
-                                    padding: var(--spacing-sm);
                                     z-index: 1;
-                                    font-size: 1rem;
+                                    border: 1px solid var(--border-secondary);
+                                    border-radius: 5px;
+                                    height: 30px;
+                                    display: inline-flex;
+                                    text-align: center;
+                                    justify-content: center;
+                                    align-items: center;
+                                    color: var(--text-secondary);
+                                    transition-duration: 0.3s;
+                                    background: var(--bg-accent-transparent);
+                                    font-size: var(--size-sm);
+                                    padding: 0 10px;
+                                    cursor: pointer;
+                                    font-family: var(--font-body);
+                                    font-style: normal;
+                                    line-height: 100%;
+                                    text-transform: uppercase;
+                                    font-weight: 700;
+                                
+                                    &:hover {
+                                        background: var(--bg-primary);
+                                        border-color: var(--border-primary);
+                                        color: var(--text-primary);
+                                    }
                                 }
                             }
     
@@ -311,6 +469,7 @@
                                 a {
                                     &::before {
                                         content: 'Buy ';
+                                        margin-right: 3px;
                                     }
                                 }
                             }
@@ -324,6 +483,7 @@
 //Store Inventory
 #store.store-inventory {
     #ucpcontent {
+        .ucp--content-inner > table,
         & > table {
             display: block;
 
@@ -332,17 +492,15 @@
                 grid-template-columns: repeat(1, 1fr);
                 gap: var(--spacing-md);
 
-                @include mq-up(sm) {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-
                 @include mq-up(md) {
-                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-columns: repeat(2, 1fr);
                 }
 
                 & > tr {
                     display: flex;
                     flex-wrap: wrap;
+                    border: 1px solid var(--border-primary);
+                    border-radius: 15px;
 
                     @include mq-up(sm) {
                         flex: 0 0 calc(50% - calc(var(--spacing-md) / 2));
@@ -399,6 +557,12 @@
                                 line-height: 160%;
                                 max-width: max-content;
                                 padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-md);
+                                text-transform: lowercase;
+                                font-style: italic;
+                                font-family: var(--font-head);
+                                font-weight: 700;
+                                font-size: 18px;
+                                letter-spacing: -1px;
                             }
 
                             &:not(:first-child):not(:nth-child(2)) {
@@ -434,11 +598,33 @@
                                 padding: var(--spacing-md) 0 0;
     
                                 a {
-                                    display: block;
                                     max-width: max-content;
                                     margin: 0 0 0 auto;
-                                    padding: var(--spacing-sm);
                                     z-index: 1;
+                                    border: 1px solid var(--border-secondary);
+                                    border-radius: 5px;
+                                    height: 30px;
+                                    display: inline-flex;
+                                    text-align: center;
+                                    justify-content: center;
+                                    align-items: center;
+                                    color: var(--text-secondary);
+                                    transition-duration: 0.3s;
+                                    background: var(--bg-accent-transparent);
+                                    font-size: var(--size-sm);
+                                    padding: 0 10px;
+                                    cursor: pointer;
+                                    font-family: var(--font-body);
+                                    font-style: normal;
+                                    line-height: 100%;
+                                    text-transform: uppercase;
+                                    font-weight: 700;
+                                
+                                    &:hover {
+                                        background: var(--bg-primary);
+                                        border-color: var(--border-primary);
+                                        color: var(--text-primary);
+                                    }
                                 }
     
                                 br {
@@ -460,6 +646,7 @@
 #store.store-do_edit_points,
 #store.store-edit_inventory {
     #ucpcontent {
+        .ucp--content-inner > table,
         & > table {
             & > tbody {
                 & > tr {
@@ -500,6 +687,7 @@
 //Store Edit Inventory Item List
 #store.store-do_staff_inventory {
     #ucpcontent {
+        .ucp--content-inner > table,
         & > table {
             display: block;
 
@@ -517,13 +705,12 @@
                     flex-wrap: wrap;
                     height: max-content;
                     flex: 0 0 100%;
-
-                    @include mq-up(sm) {
-                        flex: 0 0 calc(50% - ( var(--spacing-md) / 2));
-                    }
+                    border: 1px solid var(--border-primary);
+                    border-radius: 15px;
+                    padding: 10px;
 
                     @include mq-up(md) {
-                        flex: 0 0 calc((100% / 3) - ( var(--spacing-lg) * 2 / 3));
+                        flex: 0 0 calc(50% - ( var(--spacing-md) / 2));
                     }
 
                     img {
@@ -549,6 +736,12 @@
 
                         &:nth-child(2) {
                             flex: 0 0 calc(100% - (var(--spacing-lg) + var(--storeImageWidth) + 10px));
+                            text-transform: lowercase;
+                            font-style: italic;
+                            font-family: var(--font-head);
+                            font-weight: 700;
+                            font-size: 18px;
+                            letter-spacing: -1px;
                         }
 
                         &:nth-child(3) {

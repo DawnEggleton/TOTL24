@@ -16,8 +16,8 @@
 }
 .profile {
     display: grid;
-    height: 100vh;
-    min-height: 900px;
+    height: calc(100vh - 80px);
+    min-height: 600px;
     transition-duration: 0.5s;
 
     @include mq-up(md) {
@@ -209,7 +209,7 @@
 
             @include mq-up(md) {
                 max-width: 1150px;
-                height: 460px;
+                height: 380px;
                 border-radius: 90px 90px 0 0;
             }
         }
@@ -228,7 +228,7 @@
             @include mq-up(md) {
                 bottom: 0;
                 max-width: 1150px;
-                height: 460px;
+                height: 380px;
             }
 
             .scroll {
@@ -318,7 +318,7 @@
 
             @include mq-up(md) {
                 max-width: 1150px;
-                height: 460px;
+                height: 380px;
                 border-radius: 90px 90px 0 0;
             }
         }
@@ -392,11 +392,11 @@
         background: var(--bg-secondary);
         padding: 40px;
         transition-duration: 0.5s;
-        border: 1px solid var(--bg-secondary);
-        border-radius: 0;
+        border: 1px solid var(--border-primary);
+        border-radius: 15px;
 
         @include mq-up(md) {
-            height: calc(100vh - 40px);
+            height: calc(100vh - 120px);
             min-height: 560px;
         }
 

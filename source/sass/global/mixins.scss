@@ -1,8 +1,10 @@
 $size-xxs: 480px !default;
 $size-xs: 600px !default;
 $size-sm: 768px !default;
+$size-ms: 900px !default;
 $size-md: 1024px !default;
 $size-lg: 1280px !default;
+$size-ml: 1300px !default;
 $size-xl: 1440px !default;
 $size-xxl: 1900px !default;
 
@@ -16,8 +18,14 @@ $size-xxl: 1900px !default;
     @else if $class == sm {
         @media (min-width: ($size-sm +1)) { @content; }
     }
+    @else if $class == ms {
+        @media (min-width: ($size-ms +1)) { @content; }
+    }
     @else if $class == md {
         @media (min-width: ($size-md +1)) { @content; }
+    }
+    @else if $class == ml {
+        @media (min-width: ($size-ml +1)) { @content; }
     }
     @else if $class == lg {
         @media (min-width: ($size-lg +1)) { @content; }
@@ -43,8 +51,14 @@ $size-xxl: 1900px !default;
     @else if $class == sm {
         @media (max-width: $size-sm) { @content; }
     }
+    @else if $class == ms {
+        @media (max-width: $size-ms) { @content; }
+    }
     @else if $class == md {
         @media (max-width: $size-md) { @content; }
+    }
+    @else if $class == ml {
+        @media (max-width: $size-ml) { @content; }
     }
     @else if $class == lg {
         @media (max-width: $size-lg) { @content; }

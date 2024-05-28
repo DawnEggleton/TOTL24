@@ -1,4 +1,5 @@
 let pageType = document.querySelector('body').id;
+let pageID = document.querySelector('body').id;
 let pageClasses = document.querySelector('body').classList;
 
 //click to change subaccounts
@@ -191,6 +192,11 @@ if(pageType === 'Profile') {
     }
 }
 
+/********** Member List Only **********/
+if(pageType === 'Members') {
+	initMembers();
+}
+
 /********** Login **********/
 if(pageType === 'Login') {
     let textNodes = getAllTextNodes(document.querySelector('main'));
@@ -226,11 +232,10 @@ if(pageType === 'Reg') {
 
 /********** Topic View **********/
 if(pageType === 'ST') {
-    let descript = $('.topic-desc').html();
-    if (descript != undefined) {
-        var newDescript = descript.replace(", ", "");
-        $('.topic-desc').html(newDescript);
-    }
+    initPostContentAlter();
+    initMiniTabs();
+    document.querySelectorAll('.post.g-4 .charOnly, .post.g-20 .charOnly, .post.g-3.acc-Member .charOnly').forEach(el => el.remove());
+    initCopyLink();
     
     //input clean up
     document.querySelector('#qr_open .tablepad').innerHTML = document.querySelector('#qr_open .tablepad').innerHTML.replace('|', '');
@@ -246,6 +251,8 @@ if(pageType === 'ST') {
         label.querySelector('input').insertAdjacentHTML('afterend', `<div class="fancy-input checkbox">x</div>`);
     });
     $('#qr_open .tablepad > input').wrapAll('<div class="qr_buttons"></div>');
+
+    initDiscordTagging('#ST main > table > tbody > tr > td:last-child');
 }
 
 /********** Topic View **********/
@@ -269,65 +276,9 @@ if(pageType === 'Post') {
 
 /********** User CP & Messages **********/
 if(pageType === 'UserCP' || pageType === 'Msg') {
-    /* Remove on Jcink; leave present on local */
-    document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><b>Account</b>
-    <div class="menu-section">
-    <a href="./user-edit.html">Edit Profile</a>
-    <a href="./user-avatar.html">Update Avatar</a>
-    <a href="./user-accounts.html">Sub-accounts</a>
-    <a href="./user-name.html">Edit Username</a>
-    <a href="./user-pass.html">Change Password</a>
-    <a href="./user-email.html">Update Email</a>
-    </div>
-    <b class="is-closed">Messages</b>
-    <div class="menu-section">
-    <a href="./user-inbox.html">Inbox</a>
-    <a href="./user-message.html">Send Message</a>
-    <a href="./user-viewmessage.html">View Message</a>
-    </div>
-    <b class="is-closed">Tracking</b>
-    <div class="menu-section">
-    <a href="./user-alerts.html">Alerts</a>
-    <a href="./user-forums.html">Forums</a>
-    <a href="./user-forum-none.html">Forums (None Tracked)</a>
-    <a href="./user-topics.html">Topics</a>
-    <a href="./user-topics-none.html">Topics (None Tracked)</a>
-    </div>
-    <b class="is-closed">Settings</b>
-    <div class="menu-section">
-    <a href="./user-boardset.html">Board</a>
-    <a href="./user-alertset.html">Alerts</a>
-    <a href="./user-emailset.html">Emails</a>
-    </div>
-    </div>`;
+    initUCPMenu();
 
-    /* Uncomment on Jcink; leave commented on local
-    document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><b>Account</b>
-    <div class="menu-section">
-    <a href="?act=UserCP&CODE=01">Edit Profile</a>
-    <a href="?act=UserCP&CODE=24">Update Avatar</a>
-    <a href="?act=UserCP&CODE=54">Sub-accounts</a>
-    <a href="?act=UserCP&CODE=52">Edit Username</a>
-    <a href="?act=UserCP&CODE=28">Change Password</a>
-    <a href="?act=UserCP&CODE=08">Update Email</a>
-    </div>
-    <b class="is-closed">Messages</b>
-    <div class="menu-section">
-    <a href="?act=Msg&CODE=01">Inbox</a>
-    <a href="?act=Msg&CODE=04">Send Message</a>
-    </div>
-    <b class="is-closed">Tracking</b>
-    <div class="menu-section">
-    <a href="?act=UserCP&CODE=alerts">Alerts</a>
-    <a href="?act=UserCP&CODE=50">Forums</a>
-    <a href="?act=UserCP&CODE=26">Topics</a>
-    </div>
-    <b class="is-closed">Settings</b>
-    <div class="menu-section">
-    <a href="?act=UserCP&CODE=04">Board</a>
-    <a href="?act=UserCP&CODE=alerts_settings">Alerts</a>
-    <a href="?act=UserCP&CODE=02">Emails</a></div></div>`;
-    */
+    document.querySelector('#ucpcontent').innerHTML = `<div class="ucp--content-inner scroll">${document.querySelector('#ucpcontent').innerHTML}</div>`;
 
     //subaccounts
     if($('body.code-54').length > 0) {
@@ -370,49 +321,15 @@ if(pageType === 'UserCP' || pageType === 'Msg') {
         document.querySelectorAll(`input[type="checkbox"]`).forEach(input => inputWrap(input));
         fancyBoxes();
     }
+
+    initUCPEdit();
 }
 
 /********** Store **********/
 if(pageType === 'store') {
-    /* Remove on Jcink; leave present on local */
-    document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><b>Shop</b>
-    <div class="menu-section">
-    <a href="./store.html">Home</a>
-    <a href="./store-category.html">Category</a>
-    </div>
-    <b>Personal</b>
-    <div class="menu-section">
-    <a href="./store-inventory.html">Inventory</a>
-    <a href="./store-sendmoney.html">Send Money</a>
-    <a href="./store-senditem.html">Send Item</a>
-    </div>
-    <b class="is-closed staffOnly">Staff</b>
-    <div class="menu-section">
-    <a href="./store-fine.html" class="staffOnly">Fine</a>
-    <a href="./store-editpoints.html" class="staffOnly">Edit Points</a>
-    <a href="./store-editpoints-screen2.html" class="staffOnly">Edit Points (Page 2)</a>
-    <a href="./store-edititems.html" class="staffOnly">Edit Inventory</a>
-    <a href="./store-edititems-screen2.html" class="staffOnly">Edit Inventory (Page 2)</a>
-    </div>
-    </div>`;
-
-    /* Uncomment on Jcink; leave commented on local
-    document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><b>Shop</b>
-    <div class="menu-section">
-    <a href="?act=store&code=shop&category=1">Manually</a>
-    <a href="?act=store&code=shop&category=2">Add</a>
-    <a href="?act=store&code=shop&category=3">Categories</a>
-    </div>
-    <b>Personal</b>
-    <div class="menu-section">
-    <a href="?act=store&CODE=inventory">Inventory</a>
-    <a href="?act=store&code=donate_money">Send Money</a>
-    <a href="?act=store&code=donate_item">Send Item</a>
-    </div>
-    <b class="is-closed staffOnly">Staff</b>
-    <div class="menu-section">
-    <a href="?act=store&code=fine" class="staffOnly">Fine</a>
-    <a href="?act=store&code=edit_points" class="staffOnly">Edit Points</a>
-    <a href="?act=store&code=edit_inventory" class="staffOnly">Edit Inventory</a></div></div>`;
-    */
+    initStoreMenu();
+    
+    if(!pageClasses.contains('store-edit_points') && !pageClasses.contains('store-donate_item') && !pageClasses.contains('store-donate_money') && !pageClasses.contains('store-fine') && !pageClasses.contains('store-edit_inventory') && !pageClasses.contains('store-useitem') && !pageClasses.contains('store-do_edit_points')) {
+        document.querySelector('#ucpcontent').innerHTML = `<div class="ucp--content-inner scroll">${document.querySelector('#ucpcontent').innerHTML}</div>`;
+    }
 }

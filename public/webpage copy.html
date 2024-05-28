@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Site Name</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--Styles-->
+<link rel="stylesheet" href="../dist/css/styles.css" />
+
+<!--Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+<!--Icons-->
+<link href="https://dawneggleton.github.io/css/all.css" rel="stylesheet" />
+
+<!--Script Libraries-->
+<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
+<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="../dist/js/clipboard.js"></script>
+<script src="../dist/js/functions.js"></script>
+
+<!--Settings-->
+<script type='text/javascript' src='../dist/js/settings.js'></script>
+<link rel="stylesheet" href="../dist/css/settings.css" />  
+    </head>
+    <body id="Pages" class="g-4">
+        <nav class="nav--main">
+    <div class="nav--left">
+        <button title="Open Menu" onClick="toggleSideMenu(this)" class="button--menu">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="../public/index.html" title="Home" class="notMobile"><i class="fa-solid fa-home"></i></a>
+        <a href="../public/webpage.html" title="Guidebook" class="notMobile"><i class="fa-solid fa-books"></i></a>
+        <a href="../public/profile.html" title="View First Last" class="memOnly notMobile"><i class="fa-solid fa-user"></i></a>
+        <a href="../public/usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pencil"></i></a>
+        <a href="../public/usercp/user-inbox.html" title="Inbox (0)" data-new="0" class="memOnly notMobile"><i class="fa-solid fa-envelope"></i></a>
+        <a href="/" title="Alerts (0)" data-new="1" class="memOnly"><i class="fa-solid fa-bell"></i></a>
+        <button title="Switch Accounts" class="popup memOnly" data-modal="switch"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        <a href="../public/defaults/login.html" title="Logout" class="memOnly"><i class="fa-solid fa-power-off"></i></a>
+        <a href="../public/store/store.html" title="Store" class="memOnly notMobile"><i class="fa-solid fa-store"></i></a>
+        <a href="https://discord.gg/c67nREygaA" title="Join Discord" class="notMobile"><i class="fa-brand fa-discord"></i></a>
+        <a href="/admin.php" title="Admin CP" target="_blank" class="staffOnly notMobile"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+        <button title="Login" class="guestOnly"><i class="fa-solid fa-sign-in"></i></button>
+        <a href="../public/defaults/register1.html" title="Register" class="guestOnly"><i class="fa-solid fa-user-plus"></i></a>
+    </div>
+    <div class="nav--right">
+        <button title="Open Menu" onClick="toggleOptionsMenu(this)" class="button--menu">
+            <i class="fa-solid fa-cog"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="#top"><i class="fa-solid fa-angle-up"></i></a>
+        <a href="#bottom"><i class="fa-solid fa-angle-down"></i></a>
+    </div>
+</nav>
+<nav class="nav--breadcrumb">
+    <div id="navstrip" align="left">&nbsp;<a href="../public/index.html">Site Name</a></div>
+</nav>
+<nav class="nav--popout">
+    <div class="scroll">
+        <a href="../public/profile.html" class="memOnly character-block">
+            <div style="background-image: url(https://picsum.photos/250);"></div>
+				<b>Duncan O'Donnelly-Taggart</b>
+        </a>
+        <a href="../public/usercp/user-inbox.html" class="memOnly onlyMobile">Inbox (0)</a>
+	    <a href="../public/webpage.html" class="onlyMobile">Guidebook</a>
+	    <a href="?act=store" class="onlyMobile memOnly">Store</a>
+	    <a href="https://discord.gg/c67nREygaA" class="onlyMobile memOnly">Join the Discord</a>
+	    <a href="/admin.php" target="_blank" class="onlyMobile staffOnly">Admin CP</a>
+	    <tag-code>
+	        <button onclick="highlightCode()" class="copyQuick">copy</button>
+	        <pre><textarea class="scroll">tbd</textarea></pre>
+	    </tag-code>
+	</div>
+</nav>
+<nav class="nav--options">
+    <button title="Toggle color mode" onClick="toggleTheme()" class="toggle--theme">
+        <i class="fa-solid fa-sun"></i>
+        <div><span></span></div>
+    </button>
+    <button title="Toggle font size" onClick="toggleSize()" class="toggle--size">
+        <i class="fa-solid fa-font-case"></i>
+        <div><span></span></div>
+    </button>
+</nav>
+<div class="invisibleEl"></div>
+        <header class="header">
+    <a href="../public/index.html">
+        <h1>Turn on the Light</h1>
+        <span>Turn on the Light</span>
+        <p>A Semi-Private Post-Potter Site Set in 2008</p>
+    </a>
+    <div class="header--calendar"><b class="calendar-month">March 2008</b>
+
+        <!-- days -->
+        <span class="calendar-day cal-day">S</span>
+        <span class="calendar-day cal-day">M</span>
+        <span class="calendar-day cal-day">T</span>
+        <span class="calendar-day cal-day">W</span>
+        <span class="calendar-day cal-day">T</span>
+        <span class="calendar-day cal-day">F</span>
+        <span class="calendar-day cal-day">S</span>
+          
+        <!-- starting empty days -->
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        
+        
+        <!-- actual days -->
+        <span class="event">1</span>
+        <span class="event">2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span class="event">7</span>
+        <span class="event">8</span>
+        <span class="event">9</span>
+        <span>10</span>
+        <span>11</span>
+        <span>12</span>
+        <span>13</span>
+        <span class="event">14</span>
+        <span class="event">15</span>
+        <span class="event">16</span>
+        <span>17</span>
+        <span>18</span>
+        <span>19</span>
+        <span>20</span>
+        <span class="event">21</span>
+        <span class="event">22</span>
+        <span class="event">23</span>
+        <span class="event">24</span>
+        <span>25</span>
+        <span>26</span>
+        <span>27</span>
+        <span class="event">28</span>
+        <span class="event">29</span>
+        <span class="event">30</span>
+        <span class="event">31</span>
+    </div>
+</header>
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+		
+		
+            <div id="loading">
+                <div class="loading-bubble">
+                    <i class="fa-regular fa-spinner fa-spin"></i>
+                    <p>Loading</p>
+                </div>
+            </div>
+
+            <section class="webpage">
+                <div class="webpage--menu">
+                    <h1>turn on the light<span>welcome to</span></h1>
+                    <div class="webpage--menu-inner">
+                        <div class="accordion scroll">
+                            <tag-label class="tab-category accordion--trigger" data-category="info">
+                                <span>Required</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="info">
+                                <a href="#rules">Rules</a>
+                                <a href="#plot">Plot</a>
+                                <a href="#groups">Groups</a>
+                                <a href="#appguide">App Guide</a>
+                                <a href="#credits">Credits</a>
+                            </div>
+                            <tag-label class="tab-category accordion--trigger" data-category="guides">
+                                <span>Guides</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="guides">
+                                <a href="#abilities-species">Abilities & Species</a>
+                                <a href="#hogwarts">Hogwarts</a>
+                                <a href="#locations">Locations</a>
+                                <a href="#society-culture">Society & Culture</a>
+                            </div>
+                            <tag-label class="tab-category accordion--trigger" data-category="schools">
+                                <span>Schools</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="schools">
+                                <a href="#africa">Africa</a>
+                                <a href="#asia">Asia</a>
+                                <a href="#australia">Australia</a>
+                                <a href="#europe">Europe</a>
+                                <a href="#north-america">North America</a>
+                                <a href="#south-america">South America</a>
+                                <a href="#post-secondary">Post-Secondary</a>
+                            </div>
+                            <tag-label class="tab-category accordion--trigger" data-category="forms">
+                                <span>Forms</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="forms">
+                                <a href="#sorting">Get Sorted</a>
+                                <a href="#wipclaim">Reserve a Face</a>
+                                <a href="#updateclaim">Update Claims</a>
+                            </div>
+                            <tag-label class="tab-category accordion--trigger" data-category="claims">
+                                <span>Claims</span>
+                            </tag-label>
+                            <div class="tab-category accordion--content" data-category="claims">
+                                <a href="#upcoming">reserves</a>
+                                <a href="#faces">faces</a>
+                                <a href="#ability-claims">abilities & species</a>
+                                <a href="/">jobs <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                <a href="/">students <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                <a href="/">canons <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="webpage--content">
+                    <div class="scroll">
+                        <tag-tab class="tab-category" data-category="info">
+                            <tag-tabset>
+                                <tag-tab data-key="#rules">
+                                    <% rules %>
+                                </tag-tab>
+                                <tag-tab data-key="#plot">
+                                    <% plot %>
+                                </tag-tab>
+                                <tag-tab data-key="#groups">
+                                    <% groups %>
+                                </tag-tab>
+                                <tag-tab data-key="#appguide">
+                                    <% apps %>
+                                </tag-tab>
+                                <tag-tab data-key="#credits">
+                                    <% credits %>
+                                </tag-tab>
+                            </tag-tabset>
+                        </tag-tab>
+                        <tag-tab class="tab-category" data-category="guides">
+                            <tag-tabset>
+                                <tag-tab data-key="#abilities-species">
+                                    <% goblins %>
+                        <% houseelves %>
+                        <% seers %>
+                        <% vamps %>
+                        <% were %>
+                                </tag-tab>
+                                <tag-tab data-key="#hogwarts">
+                                    <% summ %>
+                        <% classes %>
+                        <% health %>
+                        <% quid %>
+                        <% rel %>
+                        <% sched %>
+                        <% staffing %>
+                        <% prefect %>
+                                </tag-tab>
+                                <tag-tab data-key="#locations">
+                                    <% diagon %>
+                        <% hogsmeade %>
+                        <% ilkley %>
+                                </tag-tab>
+                                <tag-tab data-key="#society-culture">
+                                    <% scouts %>
+                        <% magic %>
+                        <% politics %>
+                        <% pblood %>
+                        <% returns %>
+                                </tag-tab>
+                            </tag-tabset>
+                        </tag-tab>
+                        <tag-tab class="tab-category" data-category="schools">
+                            <tag-tabset>
+                                <tag-tab data-key="#africa">
+                                    <% africa %>
+                                </tag-tab>
+                                <tag-tab data-key="#asia">
+                                    <% asia %>
+                                </tag-tab>
+                                <tag-tab data-key="#australia">
+                                    <% aus %>
+                                </tag-tab>
+                                <tag-tab data-key="#europe">
+                                    <% europe %>
+                                </tag-tab>
+                                <tag-tab data-key="#north-america">
+                                    <% namerica %>
+                                </tag-tab>
+                                <tag-tab data-key="#south-america">
+                                    <% samerica %>
+                                </tag-tab>
+                                <tag-tab data-key="#post-secondary">
+                                    <% postsec %>
+                                </tag-tab>
+                            </tag-tabset>
+                        </tag-tab>
+                        <tag-tab class="tab-category" data-category="forms">
+                            <tag-tabset>
+                                <tag-tab data-key="#sorting">
+                                    <form id="newsort" data-type="grid" data-columns="2">
+    <h2 class="fullWidth">Required</h2>
+    <label class="required">
+        <strong>Alias</strong>
+        <input type="text" name="sort-alias" id="sort-alias" placeholder="Alias" required="">
+    </label>
+    <label class="required">
+        <strong>Character Name</strong>
+        <input type="text" name="sort-character" id="sort-character" placeholder="Character Name" required="">
+    </label>
+    <label class="required">
+        <strong>
+            Account ID
+            <button onclick="openHelp(this)" type="button">
+                <i class="fa-solid fa-circle-question"></i>
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </strong>
+        <i class="help">Can be found by getting the numbers at the end of the URL of your main profile.</i>
+        <input type="text" name="sort-id" id="sort-id" placeholder="Account ID" required="">
+    </label>
+    <label class="required">
+        <strong>Group</strong>
+        <select name="sort-group" id="sort-group" required="">
+            <option value="">(select)</option>
+            <optgroup label="Students">
+                <option value="7">Gryffindor</option>
+                <option value="9">Hufflepuff</option>
+                <option value="14">Ravenclaw</option>
+                <option value="16">Slytherin</option>
+                <option value="23">Miscellaneous Students</option>
+            </optgroup>
+            <optgroup label="Adults">
+                <option value="18">Entertainment</option>
+                <option value="15">Healers</option>
+                <option value="8">Hogwarts Staff</option>
+                <option value="12">Ministry</option>
+                <option value="11">Press</option>
+                <option value="13">Quidditch</option>
+                <option value="17">Returners</option>
+                <option value="6">Adults</option>
+            </optgroup>
+        </select>
+    </label>
+
+    <label class="fullWidth required">
+        <strong>Face Claim</strong>
+        <input type="text" name="sort-face" id="sort-face" placeholder="Face Claim" required="">
+    </label>
+
+    <label class="required">
+        <strong>Ability or Species?</strong>
+        <select name="sort-abspexists" id="sort-abspexists" required="">
+            <option value="">(select)</option>
+            <option value="y">yes</option>
+            <option value="n">no</option>
+        </select>
+    </label>
+
+    <label class="required">
+        <strong>Canon?</strong>
+        <select name="sort-canon" id="sort-canon">
+            <option value="">(select)</option>
+            <option value="y">yes</option>
+            <option value="n">no</option>
+        </select>
+    </label>
+
+    <!--Abilities and Species-->
+    <h2 class="fullWidth hide ifAbSp">Abilities &amp; Species</h2>
+    <div class="form-item hide ifAbSp fullWidth">
+        <strong>
+            Abilities &amp; Species Selections
+            <button onclick="openHelp(this)" type="button">
+                <i class="fa-solid fa-circle-question"></i>
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </strong>
+        <i class="help">Check all that apply. If using the 'other' field, please make sure to separate entries by a comma with a space after (e.g., ability 1, ability 2, ability 3, species). If a character is a mixture of species beyond 1 non-human and human (e.g., a veela and vampire hybrid), please use the Other field instead of the checkboxes for respective species and place their blood percentage for each in brackets. E.g., Veela (quarter), Vampire (half). Wandless and non-verbal magic do not need to be claimed.</i>
+        <div class="form-flex">
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-animagus" value="animagus">
+                <strong class="checkbox">Animagus</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-metamorphmagus" value="metamorphmagus">
+                <strong class="checkbox">Metamorphmagus</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-legilimens" value="legilimens">
+                <strong class="checkbox">Legilimens</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-occlumens" value="occlumens">
+                <strong class="checkbox">Occlumens</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-seer" value="seer">
+                <strong class="checkbox">Seer</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-squib" value="squib">
+                <strong class="checkbox">Squib</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-vamp" value="vamp" data-species="true">
+                <strong class="checkbox">Vampire</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-veela" value="veela" data-species="true">
+                <strong class="checkbox">Veela</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="sort-absp" id="sort-were" value="were">
+                <strong class="checkbox">Werecreature</strong>
+            </label>
+        </div>
+        <div data-type="grid" data-columns="2">
+            <label class="fullWidth">
+                <strong>Other Abilities &amp; Species</strong>
+                <input type="text" name="sort-otherabsp" id="sort-otherabsp" placeholder="Other Abilities and Species, comma separated">
+            </label>
+            <label class="hide ifAnimagus required">
+                <strong>Animagus Form</strong>
+                <input type="text" name="sort-animagusform" id="sort-animagusform" placeholder="Animagus Form">
+            </label>
+            <label class="hide ifWere required">
+                <strong>Were Type</strong>
+                <input type="text" name="sort-weretype" id="sort-weretype" placeholder="Werecreature Type">
+            </label>
+            <label class="hide ifPercent fullWidth required">
+                <strong>Species Percentage</strong>
+                <select name="sort-speciesamount" id="sort-speciesamount">
+                    <option value="">(select)</option>
+                    <option value="full">Full</option>
+                    <option value="half">Half</option>
+                    <option value="quarter">Quarter</option>
+                    <option value="eighth">Eighth</option>
+                    <option value="minimal">Minimal</option>
+                </select>
+            </label>
+        </div>
+    </div>
+    
+    <!--Adults-->
+    <h2 class="fullWidth hide ifAdult">Adults</h2>
+    <label class="hide ifAdult required">
+        <strong>Employed?</strong>
+        <select name="sort-employed" id="sort-employed">
+            <option value="">(select)</option>
+            <option value="y">yes</option>
+            <option value="n">no</option>
+        </select>
+    </label>
+    <label class="hide ifAdult required">
+        <strong>University Student?</strong>
+        <select name="sort-unistudent" id="sort-unistudent">
+            <option value="">(select)</option>
+            <option value="y">yes</option>
+            <option value="n">no</option>
+        </select>
+    </label>
+
+    <!--Employed-->
+    <h2 class="fullWidth hide ifJob">Employed</h2>
+    <label class="hide ifJob required fullWidth">
+        <strong>Number of Jobs</strong>
+        <input type="number" name="sort-jobcount" id="sort-jobcount" value="1">
+    </label>
+    <div class="hide fullWidth ifJob form--jobs-clip form--sort" data-type="grid" data-columns="2"></div>
+
+    <!--University-->
+    <h2 class="fullWidth hide ifUni">University</h2>
+    <label class="hide ifUni required fullWidth">
+        <strong>University/College</strong>
+        <input type="text" name="sort-uniname" id="sort-uniname" placeholder="University/College">
+    </label>
+    <label class="hide ifUni required">
+        <strong>Program</strong>
+        <input type="text" name="sort-uniprogram" id="sort-uniprogram" placeholder="Program">
+    </label>
+    <label class="hide ifUni required">
+        <strong>Year</strong>
+        <select name="sort-uniyear" id="sort-uniyear">
+            <option value="">(select)</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Third Year</option>
+            <option value="4">Fourth Year</option>
+            <option value="post">Post-Grad</option>
+        </select>
+    </label>
+
+    <!--Misc Students-->
+    <h2 class="fullWidth hide ifMiscStudent">Miscellaneous Students</h2>
+    <label class="hide ifMiscStudent required">
+        <strong>School Name</strong>
+        <input type="text" name="sort-basicschool" id="sort-basicschool" placeholder="School Name">
+    </label>
+
+    <!--Students-->
+    <h2 class="fullWidth hide ifStudent">Hogwarts Students</h2>
+    <label class="hide ifStudent ifMiscStudent required">
+        <strong>Year</strong>
+        <select name="sort-hwyear" id="sort-hwyear">
+            <option value="">(select)</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Third Year</option>
+            <option value="4">Fourth Year</option>
+            <option value="5">Fifth Year</option>
+            <option value="6">Sixth Year</option>
+            <option value="7">Seventh Year</option>
+        </select>
+    </label>
+    <label class="hide ifStudent">
+        <strong>
+            Preferred Dorm Arrangement
+            <button onclick="openHelp(this)" type="button">
+                <i class="fa-solid fa-circle-question"></i>
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </strong>
+        <i class="help">If there is a specific room or dormmate you would like, please let us know. Otherwise, we will randomly assign characters to rooms. This occurs manually upon character sorting and so will NOT appear within 30-60s on the claims after submission.</i>
+        <input type="text" name="sort-hwdorm" id="sort-hwdorm" placeholder="Dorm preference">
+    </label>
+    <label class="hide ifStudent required">
+        <strong>Quidditch?</strong>
+        <select name="sort-hwquidditch" id="sort-hwquidditch">
+            <option value="">(select)</option>
+            <option value="y">yes</option>
+            <option value="n">no</option>
+        </select>
+    </label>
+    <label class="hide ifLeadershipPossible required">
+        <strong>Leadership?</strong>
+        <select name="sort-hwlead" id="sort-hwlead">
+            <option value="">(select)</option>
+            <option value="y">yes</option>
+            <option value="n">no</option>
+        </select>
+    </label>
+    <label class="hide ifHogwartsQuidditch required">
+        <strong>Quidditch Position</strong>
+        <input type="text" name="sort-hwquidditchposition" id="sort-hwquidditchposition" placeholder="Quidditch Position">
+    </label>
+    <label class="hide ifLeadership required">
+        <strong>Leadership Position</strong>
+        <select name="sort-hwleadposition" id="sort-hwleadposition">
+            <option value="">(select)</option>
+            <option value="prefect">Prefect</option>
+            <option value="head">Head Boy/Girl</option>
+        </select>
+    </label>
+
+    <!--Required Classes-->
+    <div class="hide fullWidth ifStudent form--reqclass-clip form--sort" data-type="grid" data-columns="2"></div>
+
+    <!--Electives-->
+    <h2 class="fullWidth hide ifElec">Electives</h2>
+    <i class="hide ifElec fullWidth">Minimum of 2 electives for years 3 to 5. Minimum of 4 electives for years 6 and 7.</i>
+    <div class="hide fullWidth ifStudent form--elecclass-clip form--sort" data-type="grid" data-columns="2"></div>
+
+    <!--Canon-->
+    <h2 class="fullWidth hide ifCanon">Canon</h2>
+    <label class="hide ifCanon fullWidth required">
+        <strong>Birth Year</strong>
+        <input type="text" name="entry.1227238528" id="sort-birth" placeholder="Birth year">
+    </label>
+    <label class="hide ifReturn required">
+        <strong>Death Year</strong>
+        <input type="text" name="entry.1227238528" id="sort-death" placeholder="Death Year">
+    </label>
+    <label class="hide ifReturn required">
+        <strong>Return Year</strong>
+        <input type="text" name="entry.1227238528" id="sort-return" placeholder="Return Year">
+    </label>
+    <label class="hide ifCanon fullWidth required">
+        <strong>Relation to Canon</strong>
+        <textarea name="entry.1227238528" id="sort-canonRelation" placeholder="Relation to Canon"></textarea>
+    </label>
+
+    <div id="warning" class="form-warning"></div>
+    <div class="form-buttons fullWidth">
+        <button type="submit">Submit</button>
+	    <button onclick="formReset('#newsort')">Reset</button>
+    </div>
+</form>
+                                </tag-tab>
+                                <tag-tab data-key="#wipclaim">
+                                    <form id="wipadd" data-type="grid" data-columns="2">
+    <label>
+        <strong>Alias</strong>
+        <input type="text" name="wip-alias" id="wip-alias" placeholder="Alias" required="">
+    </label>
+    <label>
+        <strong>Face</strong>
+        <input type="text" name="wip-face" id="wip-face" placeholder="Face" required="">
+    </label>
+    <div id="wip-warning" class="form-warning"></div>
+    <div class="form-buttons fullWidth">
+        <button type="submit">Submit</button>
+	<button onclick="formReset('#wipadd')">Reset</button>
+    </div>
+</form>
+                                </tag-tab>
+                                <tag-tab data-key="#updateclaim">
+                                    <form id="newedit" data-type="grid" data-columns="2">
+    <h2 class="fullWidth">Required</h2>
+    <label class="required">
+        <strong>Alias</strong>
+        <input type="text" name="update-alias" id="update-alias" placeholder="Alias" required="">
+    </label>
+    <label class="required">
+        <strong>Character Name</strong>
+        <input type="text" name="update-character" id="update-character" placeholder="Character Name" required="">
+    </label>
+    <label class="required">
+        <strong>
+            Account ID
+            <button onclick="openHelp(this)" type="button">
+                <i class="fa-solid fa-circle-question"></i>
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </strong>
+        <i class="help">Can be found by getting the numbers at the end of the URL of your main profile.</i>
+        <input type="text" name="update-id" id="update-id" placeholder="Account ID" required="">
+    </label>
+    <label class="required">
+        <strong>Group</strong>
+        <select name="update-group" id="update-group" required="">
+            <option value="">(select)</option>
+            <optgroup label="Students">
+                <option value="7">Gryffindor</option>
+                <option value="9">Hufflepuff</option>
+                <option value="14">Ravenclaw</option>
+                <option value="16">Slytherin</option>
+                <option value="23">Miscellaneous Students</option>
+            </optgroup>
+            <optgroup label="Adults">
+                <option value="18">Entertainment</option>
+                <option value="15">Healers</option>
+                <option value="8">Hogwarts Staff</option>
+                <option value="12">Ministry</option>
+                <option value="11">Press</option>
+                <option value="13">Quidditch</option>
+                <option value="17">Returners</option>
+                <option value="6">Adults</option>
+            </optgroup>
+        </select>
+    </label>
+    <div class="form-item fullWidth required">
+        <strong>
+            Please Update
+            <button onclick="openHelp(this)" type="button">
+                <i class="fa-solid fa-circle-question"></i>
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </strong>
+        <i class="help">Check all that apply. Group, Remove University Program, and Graduate from Hogwarts will not provide extra fields. When graduating from Hogwarts, at minimum group should also be updated. Add/Update University Program, Update Classes/Grades, Add/Update Student Quidditch, and Add/Update Student Leadership will overwrite all current data. Updates to abilities/species will only add to current data. Job options do what they say on the button: add without removing current data, update without removing unchanged data, or remove specific jobs. The update and remove job options will load in current jobs that are available only so you do not need to try and match data.</i>
+        <div class="form-flex">
+            <label>
+                <input type="checkbox" name="updateChoices" id="choice-group" value="group">
+                <strong class="checkbox">Update Group</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="updateChoices" id="choice-face" value="face">
+                <strong class="checkbox">Update Face</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="updateChoices" id="choice-newuni" value="newuni">
+                <strong class="checkbox">Add/Update University Program</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="updateChoices" id="choice-removeuni" value="removeuni">
+                <strong class="checkbox">Remove University Program</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="updateChoices" id="choice-ability" value="ability">
+                <strong class="checkbox">Add Abilities or Species</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="updateChoices" id="choice-newjob" value="newjob">
+                <strong class="checkbox">Add New Job(s)</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="updateChoices" id="choice-changejob" value="changejob">
+                <strong class="checkbox">Update Current Job(s)</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="updateChoices" id="choice-removejob" value="removejob">
+                <strong class="checkbox">Remove Current Job(s)</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="updateChoices" id="choice-classes" value="classes">
+                <strong class="checkbox">Update Hogwarts Classes/Grades</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="updateChoices" id="choice-quidditch" value="quidditch">
+                <strong class="checkbox">Add/Update Hogwarts Quidditch</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="updateChoices" id="choice-leadership" value="leadership">
+                <strong class="checkbox">Add/Update Hogwarts Leadership</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="updateChoices" id="choice-basicyear" value="basicyear">
+                <strong class="checkbox">Add/Update Basic Schooling</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="updateChoices" id="choice-graduate" value="graduate">
+                <strong class="checkbox">Graduate from Basic Schooling / Hogwarts</strong>
+            </label>
+        </div>
+    </div>
+
+    <!--Update Face-->
+    <h2 class="fullWidth hide ifFace-Change">Change Face</h2>
+    <label class="fullWidth required hide ifFace-Change">
+        <strong>Face Claim</strong>
+        <input type="text" name="update-face" id="update-face" placeholder="Face Claim">
+    </label>
+
+    <!--Add University Program-->
+    <h2 class="fullWidth hide ifUni-Change">Add/Update University Program</h2>
+    <label class="hide ifUni-Change required fullWidth">
+        <strong>University/College</strong>
+        <input type="text" name="new-uniname" id="new-uniname" placeholder="University/College">
+    </label>
+    <label class="hide ifUni-Change required">
+        <strong>Program</strong>
+        <input type="text" name="new-uniprogram" id="new-uniprogram" placeholder="Program">
+    </label>
+    <label class="hide ifUni-Change required">
+        <strong>Year</strong>
+        <select name="new-uniyear" id="new-uniyear">
+            <option value="">(select)</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Third Year</option>
+            <option value="4">Fourth Year</option>
+            <option value="post">Post-Grad</option>
+        </select>
+    </label>
+
+    <!--Add Ability/Species-->
+    <h2 class="fullWidth hide ifAbSp-Add">Add Abilities and/or Species</h2>
+    <div class="form-item hide ifAbSp-Add fullWidth">
+        <strong>
+            Abilities &amp; Species Selections
+            <button onclick="openHelp(this)" type="button">
+                <i class="fa-solid fa-circle-question"></i>
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+        </strong>
+        <i class="help">Check all that apply. If using the 'other' field, please make sure to separate entries by a comma with a space after (e.g., ability 1, ability 2, ability 3, species). If a character is a mixture of species beyond 1 non-human and human (e.g., a veela and vampire hybrid), please use the Other field instead of the checkboxes for respective species and place their blood percentage for each in brackets. E.g., Veela (quarter), Vampire (half). Wandless and non-verbal magic do not need to be claimed.</i>
+        <div class="form-flex">
+            <label>
+                <input type="checkbox" name="update-absp" id="update-animagus" value="animagus">
+                <strong class="checkbox">Animagus</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="update-absp" id="update-metamorphmagus" value="metamorphmagus">
+                <strong class="checkbox">Metamorphmagus</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="update-absp" id="update-legilimens" value="legilimens">
+                <strong class="checkbox">Legilimens</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="update-absp" id="update-occlumens" value="occlumens">
+                <strong class="checkbox">Occlumens</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="update-absp" id="update-seer" value="seer">
+                <strong class="checkbox">Seer</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="update-absp" id="update-squib" value="squib">
+                <strong class="checkbox">Squib</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="update-absp" id="update-vamp" value="vamp" data-species="true">
+                <strong class="checkbox">Vampire</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="update-absp" id="update-veela" value="veela" data-species="true">
+                <strong class="checkbox">Veela</strong>
+            </label>
+            <label>
+                <input type="checkbox" name="update-absp" id="update-were" value="were">
+                <strong class="checkbox">Werecreature</strong>
+            </label>
+        </div>
+        <div data-type="grid" data-columns="2">
+            <label class="fullWidth">
+                <strong>Other Abilities &amp; Species</strong>
+                <input type="text" name="update-otherabsp" id="update-otherabsp" placeholder="Other Abilities and Species, comma separated">
+            </label>
+            <label class="hide ifAnimagus-Add required">
+                <strong>Animagus Form</strong>
+                <input type="text" name="update-animagusform" id="update-animagusform" placeholder="Animagus Form">
+            </label>
+            <label class="hide ifWere-Add required">
+                <strong>Were Type</strong>
+                <input type="text" name="update-weretype" id="update-weretype" placeholder="Werecreature Type">
+            </label>
+            <label class="hide ifPercent-Add fullWidth required">
+                <strong>Species Percentage</strong>
+                <select name="update-speciesamount" id="update-speciesamount">
+                    <option value="">(select)</option>
+                    <option value="full">Full</option>
+                    <option value="half">Half</option>
+                    <option value="quarter">Quarter</option>
+                    <option value="eighth">Eighth</option>
+                    <option value="minimal">Minimal</option>
+                </select>
+            </label>
+        </div>
+    </div>
+
+    <!--Add Jobs-->
+    <h2 class="fullWidth hide ifJob-Add">Add Job(s)</h2>
+    <label class="hide ifJob-Add required fullWidth">
+        <strong>Number of Jobs</strong>
+        <input type="number" name="update-jobcount" id="update-jobcount" value="1">
+    </label>
+    <div class="hide fullWidth ifJob-Add form--jobs-clip form--update" data-type="grid" data-columns="2"></div>
+
+    <!--Update Jobs-->
+    <h2 class="fullWidth hide ifJob-Change">Update Job(s)</h2>
+    <div class="hide fullWidth ifJob-Change form--jobschange-clip form--update" data-type="grid" data-columns="2"></div>
+
+    <!--Remove Jobs-->
+    <h2 class="fullWidth hide ifJob-Remove">Remove Job(s)</h2>
+    <div class="hide fullWidth ifJob-Remove form--jobsremove-clip form--update" data-type="grid" data-columns="2"></div>
+
+    <!--Update Classes-->
+    <h2 class="fullWidth hide ifStudent-Change ifMiscStudent">Class Updates</h2>
+    <label class="hide ifStudent-Change ifMiscStudent required fullWidth">
+        <strong>Year</strong>
+        <select name="update-hwyear" id="update-hwyear">
+            <option value="">(select)</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Third Year</option>
+            <option value="4">Fourth Year</option>
+            <option value="5">Fifth Year</option>
+            <option value="6">Sixth Year</option>
+            <option value="7">Seventh Year</option>
+        </select>
+    </label>
+    <!--Required Classes-->
+    <div class="hide fullWidth ifStudent-Change form--reqclass-clip form--update" data-type="grid" data-columns="2"></div>
+
+    <!--Electives-->
+    <h2 class="fullWidth hide ifElec-Change">Electives</h2>
+    <i class="hide ifElec-Change fullWidth">Minimum of 2 electives for years 3 to 5. Minimum of 4 electives for years 6 and 7.</i>
+    <div class="hide fullWidth ifStudent-Change form--elecclass-clip form--update" data-type="grid" data-columns="2"></div>
+
+    <!--Add/Update Student Quidditch-->
+    <h2 class="fullWidth hide ifHogwartsQuidditch-Change">Update Student Quidditch</h2>
+    <label class="hide ifHogwartsQuidditch-Change required fullWidth">
+        <strong>Quidditch Position</strong>
+        <input type="text" name="update-hwquidditchposition" id="update-hwquidditchposition" placeholder="Quidditch Position">
+    </label>
+
+    <!--Add/Update Student Leadership-->
+    <h2 class="fullWidth hide ifLeadership-Change">Update Student Leadership</h2>
+    <label class="hide ifLeadership-Change required fullWidth">
+        <strong>Leadership Position</strong>
+        <select name="update-hwleadposition" id="update-hwleadposition">
+            <option value="">(select)</option>
+            <option value="prefect">Prefect</option>
+            <option value="head">Head Boy/Girl</option>
+        </select>
+    </label>
+
+    <div id="warning" class="form-warning"></div>
+    <div class="form-buttons fullWidth">
+        <button type="submit">Submit</button>
+	<button onclick="formReset('#newedit')">Reset</button>
+    </div>
+</form>
+                                </tag-tab>
+                            </tag-tabset>
+                        </tag-tab>
+                        <tag-tab class="tab-category" data-category="claims">
+                            <tag-tabset>
+                                <tag-tab data-key="#upcoming">
+                                    <div class="claim--filters" data-type="grid" data-columns="2" data-gap="smsquare">
+                                        <h3 class="fullWidth claims-header">filter by</h3>
+                                        <input type="text" data-filter="#clip-reserves" data-objects="> b" data-headers="h3" onkeyup="filterValue(this)" placeholder="Face">
+                                        <input type="text" data-filter="#clip-reserves" data-objects="> b + span" data-headers="h3" onkeyup="filterValue(this)" placeholder="Member">
+                                    </div>
+                                    <div id="clip-reserves" class="claim-grid" data-type="grid" data-columns="3" data-gap="smsquare"></div>
+                                </tag-tab>
+                                <tag-tab data-key="#faces">
+                                    <div class="claim--filters" data-type="grid" data-columns="3" data-gap="smsquare">
+                                        <h3 class="fullWidth claims-header">filter by</h3>
+                                        <input type="text" data-filter="#clip-faces" data-objects="> a" data-headers="h3" onkeyup="filterValue(this)" placeholder="Face">
+                                        <input type="text" data-filter="#clip-faces" data-objects="> a + span" data-headers="h3" onkeyup="filterValue(this)" placeholder="Character">
+                                        <input type="text" data-filter="#clip-faces" data-objects="> a + span + span" data-headers="h3" onkeyup="filterValue(this)" placeholder="Member">
+                                    </div>
+                                    <div id="clip-faces" class="claim-grid" data-type="grid" data-columns="3" data-gap="smsquare"></div>
+                                </tag-tab>
+                                <tag-tab data-key="#ability-claims">
+                                    <div id="clip-abilities" class="accordion claims"></div>
+                                </tag-tab>
+                            </tag-tabset>
+                        </tag-tab>
+                    </div>
+                </div>
+            </section>
+            <script src="../dist/js/formFunctions.js"></script>
+            <script src="../dist/js/formScripts.js"></script>
+            <script src="../dist/js/claimsFunctions.js"></script>
+            <script src="../dist/js/claimsScripts.js"></script>
+            <script>
+                const url = `https://opensheet.elk.sh/146rEeh3eiyftnC-9NXF29rgSPRLAhuG2gss_nWp_xxw/NewClaims`;
+                const upcomingurl = `https://opensheet.elk.sh/1W-Ffhi7pIe4X1X_tt1SoYaasEewx7Hk5IPd5EJZllOI/Sheet1`;
+                fetch(url)
+                .then((response) => response.json())
+                .then((data) => {
+                    initFaces(data);
+                    initAbilities(data);
+
+                    fetch(upcomingurl)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        initReserves(data);
+
+                    }).then(() => {
+                        initWebpages();
+                    });
+                });
+            </script>
+
+            <!-- Copyright Information -->
+            <div class="tableborder" align="center">
+                <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                    <div class="copyright" align="center">
+                        Powered by 
+                        <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                        (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                        <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                        ) © 2020 &nbsp;
+                        <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                        <br>
+                        Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                        <a href="index.php?act=Mobile">Mobile Version</a> · 
+                        <a href="index.php?act=privacy">Privacy Policy</a>
+                    </div>
+                </div>
+            </div> 
+        </main>
+        
+        <div data-modal-box="switch" class="modal">
+	<div class="modal--close"><span><i class="fa-solid fa-xmark"></i></span></div>
+	<div id="account-switch">
+        <span id="subaccounts_menu">
+            <form action="https://totl.jcink.net/index.php?&amp;act=Login&amp;CODE=01&amp;CookieDate=1" name="subswitch" method="POST">
+            <input type="hidden" name="auth_key" value="c7667d50c5de503233d4240de12e6b54">
+            <input type="hidden" name="UserName" value="subacct">
+            <input type="hidden" name="PassWord" value="subacct">
+            <input type="hidden" name="referer" value="">
+            <select class="forminput" name="sub_id" onchange="this.form.submit()">
+            <option value="------------" selected="selected">Switch Account</option>
+            <option value="157"> adaline fawley </option><option value="669"> archer reid </option><option value="1147"> avery hayes </option><option value="670"> bryn williams </option><option value="1146"> cameron towner </option><option value="57"> connor king </option><option value="395"> darcy de león </option><option value="906"> diana crawford </option><option value="1578"> diego serrano alvarez </option><option value="408"> draco malfoy </option><option value="58"> duncan taggart </option><option value="705"> ellis hill </option><option value="273"> emmalina fawley </option><option value="1577"> everest wilkes </option><option value="901"> gavin dunbar </option><option value="750"> heiko reynders </option><option value="1088"> hiroki becker </option><option value="1145"> irina saidova </option><option value="315"> lottie fox </option><option value="56"> magnolia atwood </option><option value="1089"> marica kovac </option><option value="112"> milo nott </option><option value="54"> nikolas kovac </option><option value="314"> noah clark </option><option value="482"> percy weasley </option><option value="994"> rebecca warrington </option><option value="60"> tobias fletcher </option><option value="1148"> william talbot </option>
+            </select>
+            </form>
+        </span>
+    </div>
+</div>
+<div id="quick-login-clip" data-modal-box="login" class="modal">
+	<div class="modal--close"><span><i class="fa-solid fa-xmark"></i></span></div>
+    <div id="quick-login" class="hidden">
+        <form style="display:inline" action="https://godlybehaviour.jcink.net/index.php?act=Login&amp;CODE=01&amp;CookieDate=1" method="post">
+        <div align="right"><strong>Quick Log In</strong>
+        <input type="text" class="forminput" size="10" name="UserName" onfocus="this.value=''" value="User Name" placeholder="Username">
+        <input type="password" class="forminput" size="10" name="PassWord" onfocus="this.value=''" value="ibfrules" placeholder="Password">
+        <input type="submit" class="forminput" value="Go">
+        </div>
+        </form>
+    </div>
+</div>
+<script src="../dist/js/scripts.js"></script>   
+    </body>
+</html>

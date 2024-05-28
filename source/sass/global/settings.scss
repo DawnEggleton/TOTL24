@@ -20,3 +20,63 @@ ul {
     }
 }
 
+.accordion--trigger::after {
+    content: '\2b';
+}
+.accordion--trigger.is-active::after {
+    content: '\f068';
+}
+
+.webpage {
+    form {
+        & > label,
+        & > .form-item {
+            .form-flex {
+                label {
+                    .checkbox {
+                        &::before {
+                            content: '\f00c';
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr {
+    &#field_74,
+    &#field_71,
+    &#field_82,
+    &#field_63,
+    &#field_9,
+    &#field_26,
+    &#field_81,
+    &#field_80,
+    &#field_27,
+    &#field_75,
+    &#field_32,
+    &#field_25,
+    &#field_42,
+    &#field_62,
+    &#field_60,
+    &#field_61,
+    &#field_14,
+    &#field_76,
+    &#field_77,
+    &#field_22,
+    &#field_16,
+    &#field_59 {
+        grid-column: 1 / -1;
+    }
+
+    &#field_33,
+    &#field_11,
+    &#field_25,
+    &#field_40 {
+        textarea {
+            resize: none;
+            height: 35px;
+        }
+    }
+}
