@@ -593,7 +593,7 @@ function initDiscordTagging(location) {
         }
 
         if(channel !== '' && tagString !== '') {
-            sendDiscordTag(channel, `You've been tagged!`, `[${capitalize(topic.toLowerCase(), [` `, `-`])}](<${url}>)
+            sendDiscordTag(`https://discord.com/api/webhooks/${channel}`, `You've been tagged!`, `[${capitalize(topic.toLowerCase(), [` `, `-`])}](<${url}>)
             ${message}`, tagString);
         }
         document.querySelectorAll('.alert-select .scroll input').forEach(option => option.checked = false);
