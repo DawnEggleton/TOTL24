@@ -23,7 +23,7 @@
 
         a,
         button {
-            background: var(--transparent);
+            background: transparent;
             font-size: 12px;
             width: 30px;
             height: 30px;
@@ -41,6 +41,18 @@
                 border-color: var(--border-secondary);
                 background: rgba(var(--rgb), 0.4);
                 color: var(--text-secondary);
+            }
+            
+            &[data-new] {
+                background: var(--bg-accent-transparent);
+                border-color: var(--border-secondary);
+                color: var(--text-secondary);
+            }
+            
+            &[data-new="0"] {
+                background: transparent;
+                border-color: var(--border-primary);
+                color: var(--text-primary);
             }
         }
 

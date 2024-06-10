@@ -555,7 +555,7 @@ function postToWIP() {
         dataType: "json", 
         success: function () {
             console.log('form submitted successfully');
-            sendWipRequest(message);
+            sendWipRequest(message, `983025351011745822/ZTAofp6ApdsjUN__K9IIFzkzeG1TVUBcZLR4jFSOR_v8vumgdbTkxlcvo3NTFM9-RRuV`);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log('error xhr: ' + jqXHR.status);
@@ -574,7 +574,7 @@ function postToWIP() {
 
 function sendWipRequest(message) {
     const request = new XMLHttpRequest();
-    request.open("POST", "https://discord.com/api/webhooks/983025351011745822/ZTAofp6ApdsjUN__K9IIFzkzeG1TVUBcZLR4jFSOR_v8vumgdbTkxlcvo3NTFM9-RRuV");
+    request.open("POST", `https://discord.com/api/webhooks/${hook}`);
 
     request.setRequestHeader('Content-type', 'application/json');
 
@@ -718,7 +718,7 @@ function setHogwartsClasses(group, year, formType) {
 
 function sendDiscordMessage(webhook, message, embedTitle, notification = null, color = null) {
     const request = new XMLHttpRequest();
-    request.open("POST", webhook);
+    request.open("POST", `https://discord.com/api/webhooks/${webhook}`);
 
     request.setRequestHeader('Content-type', 'application/json');
 

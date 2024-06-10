@@ -264,7 +264,7 @@ document.querySelector('#newsort').addEventListener('submit', e => {
         return settings;
     }).then((settings) => {
         //send discord message
-        sendDiscordMessage(`https://discord.com/api/webhooks/971539504487886890/pYMNdC8LukqCbDcOUEyUWHjc_Fsu1gTBt7v7dHEXZxglb3ZA8PVahnZcXvet0S2CPGcL`, settings.message, settings.embedTitle, null, settings.color);
+        sendDiscordMessage(`971539504487886890/pYMNdC8LukqCbDcOUEyUWHjc_Fsu1gTBt7v7dHEXZxglb3ZA8PVahnZcXvet0S2CPGcL`, settings.message, settings.embedTitle, null, settings.color);
 
         //after submission
         formReset('#newsort');
@@ -466,7 +466,7 @@ document.querySelector('#newedit').addEventListener('submit', e => {
         }
     }).then((settings) => {
         //send discord message
-        sendDiscordMessage(`https://discord.com/api/webhooks/967898902684643398/mdDTpl1PiX7EJtEIrGQj0iGPHHf-C0wD-Te0nPz4_-gVafrVCfXUUWLwmnT1gw2-c8El`, settings.message, settings.embedTitle, null, settings.color);
+        sendDiscordMessage(`967898902684643398/mdDTpl1PiX7EJtEIrGQj0iGPHHf-C0wD-Te0nPz4_-gVafrVCfXUUWLwmnT1gw2-c8El`, settings.message, settings.embedTitle, null, settings.color);
 
         //after submission
         formReset('#newedit');

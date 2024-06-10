@@ -19,7 +19,7 @@
   gap: 5px; }
   .nav--left a,
   .nav--left button {
-    background: var(--transparent);
+    background: transparent;
     font-size: 12px;
     width: 30px;
     height: 30px;
@@ -37,6 +37,16 @@
       border-color: var(--border-secondary);
       background: rgba(var(--rgb), 0.4);
       color: var(--text-secondary); }
+    .nav--left a[data-new],
+    .nav--left button[data-new] {
+      background: var(--bg-accent-transparent);
+      border-color: var(--border-secondary);
+      color: var(--text-secondary); }
+    .nav--left a[data-new="0"],
+    .nav--left button[data-new="0"] {
+      background: transparent;
+      border-color: var(--border-primary);
+      color: var(--text-primary); }
   .nav--left .button--menu.is-open .fa-bars,
   .nav--left .button--menu:not(.is-open) .fa-xmark {
     display: none; }
